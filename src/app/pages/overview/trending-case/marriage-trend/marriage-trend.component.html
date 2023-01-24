@@ -1,0 +1,143 @@
+
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-block">
+                           <!-- <div class="user-block-2-activities">
+                              <div class="user-block-2-active">
+                                <p><i class="icofont icofont-users"></i> New Wedding Records
+                                 <label class="label label-primary">390</label></p>
+                              </div>
+                           </div>
+                           <div class="user-block-2-activities">
+                              <div class="user-block-2-active">
+                                 <p><i class="icofont icofont-users"></i> New Death Records
+                                 <label class="label label-primary">390</label></p>
+                              </div>
+                           </div> -->
+                           <div class="user-block-2-activities pointer" (click)="ViewRecord('marriage-register')">
+                              <div class="user-block-2-active">
+                                 <p><i class="icofont icofont-users"></i> Wedding Records
+                                 <label class="label label-primary">{{data.marriedRecord}}</label></p>
+                              </div>
+                           </div>
+
+                           <div class="user-block-2-activities pointer" (click)="ViewRecord('death-register')">
+                              <div class="user-block-2-active">
+                                 <p><i class="icofont icofont-users"></i> Death Records
+                                 <label class="label label-primary">{{data.deathRecord}}</label></p>
+                              </div>
+                           </div>
+                           <!-- <div class="text-center">
+                              <button type="button" class="btn btn-mini btn-warning waves-effect waves-light text-uppercase m-r-30">
+                                 Follow &nbsp;<i class="icon-bell"></i>
+                                   </button>
+                              <button type="button" class="btn btn-mini btn-primary waves-effect waves-light text-uppercase">
+                                  New Entry &nbsp;<i class="icon-plus"></i>
+                                   </button>
+                        </div> -->
+                        </div>
+                     </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="card">
+                        <div class="card-block">
+                            <p>MARRIAGES</p> <hr>
+                            <div class="table-responsive">
+                              <p class="text-center"  *ngIf="marriageData.length < 1">No marriage records found.</p>
+                            <table class="table table-bordered photo-table" *ngIf="marriageData.length > 0">
+                              <thead>
+                                <tr>
+                                  <td style="white-space: nowrap;">
+                                    <p>S/N</p>
+                                  </td>
+                                  <td style="white-space: nowrap;">
+                                    <p>GROOM NAME</p>
+                                  </td>
+                                  <td style="white-space: nowrap;">
+                                    <p>BRIDE NAME</p>
+                                  </td>
+                                  <td>
+                                    <p>DATE</p>
+                                  </td>
+                                  <td>
+                                    <p>STATUS</p>
+                                  </td>
+                                </tr>
+                              </thead>
+                              <tbody>
+
+                                <tr (click)="MarriageRecordDetails(record.id)" *ngFor="let record of marriageData; let i=index">
+                                  <td>
+                                    <p>{{i+1}}</p>
+                                  </td>
+                                  <td>
+                                    <p>{{record.groomLName}} {{record.groomFName}}</p>
+                                  </td>
+                                  <td>
+                                    <p>{{record.brideLName}} {{record.brideFName}}</p>
+                                  </td>
+
+                                  <td>
+                                    <p class="noWrap"><i class="text-muted">{{record.weddingDate}}</i></p>
+                                  </td>
+                                  <td>
+                                    <p class="text-muted">{{record.status}}</p>
+                                  </td>
+
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                     </div>
+
+                     <div class="card">
+                        <div class="card-block">
+                            <p>DEATHS</p> <hr>
+                            <div class="table-responsive">
+                              <p class="text-center"  *ngIf="deathData.length < 1">No death records found.</p>
+                            <table class="table table-bordered photo-table" *ngIf="deathData.length > 0">
+                              <thead class="noBold">
+                                <tr>
+                                  <td>
+                                    S/N
+                                  </td>
+                                  <td style="white-space: nowrap;">
+                                    <p>NAME</p>
+                                  </td>
+                                  <td class="no-wrap">
+                                    <p>BIRTH DATE</p>
+                                  </td>
+                                  <td class="no-wrap">
+                                    <p>DEATH DATE</p>
+                                  </td>
+                                  <td style="white-space: nowrap;">
+                                    <p>CERT. NO</p>
+                                  </td>
+                                </tr>
+                              </thead>
+                              <tbody>
+
+                                <tr (click)=" DeathRecordDetails(deathRecord.id)" *ngFor="let deathRecord of deathData; let i=index">
+                                    <td>
+                                        <p class="noWrap">{{i+1}}</p>
+                                      </td>
+                                  <td>
+                                    <p class="noWrap">{{deathRecord.name}}</p>
+                                  </td>
+                                  <td>
+                                    <p class="noWrap"><i class="text-muted">{{deathRecord.birthDate}}</i></p>
+                                  </td>
+                                  <td>
+                                    <p class="noWrap"><i class="text-muted">{{deathRecord.deathDate}}</i></p>
+                                  </td>
+                                  <td>
+                                    <p class="noWrap"><i class="text-muted">{{deathRecord.deathCertNo}}</i> </p>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                     </div>
+                </div>

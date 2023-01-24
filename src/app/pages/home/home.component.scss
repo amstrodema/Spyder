@@ -1,0 +1,21 @@
+// .btnMove{
+//   animation: MoveUpDown duration 1s linear infinite;
+//   position: absolute;
+// }
+
+// @keyframes MoveUpDown{
+// 0%{
+//   transform: translateY(0);
+// }
+// 100%{
+//   transform: translateY(-1000px);
+// }
+// }
+.bg{
+  background-image: url('/assets/images/spyder_desktop.png');
+  height: 100vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: black;
+}

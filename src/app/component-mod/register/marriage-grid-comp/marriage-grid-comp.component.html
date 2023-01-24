@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-lg-12">
+      <section class="panels-wells">
+
+          <div class="card">
+             <div class="card-block">
+                <div class="row">
+                    <p class="text-center"  *ngIf="data.length < 1">No marriage records found.</p>
+                    <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6" *ngFor="let marriageRecord of data; let i=index">
+                       <div class="panel panel-default">
+                          <div class="panel-heading txt-black">
+                            <a href="{{marriageRecord.image}}" data-lightbox="weddingRecords"
+                            data-title="{{marriageRecord.brideFName}} weds {{marriageRecord.groomFName}}">
+                            <img src="{{marriageRecord.image}}" class="img-square" alt="couple">
+                          </a>
+                          </div>
+                          <div class="panel-body">
+                             <p>{{marriageRecord.brideFName}} weds {{marriageRecord.groomFName}}</p>
+                             <hr class="slim">
+                             <p class="HeadBlender"><small><b>{{marriageRecord.weddingDate}}</b></small></p>
+                             <p class="HeadBlender"><small><b>{{marriageRecord.status | uppercase}}</b></small></p>
+                          </div>
+
+                          <div class="panel-footer">
+                              <!-- <span class="btn btn-mini"><i class="icon-flag"></i></span> -->
+                                <span class="btn btn-mini" (click)=" MarriageRecordDetails(marriageRecord.id)"><i class="icon-feed"></i></span>
+                                <!-- <span class="btn btn-mini"><i class="icon-link"></i></span> -->
+                              </div>
+                       </div>
+                    </div>
+
+                 <!-- end of row -->
+              </div>
+             </div>
+
+             <div class="card-footer">
+                 <small>
+                    Records were petitoned for or granted on merit. Massive down votes will lead to immediate dismissal of record(s).
+                </small>
+           </div>
+          </div>
+       </section>
+  </div>
+ </div>

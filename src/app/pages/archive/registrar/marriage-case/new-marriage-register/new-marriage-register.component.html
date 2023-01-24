@@ -1,0 +1,413 @@
+<div class="content-wrapper">
+  <!-- Container-fluid starts -->
+  <div class="container-fluid">
+    <!-- Main content starts -->
+    <!-- Row Starts -->
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="main-header">
+            <h5><b>MARRIAGE REGISTRATION</b></h5>
+            <ol class="breadcrumb breadcrumb-title breadcrumb-arrow">
+                <li class="breadcrumb-item"><a [routerLink]="['']" routerLinkActive="router-link-active" ><i class="icofont icofont-home"></i></a>
+                </li>
+              <li class="breadcrumb-item"><small>Archives</small></li>
+              <li class="breadcrumb-item"><small>Registrar</small></li>
+              <li class="breadcrumb-item"><a [routerLink]="['/marriage-register']" routerLinkActive="router-link-active" ><small>Marriage Register</small></a></li>
+              <li class="breadcrumb-item" *ngIf="!isEdit"><small>New</small></li>
+              <li class="breadcrumb-item" *ngIf="isEdit"><small>Modify - {{marriageModel.brideFName}} weds {{marriageModel.groomFName}}</small></li>
+            </ol>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- Row end -->
+
+  <div class="row">
+      <div class="col-xl-8 col-lg-8">
+         <div class="card">
+            <div class="card-block">
+              <div class="form-horizonatal md-float-material">
+                <p>All information presented is deemed valid until proven otherwise.</p>
+
+                <div class="form-group">
+                    <hr>
+                    <label for="groomName" class="form-control-label">COUPLE'S PICTURE</label><br>
+                  <span *ngIf="marriageModel.image != ''"><img [src]="marriageModel.image" style="max-width: 10em; max-height: 10em;"><br></span>
+                  <input type="file"  (change) ="OptionFileChangeEvent($event)" class="btn btn-mini" style="margin-top: 0.5em;"/>
+                </div>
+
+                <hr>
+                <div class="form-group">
+                  <label for="groomName" class="form-control-label">GROOM DETAILS</label>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-md-6">
+                      <small>First Name</small>
+                      <input type="text" class="form-control" name="groomFName" [(ngModel)]="marriageModel.groomFName">
+                  </div>
+                  <div class="col-md-6">
+                      <small>Last Name</small>
+                      <input type="text" class="form-control" name="groomLName" [(ngModel)]="marriageModel.groomLName">
+                  </div>
+                </div>
+                <hr>
+                <div class="form-group">
+                  <label for="brideName" class="form-control-label">BRIDE DETAILS</label>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-md-6">
+                      <small>First Name</small>
+                      <input type="text" class="form-control" name="brideFName" [(ngModel)]="marriageModel.brideFName">
+                  </div>
+                  <div class="col-md-6">
+                      <small>Last Name</small>
+                      <input type="text" class="form-control" name="brideLName" [(ngModel)]="marriageModel.brideLName">
+                  </div>
+                </div>
+                <hr>
+                <div class="form-group">
+                  <label for="Date" class="form-control-label">Wedding Date</label>
+                  <input type="date" class="form-control" [(ngModel)]="marriageModel.weddingDate"/>
+                </div>
+
+                  <div class="form-group">
+                    <label for="Missing Item Title" class="form-control-label">Marriage Type</label>
+
+                    <div class="input-group" id="dropdown3">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-dark btn-mini dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{marriageType}}
+                            </button>
+                            <div class="dropdown-menu">
+                                <small class="dropdown-item" (click)="SelectMarriageType(feature.name,feature.id, feature.featureGroupID, feature.name)" *ngFor="let feature of marriageTypes">{{feature.name}}</small>
+                            </div>
+                        </div>
+                        <input type="text" class="form-control form-control-sm" [(ngModel)]="marriageFeatureValue" placeholder="Input {{marriageType}} No. here" >
+                        <div class="input-group-btn">
+                            <button type="button" (click)="AddMarriageTypeFeature()"class="btn btn-primary btn-mini" aria-haspopup="true" aria-expanded="false">
+                              Add
+                            </button>
+                        </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                      <table class="table table-bordered treat" *ngIf="marriageTypeFeatures.length > 0">
+                          <tr style="background-color: #f5f5f5;">
+                              <td><p>S/n</p></td>
+                            <td>
+                              <p>Marriage Type</p>
+                            </td>
+                            <td>
+                              <p>Certificate No.</p>
+                            </td>
+                            <td>
+                              &nbsp;
+                            </td>
+                          </tr>
+                          <tr *ngFor="let feature of marriageTypeFeatures; let i=index">
+                              <td><p>{{i+1}}</p></td>
+                              <td>
+                                <p>{{feature.featureType}}</p>
+                              </td>
+                              <td><p>{{feature.value}}</p></td>
+                              <td>
+                                <p class="text-danger pointer text-center" (click) = "RemoveMarriageType(i)">x</p>
+                              </td>
+                          </tr>
+                        </table>
+                    </div>
+
+                <div class="form-group">
+                    <label for="toast" class="form-control-label">Toast</label>
+                    <input type="text"  class="form-control" [(ngModel)]="marriageModel.toast" placeholder="Input Wedding Toast"/>
+                  </div>
+
+                  <div class="form-group">
+                      <label for="Missing Item Title" class="form-control-label">Details of Marriage</label>
+
+                      <div class="input-group" id="dropdown3">
+                          <div class="input-group-btn">
+                              <button type="button" class="btn btn-dark btn-mini dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  {{featureType}}
+                              </button>
+                              <div class="dropdown-menu">
+                                  <small class="dropdown-item" (click)="SelectFeatureType(feature.name,feature.id, feature.featureGroupID, feature.name)" *ngFor="let feature of featureTypes">{{feature.name}}</small>
+                              </div>
+                          </div>
+                          <input type="text" class="form-control form-control-sm" [(ngModel)]="featureValue" placeholder="Input {{featureType}} here" >
+                          <div class="input-group-btn">
+                              <button type="button" (click)="AddFeature(featureValue)"class="btn btn-primary btn-mini" aria-haspopup="true" aria-expanded="false">
+                                Add
+                              </button>
+                          </div>
+                      </div>
+                    </div>
+                  <div class="form-group">
+                    <table class="table table-bordered treat" *ngIf="marriageFeatures.length > 0">
+                        <tr style="background-color: #f5f5f5;">
+                            <td><p>S/N</p></td>
+                          <td>
+                            <p>FEATURE</p>
+                          </td>
+                          <td>
+                            <p>DETAILS</p>
+                          </td>
+                          <td>
+                            &nbsp;
+                          </td>
+                        </tr>
+                        <tr *ngFor="let feature of marriageFeatures; let i=index">
+                            <td><p>{{i+1}}</p></td>
+                            <td>
+                              <p>{{feature.featureType}}</p>
+                            </td>
+                            <td><p>{{feature.value}}</p></td>
+                            <td>
+                              <p class="text-danger pointer text-center" (click) = "RemoveFeature(i)">x</p>
+                            </td>
+                        </tr>
+                      </table>
+                  </div>
+
+
+                  <div class="form-group">
+                      <label for="State" class="form-control-label">State</label>
+                      <input type="text"  class="form-control" [(ngModel)]="marriageModel.state" placeholder="State of Wedding"/>
+                    </div>
+
+                  <div class="form-group">
+                      <label for="City" class="form-control-label">City</label>
+                      <input type="text"  class="form-control" [(ngModel)]="marriageModel.city" placeholder="City of Wedding"/>
+                    </div>
+
+                  <div class="form-group">
+                      <label for="PostalCode" class="form-control-label">Postal Code</label>
+                      <input type="text"  class="form-control" [(ngModel)]="marriageModel.postalCode" placeholder="Postal Code Around Wedding Venue"/>
+                    </div>
+
+                  <div class="form-group text-right">
+                      <span class="btn btn-default btn-sm" (click)="Post()">Post&nbsp; <i class="ti ti-arrow-right"></i> </span>
+                  </div>
+
+
+              </div>
+            </div>
+         </div>
+
+      </div>
+
+      <div class="col-xl-4 col-lg-4">
+          <!-- adv -->
+          <div class="card">
+             <div class="card-block horizontal-card-img d-flex">
+                <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                <div class="d-inlineblock  p-l-20">
+                  <h6>Josephin Doe</h6>
+                  <a href="#">contact@admin.com</a>
+               </div>
+                <h6 class="txt-warning rotate-txt">Designer</h6>
+             </div>
+          </div>
+          <!-- adv -->
+          <div class="card">
+             <div class="card-block horizontal-card-img d-flex">
+                <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                <div class="d-inlineblock  p-l-20">
+                  <h6>Josephin Doe</h6>
+                  <a href="#">contact@admin.com</a>
+               </div>
+                <h6 class="txt-warning rotate-txt">Designer</h6>
+             </div>
+          </div>
+          <div class="card">
+             <div class="card-header" style="margin-bottom: 0; padding-bottom: 0;">
+                <h5 class="card-header-text">
+                 <p>Missing Persons</p>
+                </h5>
+                <hr>
+             </div>
+             <div class="card-block" style="padding-top: 0;">
+                <div class="table-responsive">
+                   <table class="table m-b-0 photo-table point">
+                          <tbody>
+
+                             <tr>
+                                <th>
+                                   <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                </th>
+                                <td>
+                                  <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                  <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                  <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                </td>
+                             </tr>
+
+                             <tr>
+                                <th>
+                                   <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                </th>
+                                <td>
+                                  <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                  <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                  <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                </td>
+                             </tr>
+
+                             <tr>
+                                <th>
+                                   <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                </th>
+                                <td>
+                                  <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                  <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                  <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                </td>
+                             </tr>
+
+                             <tr>
+                                <th>
+                                   <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                </th>
+                                <td>
+                                  <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                  <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                  <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                </td>
+                             </tr>
+                          </tbody>
+                   </table>
+                </div>
+             </div>
+          </div>
+          <!-- adv -->
+          <div class="card">
+             <div class="card-block horizontal-card-img d-flex">
+                <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                <div class="d-inlineblock  p-l-20">
+                  <h6>Josephin Doe</h6>
+                  <a href="#">contact@admin.com</a>
+               </div>
+                <h6 class="txt-warning rotate-txt">Designer</h6>
+             </div>
+          </div>
+          <!-- adv -->
+          <div class="card">
+             <div class="card-block horizontal-card-img d-flex">
+                <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                <div class="d-inlineblock  p-l-20">
+                  <h6>Josephin Doe</h6>
+                  <a href="#">contact@admin.com</a>
+               </div>
+                <h6 class="txt-warning rotate-txt">Designer</h6>
+             </div>
+          </div>
+          <div class="card">
+             <div class="card-header" style="margin-bottom: 0; padding-bottom: 0;">
+                <h5 class="card-header-text">
+                 <p>Missing Items</p>
+                </h5>
+                <hr>
+             </div>
+             <div class="card-block" style="padding-top: 0;">
+                <div class="table-responsive">
+                   <table class="table m-b-0 photo-table point">
+                          <tbody>
+
+                              <tr>
+                                  <th>
+                                     <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                  </th>
+                                  <td>
+                                    <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                    <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                    <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                  </td>
+                               </tr>
+
+                               <tr>
+                                  <th>
+                                     <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                  </th>
+                                  <td>
+                                    <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                    <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                    <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                  </td>
+                               </tr>
+
+                               <tr>
+                                  <th>
+                                     <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                  </th>
+                                  <td>
+                                    <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                    <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                    <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                  </td>
+                               </tr>
+
+                               <tr>
+                                  <th>
+                                     <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                  </th>
+                                  <td>
+                                    <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                    <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                    <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                  </td>
+                               </tr>
+                          </tbody>
+                   </table>
+                </div>
+             </div>
+          </div>
+       </div>
+   </div>
+
+     <div class="row">
+        <div class="col-xl-4 col-lg-12 grid-item">
+            <div class="card">
+               <div class="card-block horizontal-card-img d-flex">
+                  <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                  <div class="d-inlineblock  p-l-20">
+                    <h6>Josephin Doe</h6>
+                    <a href="#">contact@admin.com</a>
+                 </div>
+                  <h6 class="txt-warning rotate-txt">Designer</h6>
+               </div>
+            </div>
+         </div>
+         <div class="col-xl-4 col-lg-12 grid-item">
+            <div class="card">
+               <div class="card-block horizontal-card-img d-flex">
+                  <img class="media-object img-circle" src="assets/images/lockscreen.png" alt="Generic placeholder image">
+                  <div class="d-inlineblock  p-l-20">
+                    <h6>Josephin Doe</h6>
+                    <a href="#">contact@admin.com</a>
+                 </div>
+                  <h6 class="txt-danger rotate-txt">Developer</h6>
+               </div>
+            </div>
+         </div>
+         <div class="col-xl-4 col-lg-12 grid-item">
+            <div class="card">
+               <div class="card-block horizontal-card-img d-flex">
+                  <img class="media-object img-circle" src="assets/images/lockscreen.png" alt="Generic placeholder image">
+                  <div class="d-inlineblock  p-l-20">
+                    <h6>Josephin Doe</h6>
+                    <a href="#">contact@admin.com</a>
+                 </div>
+                  <h6 class="txt-danger rotate-txt">Developer</h6>
+               </div>
+            </div>
+         </div>
+     </div>
+
+  </div>
+</div>

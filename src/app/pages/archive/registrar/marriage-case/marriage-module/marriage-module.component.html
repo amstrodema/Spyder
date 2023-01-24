@@ -1,0 +1,72 @@
+<div class="content-wrapper">
+  <div class="container-fluid">
+    <!-- Main content starts -->
+    <!-- Row Starts -->
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card closeBottom">
+          <div class="main-header">
+            <h5><b>MARRIAGE REGISTER</b></h5>
+            <ol class="breadcrumb breadcrumb-title breadcrumb-arrow">
+              <li class="breadcrumb-item"><a [routerLink]="['']" routerLinkActive="router-link-active"><i
+                    class="icofont icofont-home"></i></a>
+              </li>
+              <li class="breadcrumb-item"><small>Archives</small></li>
+              <li class="breadcrumb-item"><small>Registrar</small></li>
+              <li class="breadcrumb-item"><small>Marriage Register</small>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- Row end -->
+
+
+    <div class="row closeUpRow">
+      <div class="col-lg-12">
+        <div class="card padded">
+            <table class="table" style="width: 100%;">
+                <tr>
+                  <td colspan="2">
+                      <a class="anchor btn btn-mini btn-default" (click)="NewMarriageRecord()"
+                      *ngIf="!toggleSearchFilterIndicator || !isGrid">Add New Record <i class="icon-plus"></i></a>
+
+                    <span class="input-group" *ngIf="toggleSearchFilterIndicator && isGrid">
+                      <span class="input-group-btn" id="btn-addon3.1">
+                        <span type="submit" (click)="toggleSearchFilter(false)"
+                          class="btn btn-danger waves-effect waves-light">
+                          x
+                        </span>
+                      </span>
+                      <input id="btnaddon2" type="text" class="form-control  thresold-i" [(ngModel)]="searchString"
+                        placeholder="Type search keywords..." maxlength="25" aria-describedby="btn-addon2">
+                      <span class="input-group-btn" id="btn-addon2">
+                        <button type="submit" class="btn btn-primary waves-effect waves-light" (click)="Search()">
+                          Go!
+                        </button>
+                      </span>
+                    </span>
+                  </td>
+                  <td colspan="1" class="text-right">
+                    <i class="icon-magnifier btn btn-mini btn-default" style="margin-right:0.1em" *ngIf="isGrid && !toggleSearchFilterIndicator"
+                      (click)="toggleSearchFilter(true)"></i>
+                    <i class="icon-list btn btn-mini btn-default" *ngIf="!toggleSearchFilterIndicator && isGrid" style="margin-right:0.1em" (click)="SetGridView(false)"></i>
+                    <i class="icon-grid btn btn-mini btn-default" *ngIf="!toggleSearchFilterIndicator && !isGrid" (click)="SetGridView(true)"></i>
+
+                  </td>
+                </tr>
+              </table>
+        </div>
+
+      </div>
+    </div>
+    <app-spinner3 *ngIf="!isLoaded"></app-spinner3>
+    <app-marriage-grid-comp *ngIf="isGrid && isLoaded" [route]=route [data]=data></app-marriage-grid-comp>
+    <app-marriage-list-comp *ngIf="!isGrid && isLoaded" [route]=route [data]=data></app-marriage-list-comp>
+
+  </div>
+</div>
+
+<!-- <app-hall-model></app-hall-model> -->

@@ -1,0 +1,175 @@
+<div class="row">
+    <div class="col-xl-8 col-lg-8">
+       <div class="card">
+          <div class="card-block">
+            <div class="form-horizonatal">
+              <p>DISCAIMER: All information presented are considered whispers, and as such
+                SPYDER will take no responsibility for any content presented</p>
+              <hr>
+              <div class="form-group">
+                <p>
+                    <label class="btn btn-mini">
+                      <input (click)="SetAnonymous(false)" name="anonymous" type="radio" checked> &nbsp;&nbsp;<small>Default</small>
+                    </label> &nbsp;&nbsp;&nbsp;
+                    <label class="btn btn-mini">
+                      <input (click)="SetAnonymous(true)" name="anonymous" type="radio"> &nbsp;&nbsp;<small>Anonymous</small>
+                    </label>
+                </p>
+
+              </div>
+
+              <div class="form-group">
+                  <hr>
+                <span *ngIf="imageBase64 != ''"><img [src]="imageBase64" style="max-width: 10em; max-height: 10em;"><br></span>
+                </div>
+
+              <div class="form-group">
+                <label for="COnfessionTitle" class="form-control-label">Headline</label>
+                <input type="text" class="form-control" [(ngModel)]="confessionModel.title" placeholder="Input a title or headline"/>
+                <small class="text-muted">e.g. I was the wizard of OZ</small>
+              </div>
+
+                <div class="form-group">
+                  <label for="ConfessionDetails" class="form-control-label">Discuss Headline</label>
+                  <textarea class="form-control" [(ngModel)]="confessionModel.details" placeholder="Give full details"></textarea>
+                </div>
+
+              <div class="form-group">
+                <label for="Image" class="form-control-label">Illustration Image <small>(Optional)</small></label>
+                <input type="file"  (change) ="OptionFileChangeEvent($event)" class="form-control" style="margin-top: 0.5em;"/>
+              </div>
+
+                <div class="form-group text-right">
+                    <span class="btn btn-mini" (click)="Post()">Post <i class="ti ti-arrow-right"></i> </span>
+                </div>
+
+
+            </div>
+          </div>
+       </div>
+    </div>
+
+    <div class="col-xl-4 col-lg-4">
+        <div class="card">
+           <div class="card-header" style="margin-bottom: 0; padding-bottom: 0;">
+              <h5 class="card-header-text">
+               <p>Missing Persons</p>
+              </h5>
+              <hr>
+           </div>
+           <div class="card-block" style="padding-top: 0;">
+              <div class="table-responsive">
+                 <table class="table m-b-0 photo-table point">
+                        <tbody>
+
+                           <tr>
+                              <th>
+                                 <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                              </th>
+                              <td>
+                                <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                              </td>
+                           </tr>
+
+                           <tr>
+                              <th>
+                                 <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                              </th>
+                              <td>
+                                <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                              </td>
+                           </tr>
+
+                           <tr>
+                              <th>
+                                 <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                              </th>
+                              <td>
+                                <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                              </td>
+                           </tr>
+
+                           <tr>
+                              <th>
+                                 <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                              </th>
+                              <td>
+                                <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                              </td>
+                           </tr>
+                        </tbody>
+                 </table>
+              </div>
+           </div>
+        </div>
+     
+        <div class="card">
+           <div class="card-header" style="margin-bottom: 0; padding-bottom: 0;">
+              <h5 class="card-header-text">
+               <p>Stolen Items</p>
+              </h5>
+              <hr>
+           </div>
+           <div class="card-block" style="padding-top: 0;">
+              <div class="table-responsive">
+                 <table class="table m-b-0 photo-table point">
+                        <tbody>
+
+                            <tr>
+                                <th>
+                                   <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                </th>
+                                <td>
+                                  <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                  <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                  <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                </td>
+                             </tr>
+
+                             <tr>
+                                <th>
+                                   <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                </th>
+                                <td>
+                                  <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                  <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                  <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                </td>
+                             </tr>
+
+                             <tr>
+                                <th>
+                                   <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                </th>
+                                <td>
+                                  <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                  <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                  <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                </td>
+                             </tr>
+
+                             <tr>
+                                <th>
+                                   <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                </th>
+                                <td>
+                                  <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                  <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                  <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                </td>
+                             </tr>
+                        </tbody>
+                 </table>
+              </div>
+           </div>
+        </div>
+     </div>
+ </div>

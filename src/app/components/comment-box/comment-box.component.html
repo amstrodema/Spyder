@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+          <div class="card-block">
+              <div class="commentBox">
+                  <span class="f-w-600 f-16 d-block m-b-10">
+                    <a href="{{route+'#commentArea'}}"><small>Post Comment</small></a>
+                  </span>
+
+                  <hr>
+                  <p class="comment text-center bold"  *ngIf="comments.length < 1">
+                    No Comments Yet. Be the first to comment.
+                  </p>
+
+                  <div class="card-block" style="padding-top: 0;"   *ngIf="comments.length > 0">
+                    <div class="table-responsive">
+                       <table class="table m-b-0 photo-table">
+                              <tbody>
+                                 <tr  *ngFor="let thisComment of comments; let i=index">
+                                    <td style="width: 50px;">
+                                       <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                    </td>
+                                    <td>
+                                        <a href="#" class="text-dark"  style="white-space: nowrap;"><small class="bold">{{thisComment.commenterName}}</small> - <small class="text-muted"  style="white-space: nowrap;"><i>{{thisComment.dateCreated}}</i></small></a>
+
+                                      <p>{{thisComment.details}}</p>
+
+                                    </td>
+                                 </tr>
+                              </tbody>
+                       </table>
+                    </div>
+                 </div>
+
+                  <p>
+                    <textarea id="commentArea" name="details" [(ngModel)]="comment.details" class="form-control" placeholder="Reply with a comment"></textarea>
+                  </p>
+<br>
+                  <div class="text-right">
+                      <button class="btn btn-default btn-mini" (click)="PostComment()">
+                           Comment <i class="icofont icofont-upload"></i>
+                         </button>
+                  </div>
+
+                </div>
+          </div>
+      </div>
+
+    </div>
+  </div>
+

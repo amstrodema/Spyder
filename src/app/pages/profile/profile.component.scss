@@ -1,0 +1,16 @@
+
+ul>li{
+  display: inline-block !important;
+}
+ul{
+  border-bottom: solid thin #eee !important
+}
+@media (max-width: 768px) {
+  .nav-item{
+    width: 100px;
+    overflow: hidden;
+  }
+  .slide{
+    width: 80px
+  }
+}

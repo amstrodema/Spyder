@@ -1,0 +1,35 @@
+<div class="card">
+    <div class="card-block">
+      <div class="table-responsive">
+        <table class="table treat" style="padding-bottom: 0em;">
+          <tr>
+              <td>
+                  <div class="form-group">
+                      <input type="number" (change) = EvaluateSPYConversion() [(ngModel)]="transferTrans.amount" placeholder="Amount of GEM" class="form-control form-control-sm" min="0">
+                      <small class="text-primary" (click)="LoadMax()">Max: {{wallet.gem}}</small>
+                    </div>
+              </td>
+              <td class="text-center">
+                  <label>
+                      <i class="icofont icofont-refresh" style="font-size: 1em;"></i>
+                    </label>
+              </td>
+             <td>
+                  <div class="form-group">
+                      <input type="number" (change) = EvaluateGEMConversion() placeholder="Amount of SPY" [(ngModel)]="amount" class="form-control form-control-sm" max="{{wallet.spy}}" min="0">
+                      <small>{{parameter.value}}/SPY</small>
+                    </div>
+
+              </td>
+          </tr>
+          <tr>
+            <td colspan="3">
+                <button  class="btn btn-mini btn-primary" style="width: 100%;" (click)="Swap()" *ngIf="parameter != null && parameter.value != undefined && parameter.value != ''">
+                    <i class="icofont icofont-refresh"></i>
+                  &nbsp;Swap</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,412 @@
+<div class="content-wrapper">
+    <!-- Container-fluid starts -->
+    <div class="container-fluid">
+       <!-- Main content starts -->
+          <!-- Row Starts -->
+          <div class="row">
+             <div class="col-lg-12">
+                <div class="card">
+                    <div class="main-header">
+                        <h5><b>SAVE MY SOUL [SOS]</b></h5>
+                        <ol class="breadcrumb breadcrumb-title breadcrumb-arrow">
+                           <li class="breadcrumb-item"><a href="index.html"><i class="icofont icofont-home"></i></a>
+                           </li>
+                           <li class="breadcrumb-item"><small>Overview</small></li>
+                           <li class="breadcrumb-item"><a href="notification.html"><small>SOS</small></a>
+                           </li>
+                        </ol>
+                     </div>
+                </div>
+
+             </div>
+          </div>
+          <!-- Row end -->
+
+          <div class="row">
+              <div class="col-xl-12 col-lg-12">
+                <div class="card">
+                  <div class="card-block">
+                      <h5><b>Send Emergency Signals to People Around You</b></h5>
+                      <p class="text-danger">Get help from users closet to your location.</p>
+                      <hr>
+                      <p>
+                          <a class="anchor btn btn-mini" (click)="NewSOS()" *ngIf="!toggleSearchFilterIndicator">Launch SOS <i class="icon-plus"></i></a>
+                      </p>
+                  </div>
+                </div>
+                </div>
+          </div>
+
+          <div class="row">
+              <div class="col-xl-8 col-lg-8">
+                 <div class="card">
+                    <div class="card-block">
+                       <div class="table-responsive">
+                          <table class="table m-b-0 photo-table point">
+                            <thead>
+                                <tr>
+                                    <th colspan="6">
+                                       <span>
+                                          <span class="btn btn-mini btn-outline-success" title="Green Alert" (click)="NewSOS()" *ngIf="!toggleSearchFilterIndicator"><i class="icon-bell"></i></span>&nbsp;
+                                          <span class=" btn btn-mini btn-outline-warning" title="Yellow Alert" (click)="NewSOS()" *ngIf="!toggleSearchFilterIndicator"><i class="icon-bell"></i></span>&nbsp;
+                                          <span class=" btn btn-mini btn-outline-danger" title="Red Alert" (click)="NewSOS()" *ngIf="!toggleSearchFilterIndicator"><i class="icon-bell"></i></span>&nbsp;
+
+                                           <span class="input-group" *ngIf="toggleSearchFilterIndicator"  style="width: 70%; float: left;">
+                                               <span class="input-group-btn" id="btn-addon3.1">
+                                                   <span type="submit" (click)="toggleSearchFilter(false)" class="btn btn-default btn-mini addon-btn waves-effect waves-light">
+                                                   x
+                                                   </span>
+                                               </span>
+                                               <input id="btnaddon2" type="text" class="form-control thresold-i"
+                                                 placeholder="Type your keywords..." maxlength="25" aria-describedby="btn-addon2">
+                                               <span class="input-group-btn" id="btn-addon2">
+                                                 <button type="submit" class="btn btn-primary  btn-mini addon-btn waves-effect waves-light">
+                                                   Go!
+                                                 </button>
+                                               </span>
+                                             </span>
+
+                                           <span style="float: right;">
+                                             <i class="btn btn-mini icon-magnifier" (click)="toggleSearchFilter(true)" *ngIf="!toggleSearchFilterIndicator"></i>
+                                             <i class="btn btn-mini icofont icofont-long-arrow-up"></i>
+                                             <i class="btn btn-mini icon-settings"></i>
+                                           </span>
+                                         </span>
+                                    </th>
+                                  </tr>
+                            </thead>
+                                 <tbody>
+
+                                    <tr (click)="SosDetails()">
+                                        <th>
+                                           <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                        </th>
+                                        <td>
+                                          <p class="text-dark"><b>Adamu Josiah G.</b></p>
+                                          <p>There's been a threat on my life, please help. Blue car, inwards Ikeja... Help me!</p>
+                                          <p class="text-muted">
+                                            <small>46.3m away - 03:45pm on May 24th, 2022</small>
+                                          </p>
+                                        </td>
+                                        <td>
+                                          <p>
+                                             <span class="btn btn-mini btn-danger" style="float: right;" title="Red Alert"><i class="icon-bell"></i></span>
+                                          </p>
+                                         </td>
+                                     </tr>
+                                     <tr (click)="SosDetails()">
+                                        <th>
+                                           <img class="img-circle" src="assets/images/avatar-1.png" alt="User">
+                                        </th>
+                                        <td>
+                                          <p class="text-dark"><b>Grammy Tracy</b></p>
+                                          <p>
+                                              Please watch out for me. I'm having an Interview at the West Building Opposite Johnsons Homes
+                                              Maybach Newlands. I'm not sure how safe I am, please check on me in 15mins
+                                          </p>
+                                          <p class="text-muted">
+                                            <small>46.3m away - 03:45pm on May 24th, 2022</small>
+                                          </p>
+                                        </td>
+                                        <td>
+                                          <p>
+                                             <span class="btn btn-mini btn-warning" style="float: right;" title="Yellow Alert"><i class="icon-bell"></i></span>
+                                          </p>
+                                         </td>
+                                     </tr>
+                                     <tr  (click)="SosDetails()">
+                                        <th>
+                                           <img class="img-circle" src="assets/images/avatar-3.png" alt="User">
+                                        </th>
+                                        <td>
+                                          <p class="text-dark"><b>Tope Bello G.</b></p>
+                                          <p>Robbery cleared! Approach safely and smile</p>
+                                          <p class="text-muted">
+                                            <small>46.3m away - 03:45pm on May 24th, 2022</small>
+                                          </p>
+                                        </td>
+                                        <td>
+                                          <p>
+                                             <span class="btn btn-mini btn-success" style="float: right;" title="Green Alert"><i class="icon-bell"></i></span>
+                                          </p>
+                                         </td>
+                                     </tr>
+                                 </tbody>
+                          </table>
+                       </div>
+                    </div>
+                 </div>
+
+                 <div class="col-xl-6 col-lg-12">
+                    <div class="card">
+                       <div class="card-block horizontal-card-img d-flex">
+                          <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                          <div class="d-inlineblock  p-l-20">
+                            <h6>Josephin Doe</h6>
+                            <a href="#">contact@admin.com</a>
+                         </div>
+                          <h6 class="txt-warning rotate-txt">Designer</h6>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="col-xl-6 col-lg-12">
+                    <div class="card">
+                       <div class="card-block horizontal-card-img d-flex">
+                          <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                          <div class="d-inlineblock  p-l-20">
+                            <h6>Josephin Doe</h6>
+                            <a href="#">contact@admin.com</a>
+                         </div>
+                          <h6 class="txt-warning rotate-txt">Designer</h6>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="col-xl-6 col-lg-12">
+                    <div class="card">
+                       <div class="card-block horizontal-card-img d-flex">
+                          <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                          <div class="d-inlineblock  p-l-20">
+                            <h6>Josephin Doe</h6>
+                            <a href="#">contact@admin.com</a>
+                         </div>
+                          <h6 class="txt-warning rotate-txt">Designer</h6>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="col-xl-6 col-lg-12">
+                    <div class="card">
+                       <div class="card-block horizontal-card-img d-flex">
+                          <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                          <div class="d-inlineblock  p-l-20">
+                            <h6>Josephin Doe</h6>
+                            <a href="#">contact@admin.com</a>
+                         </div>
+                          <h6 class="txt-warning rotate-txt">Designer</h6>
+                       </div>
+                    </div>
+                 </div>
+
+
+                 <div class="col-lg-12">
+                    <div class="card">
+                       <div class="card-block horizontal-card-img d-flex">
+                          <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                          <div class="d-inlineblock  p-l-20">
+                            <h6>Josephin Doe</h6>
+                            <a href="#">contact@admin.com</a>
+                         </div>
+                          <h6 class="txt-warning rotate-txt">Designer</h6>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+
+              <div class="col-xl-4 col-lg-4">
+                  <!-- adv -->
+                  <div class="card">
+                     <div class="card-block horizontal-card-img d-flex">
+                        <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                        <div class="d-inlineblock  p-l-20">
+                          <h6>Josephin Doe</h6>
+                          <a href="#">contact@admin.com</a>
+                       </div>
+                        <h6 class="txt-warning rotate-txt">Designer</h6>
+                     </div>
+                  </div>
+                  <!-- adv -->
+                  <div class="card">
+                     <div class="card-block horizontal-card-img d-flex">
+                        <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                        <div class="d-inlineblock  p-l-20">
+                          <h6>Josephin Doe</h6>
+                          <a href="#">contact@admin.com</a>
+                       </div>
+                        <h6 class="txt-warning rotate-txt">Designer</h6>
+                     </div>
+                  </div>
+                  <div class="card">
+                     <div class="card-header" style="margin-bottom: 0; padding-bottom: 0;">
+                        <h5 class="card-header-text">
+                         <p>Missing Persons</p>
+                        </h5>
+                        <hr>
+                     </div>
+                     <div class="card-block" style="padding-top: 0;">
+                        <div class="table-responsive">
+                           <table class="table m-b-0 photo-table point">
+                                  <tbody>
+
+                                     <tr>
+                                        <th>
+                                           <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                        </th>
+                                        <td>
+                                          <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                          <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                          <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                        </td>
+                                     </tr>
+
+                                     <tr>
+                                        <th>
+                                           <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                        </th>
+                                        <td>
+                                          <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                          <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                          <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                        </td>
+                                     </tr>
+
+                                     <tr>
+                                        <th>
+                                           <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                        </th>
+                                        <td>
+                                          <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                          <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                          <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                        </td>
+                                     </tr>
+
+                                     <tr>
+                                        <th>
+                                           <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                        </th>
+                                        <td>
+                                          <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                          <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                          <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                        </td>
+                                     </tr>
+                                  </tbody>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- adv -->
+                  <div class="card">
+                     <div class="card-block horizontal-card-img d-flex">
+                        <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                        <div class="d-inlineblock  p-l-20">
+                          <h6>Josephin Doe</h6>
+                          <a href="#">contact@admin.com</a>
+                       </div>
+                        <h6 class="txt-warning rotate-txt">Designer</h6>
+                     </div>
+                  </div>
+                  <!-- adv -->
+                  <div class="card">
+                     <div class="card-block horizontal-card-img d-flex">
+                        <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                        <div class="d-inlineblock  p-l-20">
+                          <h6>Josephin Doe</h6>
+                          <a href="#">contact@admin.com</a>
+                       </div>
+                        <h6 class="txt-warning rotate-txt">Designer</h6>
+                     </div>
+                  </div>
+                  <div class="card">
+                     <div class="card-header" style="margin-bottom: 0; padding-bottom: 0;">
+                        <h5 class="card-header-text">
+                         <p>Stolen Items</p>
+                        </h5>
+                        <hr>
+                     </div>
+                     <div class="card-block" style="padding-top: 0;">
+                        <div class="table-responsive">
+                           <table class="table m-b-0 photo-table point">
+                                  <tbody>
+
+                                      <tr>
+                                          <th>
+                                             <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                          </th>
+                                          <td>
+                                            <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                            <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                            <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                          </td>
+                                       </tr>
+
+                                       <tr>
+                                          <th>
+                                             <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                          </th>
+                                          <td>
+                                            <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                            <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                            <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                          </td>
+                                       </tr>
+
+                                       <tr>
+                                          <th>
+                                             <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                          </th>
+                                          <td>
+                                            <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                            <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                            <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                          </td>
+                                       </tr>
+
+                                       <tr>
+                                          <th>
+                                             <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                          </th>
+                                          <td>
+                                            <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                            <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                            <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                          </td>
+                                       </tr>
+                                  </tbody>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+           </div>
+
+             <div class="row">
+                <div class="col-xl-4 col-lg-12 grid-item">
+                    <div class="card">
+                       <div class="card-block horizontal-card-img d-flex">
+                          <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                          <div class="d-inlineblock  p-l-20">
+                            <h6>Josephin Doe</h6>
+                            <a href="#">contact@admin.com</a>
+                         </div>
+                          <h6 class="txt-warning rotate-txt">Designer</h6>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="col-xl-4 col-lg-12 grid-item">
+                    <div class="card">
+                       <div class="card-block horizontal-card-img d-flex">
+                          <img class="media-object img-circle" src="assets/images/lockscreen.png" alt="Generic placeholder image">
+                          <div class="d-inlineblock  p-l-20">
+                            <h6>Josephin Doe</h6>
+                            <a href="#">contact@admin.com</a>
+                         </div>
+                          <h6 class="txt-danger rotate-txt">Developer</h6>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="col-xl-4 col-lg-12 grid-item">
+                    <div class="card">
+                       <div class="card-block horizontal-card-img d-flex">
+                          <img class="media-object img-circle" src="assets/images/lockscreen.png" alt="Generic placeholder image">
+                          <div class="d-inlineblock  p-l-20">
+                            <h6>Josephin Doe</h6>
+                            <a href="#">contact@admin.com</a>
+                         </div>
+                          <h6 class="txt-danger rotate-txt">Developer</h6>
+                       </div>
+                    </div>
+                 </div>
+             </div>
+
+ </div>
+</div>

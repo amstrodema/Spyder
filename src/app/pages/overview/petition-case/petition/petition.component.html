@@ -1,0 +1,187 @@
+<div class="content-wrapper">
+
+    <!-- Container-fluid starts -->
+    <div class="container-fluid">
+       <!-- Main content starts -->
+          <!-- Row Starts -->
+          <div class="row">
+             <div class="col-lg-12">
+                <div class="card">
+                    <div class="main-header">
+                        <h5><b>PETITIONS</b></h5>
+                        <ol class="breadcrumb breadcrumb-title breadcrumb-arrow">
+                           <li class="breadcrumb-item"><a [routerLink]="['']" routerLinkActive="router-link-active"><i class="icofont icofont-home"></i></a>
+                           </li>
+                           <li class="breadcrumb-item">Overview</li>
+                           <li class="breadcrumb-item">Petition
+                           </li>
+                        </ol>
+                     </div>
+                </div>
+
+             </div>
+          </div>
+          <!-- Row end -->
+
+          <div class="row">
+              <div class="col-xl-8 col-lg-8">
+                 <div class="card">
+                    <div class="card-block">
+                      <table class="table">
+                          <tr>
+                              <td colspan="6">
+                                 <span>
+                                     <a class="anchor btn btn-mini" (click)="NewPetition()" *ngIf="!toggleSearchFilterIndicator">New Petition <i class="icon-plus"></i></a>
+
+                                     <span class="input-group" *ngIf="toggleSearchFilterIndicator"  style="width: 70%; float: left;">
+                                         <span class="input-group-btn" id="btn-addon3.1">
+                                             <span type="submit" (click)="toggleSearchFilter(false)" class="btn btn-danger btn-mini waves-effect waves-light">
+                                             x
+                                             </span>
+                                         </span>
+                                         <input id="btnaddon2" type="text" class="form-control form-control-sm thresold-i" [(ngModel)]="searchString"
+                                           placeholder="Type search keywords..." maxlength="25" aria-describedby="btn-addon2">
+                                         <span class="input-group-btn" id="btn-addon2">
+                                           <button type="submit" class="btn btn-primary  btn-mini waves-effect waves-light" (click)="Search()">
+                                             Go!
+                                           </button>
+                                         </span>
+                                       </span>
+
+                                     <span style="float: right;">
+                                       <i class="btn btn-mini icon-magnifier" (click)="toggleSearchFilter(true)" *ngIf="!toggleSearchFilterIndicator"></i>
+                                       <i class="btn btn-mini icofont {{arrowButton}}" (click)="toggleArrow()"></i>
+                                       <!-- <i class="btn btn-mini icon icon-settings"></i> -->
+                                     </span>
+                                   </span>
+                              </td>
+                            </tr>
+                      </table>
+                      <hr>
+                       <div class="table-responsive">
+                          <app-spinner3 *ngIf="!isLoaded"></app-spinner3>
+                         <p class="text-center" *ngIf="hallRecords.length < 1 && isLoaded">No petition found. Click <a (click)="NewPetition()" class="anchor">here</a> to add new petition</p>
+
+                          <table class="table photo-table treat" *ngIf="isLoaded && hallRecords.length >= 1">
+                                 <tbody>
+                                    <tr *ngFor="let petiton of hallRecords; let i=index">
+                                      <td class="no-Wrap text-center">
+                                         <p style="min-width: 3em !important;">
+                                            <img class="img-circle" src="{{petiton.recordOwnerImage}}" (click)="ViewPetition(petiton.id)"
+                                          alt="{{petiton.recordOwnerName}}">
+                                         </p>
+                                      </td>
+                                      <td style="white-space: nowrap;">
+                                        <div (click)="ViewPetition(petiton.id)">
+                                          <small>Petition to enlist:</small> <small> {{petiton.recordOwnerName}} </small> <small>into the </small>
+                                          <a [routerLink]="'/search/'+[petiton.clickObject]" routerLinkActive="router-link-active">
+                                            <small class="text-primary">{{petiton.hallName}}</small></a>
+                                          </div>
+                                      </td>
+                                      <td class="no-wrap text-center">
+                                        <button type="button"
+                                          class="btn btn-mini {{SolveReaction(true,petiton.btnBgTypeLike)}} {{petiton.btnBgTypeLike}} btn-standard waves-effect waves-light"
+                                          (click)="ControlButtonBgType(true, i)">
+                                          <i class="icofont icofont-thumbs-up"></i> {{petiton.totalUpVotes}}
+                                        </button>
+                                      </td>
+                                      <td class=" text-center">
+                                        <button type="button"
+                                          class="btn btn-mini {{SolveReaction(false,petiton.btnBgTypeDisLike)}} {{petiton.btnBgTypeDisLike}} btn-standard waves-effect waves-light"
+                                          (click)="ControlButtonBgType(false, i)">
+                                          <i class="icofont icofont-thumbs-down"></i> {{petiton.totalDownVotes}}
+                                        </button>
+                                      </td>
+                                      <td>
+                                       <small class="text-dark padded">{{petiton.votePercentage}}%</small>
+                                      </td>
+                                    </tr>
+
+                                 </tbody>
+                          </table>
+                       </div>
+                    </div>
+                 </div>
+                 <br>
+
+              <!-- <app-topAndSuggestedPetitions></app-topAndSuggestedPetitions> -->
+              <div class="card">
+                <div class="card-block text-center">
+                    <img src= "assets/images/ads2.jpg" style="max-width: 50%; max-height: 3em;"/>
+                </div>
+              </div>
+
+              <!-- <app-ads1></app-ads1> -->
+              </div>
+              <div class="col-xl-4 col-lg-4">
+                  <div class="card">
+                      <div class="card-block text-center">
+                          <img src= "assets/images/ads.jpg" style="max-width: 60%;"/>
+                      </div>
+                    </div>
+                  <!-- <div class="card">
+                      <div class="card-header" style="margin-bottom: 0; padding-bottom: 0;">
+                         <h5 class="card-header-text">
+                           <p>Confirmed Petitions</p>
+                         </h5>
+                         <hr>
+                      </div>
+                      <div class="card-block" style="padding-top: 0;">
+                         <div class="table-responsive">
+                            <table class="table m-b-0 photo-table">
+                                   <tbody>
+
+                                      <tr>
+                                         <th>
+                                            <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                         </th>
+                                         <td style="white-space: nowrap;">
+                                           <a href="#" class="text-dark">James Ibori S.</a>
+                                           <p class="text-muted"><i>Hall of Fame Petition</i></p>
+                                         </td>
+                                      </tr>
+
+                                      <tr>
+                                          <th>
+                                             <img class=" img-circle" src="assets/images/avatar-4.png" alt="User">
+                                          </th>
+                                          <td>
+                                            <a href="#" class="text-dark">Adam Clason J.</a>
+                                            <p  class="text-muted"><i>Hall of Shame Petition</i></p>
+                                          </td>
+                                       </tr>
+
+
+                                      <tr>
+                                          <th>
+                                             <img class="img-fluid img-circle" src="assets/images/avatar-3.png" alt="User">
+                                          </th>
+                                          <td>
+                                            <a href="#" class="text-dark">James Ibori S.</a>
+                                            <p  class="text-muted"><i>Hall of Fame Petition</i></p>
+                                          </td>
+                                       </tr>
+
+                                       <tr>
+                                           <th>
+                                              <img class="img-fluid img-circle" src="assets/images/avatar-1.png" alt="User">
+                                           </th>
+                                           <td style="white-space: nowrap;">
+                                             <a href="#" class="text-dark">Adam Clason J.</a>
+                                             <p  class="text-muted"><i>Hall of Shame Petition</i></p>
+                                           </td>
+                                        </tr>
+                                   </tbody>
+                            </table>
+                         </div>
+                      </div>
+                   </div> -->
+                 <!-- adv -->
+             <!-- <app-sideAdv></app-sideAdv> -->
+              </div>
+           </div>
+
+           <!-- <app-floorAds></app-floorAds> -->
+
+ </div>
+</div>

@@ -1,0 +1,9 @@
+
+
+<ng-container *ngIf="isLoading  | async; else elseTemplate">
+    <span class="logo animate" style="position: relative; display: block;">
+        <img class="img-fluid able-logo gifLoader" src="assets/spinner/loader4.gif" alt="Theme-logo"></span>
+</ng-container>
+<ng-template #elseTemplate>
+    <img class="img-fluid able-logo" src="assets/images/logo.png"  alt="Theme-logo">
+</ng-template>

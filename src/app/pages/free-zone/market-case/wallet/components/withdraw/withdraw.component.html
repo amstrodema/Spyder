@@ -1,0 +1,72 @@
+<div class="card">
+    <div class="card-block">
+
+      <div class="table-responsive">
+        <table class="table treat" style="padding-bottom: 0em;">
+          <tr>
+              <td>
+                  <div class="form-group">
+                      <input type="number" placeholder="Amount to Withdraw (₦)" value="{{wallet.ref}}" class="form-control form-control-sm" min="1" readonly>
+                    </div>
+              </td>
+          </tr>
+          <tr>
+            <td>
+                <button  class="btn btn-mini btn-primary" (click)="Withraw()" style="width: 100%;" *ngIf="!isDisable">
+                    <i class="ti ti-credit-card"></i> &nbsp;
+                  &nbsp;Withdraw</button>
+                <button  class="btn btn-mini btn-primary" style="width: 100%;" *ngIf="isDisable" [disabled]= isDisable>
+                    <i class="ti ti-credit-card"></i> &nbsp;
+                  &nbsp;Minimum Withdraw is ₦{{minWithdrawal}}</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+      <div class="card-block">
+        <p class="text-center"  *ngIf="withdrawals.length< 1">
+          No withdrawal records
+        </p>
+        <table class="table treat"  *ngIf="withdrawals.length> 0">
+          <tr>
+            <td>
+              <p>S/N</p>
+            </td>
+            <td>
+              <p>Amount</p>
+            </td>
+            <td class="text-center">
+              <p>Status</p>
+            </td>
+            <td  class="text-center">
+             <p>Date Requested</p>
+            </td>
+            <td>
+              <p>Date Approved</p>
+            </td>
+          </tr>
+          <tr *ngFor="let withdrawal of withdrawals; let i=index">
+            <td>
+              <p><label>{{i+1}}</label></p>
+            </td>
+            <td>
+              <p><label>{{withdrawal.amount}}</label></p>
+            </td>
+            <td class="text-center">
+              <p><label>{{withdrawal.status}}</label></p>
+            </td>
+            <td class="text-center">
+              <p><label>{{withdrawal.dateCreated | date}}</label></p>
+            </td>
+            <td *ngIf="withdrawal.statusCode == 1">
+              <p><label>{{withdrawal.dateModified | date}}</label></p>
+            </td>
+            <td *ngIf="withdrawal.statusCode != 1">
+             <p>Pending</p>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>

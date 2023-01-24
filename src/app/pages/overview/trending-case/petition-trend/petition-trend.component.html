@@ -1,0 +1,93 @@
+
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-block">
+                           <div class="user-block-2-activities pointer" (click)="ViewHall('hall-of-legends')">
+                              <div class="user-block-2-active">
+                                <p><i class="icon-star"></i> Legends
+                                 <label class="label label-success">{{data.legendRecord}}</label></p>
+                              </div>
+                           </div>
+                           <div class="user-block-2-activities pointer" (click)="ViewHall('hall-of-heros')">
+                              <div class="user-block-2-active">
+                               <p> <i class="icon-shield"></i> Heros
+                                 <label class="label label-primary">{{data.herosRecord}}</label></p>
+                              </div>
+                           </div>
+                           <div class="user-block-2-activities pointer">
+                              <div class="user-block-2-active ">
+                                 <p><i class="icofont icofont-flora-flower" (click)="ViewHall('hall-of-fallen-heros')"></i> Fallen Heros
+                                 <label class="label label-primary">{{data.fallHeroRecord}}</label></p>
+                              </div>
+                           </div>
+                           <div class="user-block-2-activities pointer" (click)="ViewHall('hall-of-fame')">
+                              <div class="user-block-2-active">
+                                <p> <i class="icofont icofont-trophy-alt"></i> Hall of Fame
+                                 <label class="label label-primary">{{data.hofRecord}}</label></p>
+                              </div>
+                           </div>
+                           <div class="user-block-2-activities pointer" (click)="ViewHall('hall-of-shame')">
+                              <div class="user-block-2-active">
+                                 <p><i class="icofont icofont-bug"></i> Hall of Shame
+                                 <label class="label label-danger">{{data.hosRecord}}</label></p>
+                              </div>
+                           </div>
+                           <!-- <div class="text-center">
+                              <button type="button" class="btn btn-mini btn-warning waves-effect waves-light text-uppercase m-r-30">
+                                 Follow &nbsp;<i class="icon-bell"></i>
+                                   </button>
+                              <button type="button" class="btn btn-mini btn-primary waves-effect waves-light text-uppercase">
+                                  New Petition &nbsp;<i class="icon-plus"></i>
+                                   </button>
+                        </div> -->
+                        </div>
+                     </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="card">
+                        <div class="card-block">
+                  <p>PETITONS</p> <hr>
+                  <div class="table-responsive">
+                    <p class="text-center" *ngIf="petitions.length < 1">No petition found</p>
+
+                     <table class="table photo-table treat" *ngIf="petitions.length >= 1">
+                            <tbody>
+                               <tr *ngFor="let petiton of petitions; let i=index">
+                                 <td class="no-Wrap text-center">
+                                    <p style="min-width: 3em !important;">
+                                       <img class="img-circle" src="{{petiton.recordOwnerImage}}" (click)="ViewPetition(petiton.id)"
+                                     alt="{{petiton.recordOwnerName}}">
+                                    </p>
+                                 </td>
+                                 <td style="white-space: nowrap;">
+                                   <p (click)="ViewPetition(petiton.id)">
+                                     Petition to enlist: <span> {{petiton.recordOwnerName}} </span> into the
+                                     <a [routerLink]="'/search/'+[petiton.clickObject]" routerLinkActive="router-link-active">
+                                       <small class="text-primary">{{petiton.hallName}}</small></a>
+                                     </p>
+                                 </td>
+                                 <td class="no-wrap text-center">
+                                   <button type="button"
+                                     class="btn btn-mini {{SolveReaction(true,petiton.btnBgTypeLike)}} {{petiton.btnBgTypeLike}} btn-standard waves-effect waves-light"
+                                     (click)="ControlButtonBgType(true, i)">
+                                     <i class="icofont icofont-thumbs-up"></i> {{petiton.totalUpVotes}}
+                                   </button>
+                                 </td>
+                                 <td class=" text-center">
+                                   <button type="button"
+                                     class="btn btn-mini {{SolveReaction(false,petiton.btnBgTypeDisLike)}} {{petiton.btnBgTypeDisLike}} btn-standard waves-effect waves-light"
+                                     (click)="ControlButtonBgType(false, i)">
+                                     <i class="icofont icofont-thumbs-down"></i> {{petiton.totalDownVotes}}
+                                   </button>
+                                 </td>
+                                 <td>
+                                  <small class="text-dark padded">{{petiton.votePercentage}}%</small>
+                                 </td>
+                               </tr>
+
+                            </tbody>
+                     </table>
+                  </div>
+                        </div>
+                     </div>
+                </div>

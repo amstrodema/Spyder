@@ -1,0 +1,112 @@
+/* You can add global styles to this file, and also import other style files */
+table{
+  margin-bottom: 0em !important;
+}
+tr{
+  cursor: pointer;
+}
+td{
+  overflow: hidden;
+}
+.point tbody tr:hover{
+  background-color: #eee;
+  }
+  .point tbody tr:active{
+  background-color: #ccc;
+  }
+
+.pointer{
+  cursor: pointer;
+}
+.pointer:hover{
+  background-color: #eee;
+  }
+  .pointer:active{
+  background-color: #ccc;
+  }
+.bg-dark{
+  background-color: #35444A;
+}
+.bg-dark2{
+  background-color: #546D77;
+}
+.btn-dark{
+  background-color: #35444A;
+  color: white
+}
+.btn-outline-dark{
+  color: #35444A;
+  border: solid thin #35444A;
+  background-color: #ffffff;
+}
+.btn-outline-dark:hover{
+  background-color: #546D77;
+  color: white;
+}
+.btn-outline-dark:active{
+  background-color: #35444A;
+  color: white;
+}
+.text-dark{
+  color: #35444A;
+}
+.text-orange{
+  color: #F57C00;
+}
+.bg-orange{
+  background-color: #F57C00;
+}
+.text-white{
+  color: #ffffff;
+}
+.no-wrap{
+  white-space: nowrap !important;
+}
+.bold{
+  font-weight: 700;
+}
+
+.bolder{
+  font-weight: 900;
+}
+.padded{
+  padding: 0.5em !important
+}
+.border-bottom{
+  border-bottom: solid 0.1em #eee !important;
+}
+.treat td, .treat th{
+  padding: 0em !important;
+    padding-left: 0.3em !important;
+    padding-right: 0.3em !important;
+    padding-top: 0.8em !important;
+}
+.dropdown-item{
+  cursor: pointer;
+}
+img{
+  max-width: 100%;
+}
+.slim{
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+}
+.tint{
+  background-color: #fafafa;
+  padding: 0.2em;
+}
+.bg-tint{
+  background-color: #f5f5f5;
+}
+.flat{
+  padding-bottom: 0em !important;
+}
+.noBold{
+  font-weight: normal;
+}
+.noTopPad{
+  padding-top: 0em;
+}
+.main-head{
+  padding: 1em;
+}

@@ -1,0 +1,311 @@
+  <div class="card">
+
+                    <div class="card-block tab-icon" *ngIf="tab == 0">
+                       <!-- Nav tabs -->
+
+                       <ul class="nav nav-tabs md-tabs " role="tablist">
+                          <li class="nav-item forceInline">
+                             <a class="nav-link active" data-toggle="tab" href="#home7" role="tab"><i class="icofont icofont-cart icn"></i></a>
+                             <div class="slide"></div>
+                          </li>
+                          <li class="nav-item forceInline">
+                             <a class="nav-link" data-toggle="tab" href="#profile7" role="tab"><i class=" ti-exchange-vertical icn"></i>
+                              <label class="badge badge-danger">5</label></a>
+
+                             <div class="slide"></div>
+                          </li>
+                          <li class="nav-item forceInline">
+                             <a class="nav-link" data-toggle="tab" href="#messages7" role="tab"><i class="ti-files icn"></i></a>
+                             <div class="slide"></div>
+                          </li>
+                          <li class="nav-item forceInline">
+                             <a class="nav-link" data-toggle="tab" href="#settings7" role="tab"><i class="icofont icofont-ui-settings icn"></i></a>
+                             <div class="slide"></div>
+                          </li>
+
+                       </ul>
+                       <!-- Tab panes -->
+
+                       <div class="tab-content" *ngIf="tab == 0">
+                          <div class="tab-pane active" id="home7" role="tabpanel">
+                              <br>
+                              <div class="table-responsive">
+                                  <table class="table m-b-0 photo-table point treat">
+                                         <tbody>
+                                            <tr (click)="Click(1)">
+                                               <td style="white-space: nowrap;">
+                                                  SPYDER
+                                                 <p class="text-muted"><small>3000 SPY - 16000 SPY</small></p>
+
+                                               </td>
+                                               <td style="white-space: nowrap;">
+                                                  <p class="text-muted" style="float: right;"><small>356 TRADES</small>
+                                                  <br>
+                                                  $0.09
+                                                  </p>
+                                              </td>
+                                            </tr>
+
+                                            <tr (click)="Click(1)">
+                                                <td style="white-space: nowrap;">
+                                                    Bolarinwa Jose
+                                                  <p class="text-muted"><small>2500 SPY - 7500 SPY</small></p>
+
+                                                </td>
+                                                <td style="white-space: nowrap;">
+                                                   <p class="text-muted" style="float: right;"><small>356 TRADES</small>
+                                                   <br>
+                                                   $0.09
+                                                   </p>
+                                               </td>
+                                             </tr>
+
+                                            <tr>
+                                                <td style="white-space: nowrap;">
+                                                    Jacob Philp
+                                                  <p class="text-muted"><small>9000 SPY - 16000 SPY</small></p>
+
+                                                </td>
+
+                                                <td style="white-space: nowrap;">
+                                                    <p class="text-muted" style="float: right;"><small>356 TRADES</small>
+                                                    <br>
+                                                    $0.09
+                                                    </p>
+                                                </td>
+                                             </tr>
+                                         </tbody>
+                                  </table>
+                               </div>
+
+                          </div>
+                          <div class="tab-pane" id="profile7" role="tabpanel">
+                              <br>
+                            <div class="table-responsive">
+                                <table class="table m-b-0 photo-table point treat">
+                                    <tbody>
+                                       <tr>
+                                          <td style="white-space: nowrap;" (click)="Click(2)">
+                                             SPYDER
+                                            <p class="text-muted"><small>16000 SPY (₦0.02)</small></p>
+
+                                          </td>
+
+                                          <td style="white-space: nowrap;" (click)="Click(2)">
+                                             <p class="text-muted text-right">Awaiting SPY
+                                             <br>
+                                              ₦54,000
+                                             </p>
+                                         </td>
+                                       </tr>
+
+                                       <tr>
+                                           <td style="white-space: nowrap;" (click)="Click(2)">
+                                               Bolarinwa Jose
+                                               <p class="text-muted"><small>6000 SPY (₦0.08)</small></p>
+
+                                             </td>
+
+                                             <td style="white-space: nowrap;">
+                                                <p class="text-muted text-right">Send Payment
+                                                <br>
+                                                ₦5,000
+                                                </p>
+                                            </td>
+                                        </tr>
+
+                                       <tr>
+                                           <td style="white-space: nowrap;" (click)="Click(2)">
+                                               Jacob Philp
+                                               <p class="text-muted"><small>1000 SPY (₦0.09)</small></p>
+
+                                             </td>
+                                             <td style="white-space: nowrap;">
+                                                <p class="text-muted text-right">Awaiting Payment
+                                                <br>
+                                                 ₦4,000
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                </div>
+                          </div>
+                          <div class="tab-pane" id="messages7" role="tabpanel">
+                              <br>
+                              <div class="table-responsive">
+                                  <table class="table m-b-0 photo-table point treat">
+                                      <tbody>
+                                         <tr>
+                                            <td style="white-space: nowrap;" (click)="Click(3)">
+                                               SPYDER
+                                              <p class="text-muted"><small>16000 SPY (₦0.02)</small></p>
+
+                                            </td>
+                                            <td style="white-space: nowrap;" (click)="Click(3)">
+                                               <p class="text-muted" style="float: right;">₦54,000
+                                               </p>
+                                           </td>
+                                         </tr>
+
+                                         <tr>
+                                             <td style="white-space: nowrap;" (click)="Click(3)">
+                                                 Bolarinwa Jose
+                                                 <p class="text-muted"><small>6000 SPY (₦0.08)</small></p>
+
+                                               </td>
+                                               <td style="white-space: nowrap;">
+                                                  <p class="text-muted" style="float: right;">₦5,000
+                                                  </p>
+                                              </td>
+                                          </tr>
+
+                                         <tr>
+                                             <td style="white-space: nowrap;">
+                                                 Jacob Philp
+                                                 <p class="text-muted"><small>1000 SPY (₦0.09)</small></p>
+
+                                               </td>
+                                               <td style="white-space: nowrap;">
+                                                  <p class="text-muted" style="float: right;">₦4,000
+                                                  </p>
+                                              </td>
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                                  </div>
+                          </div>
+                          <div class="tab-pane" id="settings7" role="tabpanel">
+                              <app-setting></app-setting>
+                          </div>
+                       </div>
+
+                     </div>
+
+                   <div class="card-block"  *ngIf="tab == 1">
+                     <p>
+                        <label class="bold">COMPLETE TRANSACTION</label>
+                     </p>
+
+                      <hr>
+                       <div class="form-group">
+                         <label>Amount of Spy</label>
+                         <input type="number" class="form-control" min="1">
+                         <small>Max: 134,000</small>
+                       </div>
+
+                       <div class="form-group">
+                          <label>Total Amount (₦)</label>
+                          <input type="number" class="form-control" min="0">
+                        </div>
+
+                        <div class="form-group text-right">
+                          <hr>
+                            <span class="btn btn-mini btn-warning" (click)="Click(0)"><i class="ti ti-close"></i> &nbsp;Back</span> &nbsp;
+                          <button (click)="BuySPY()" class="btn btn-mini btn-success"><i class="ti ti-shopping-cart-full"></i> &nbsp;Buy</button>
+                         </div>
+
+                     </div>
+
+                     <div class="card-block"  *ngIf="tab == 2">
+                        <div class="table-responsive">
+                            <table class="table m-b-0 photo-table ">
+                              <tbody>
+                                <tr>
+                                  <td colspan="2">
+                                    <label class="bold">TRANSACTION DETAILS</label>
+                                  </td>
+                                </tr>
+                                <tr>
+                                    <td class="no-wrap"><p>Amount of Spy</p></td>
+                                    <td class="no-wrap"><p>134,000</p></td>
+                                </tr>
+                                <tr>
+                                    <td class="no-wrap "><p>Bank Name</p></td>
+                                    <td class="no-wrap "><p>Wema Bank</p></td>
+                                </tr>
+                                <tr>
+                                    <td class="no-wrap "><p>Account Number</p></td>
+                                    <td class="no-wrap "><p>0940049233</p></td>
+                                </tr>
+                                <tr>
+                                    <td class="no-wrap "><p>Account Name</p></td>
+                                    <td class="no-wrap "><p>Julius Barbie</p></td>
+                                </tr>
+                                <tr>
+                                    <td class="no-wrap "><p>Total Amount (₦)</p></td>
+                                    <td class="no-wrap "><p>₦89,000</p></td>
+                                </tr>
+                                <tr>
+                                    <td class="no-wrap "><p>Date</p></td>
+                                    <td class="no-wrap "><p>Feb 23, 2019 10:55AM</p></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class="no-wrap  text-center">
+                                      <br>
+                                        <span class="btn btn-mini btn-warning" (click)="Click(0)">
+                                            <i class="ti ti-close"></i> &nbsp;Back
+                                        </span> &nbsp;
+                                        <span class="btn btn-mini btn-danger" (click)="Click(0)">
+                                            <i class="ti ti-na"></i> Cancel
+                                        </span> &nbsp;
+                                        <button (click)="Click(0)" class="btn btn-mini btn-success">
+                                            <i class="ti ti-check"></i> Payment Sent</button>
+                                    </td>
+                                </tr>
+                              </tbody>
+                            </table>
+
+                            <div class="form-group">
+
+                             </div>
+
+                         </div>
+                     </div>
+
+                     <div class="card-block"  *ngIf="tab == 3">
+                        <div class="table-responsive">
+                            <table class="table m-b-0 photo-table ">
+                              <tbody>
+                                <tr>
+                                  <td colspan="2">
+                                    <label class="bold">TRANSACTION HISTORY</label>
+                                  </td>
+                                </tr>
+                                <tr>
+                                    <td class="no-wrap "><p>Amount of Spy</p></td>
+                                    <td class="no-wrap "><p>Max: 134,000</p></td>
+                                </tr>
+                                <tr>
+                                    <td class="no-wrap "><p>Bank Account</p></td>
+                                    <td class="no-wrap "><p>Wema Bank - 0940049233</p></td>
+                                </tr>
+                                <tr>
+                                    <td class="no-wrap "><p>Total Amount (₦)</p></td>
+                                    <td class="no-wrap "><p>₦89,000</p></td>
+                                </tr>
+                                <tr>
+                                    <td class="no-wrap "><p>Date</p></td>
+                                    <td class="no-wrap "><p>Feb 23, 2019 10:55AM</p></td>
+                                </tr>
+                                <tr>
+                                    <td class="no-wrap ">
+                                        &nbsp;
+                                    </td>
+                                    <td class="no-wrap ">
+                                      <br>
+                                        <span class="btn btn-mini btn-danger" (click)="Click(0)">
+                                            Cancel
+                                          </span>
+                                    </td>
+                                </tr>
+                              </tbody>
+                            </table>
+
+                            <div class="form-group">
+
+                             </div>
+
+                         </div>
+                     </div>
+                 </div>

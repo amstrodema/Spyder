@@ -1,0 +1,354 @@
+<div class="row">
+    <div class="col-xl-8 col-lg-8">
+       <div class="card">
+          <div class="card-block">
+            <div class="form-horizonatal">
+              <p>All information presented is deemed valid until proven otherwise.</p>
+              <hr>
+              <div class="form-group">
+                <p>
+                  <span>
+                      <span class="input-group-btn">
+                          <button type="button" class="btn btn-default btn-mini dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              {{featureGroup}}
+                          </button>
+                          <div class="dropdown-menu">
+                              <small class="dropdown-item"  (click)="SelectFeatureGroup(featureGroup)" *ngFor="let featureGroup of featureGroups">{{featureGroup.name}}</small>
+                          </div>
+                      </span>
+                  </span>
+                </p>
+
+              </div>
+
+              <div class="form-group">
+                  <hr>
+                <span *ngIf=" missingModel.image!= ''"><img [src]="missingModel.image" style="max-width: 10em; max-height: 10em;"><br></span>
+                <input type="file"  (change) ="OptionFileChangeEvent($event)" class="btn btn-mini" style="margin-top: 0.5em;"/>
+
+
+              </div>
+
+              <div class="form-group">
+                <label for="MissingItemTitle" class="form-control-label">Name of {{featureGroup}}</label>
+                <input type="text" class="form-control" [(ngModel)]="missingModel.title" placeholder="Input {{featureGroup}} Name"/>
+                <small class="text-muted">e.g. Tecno XS-5490</small>
+              </div>
+
+              <div class="form-group">
+                  <label for="Missing Item Title" class="form-control-label">Describe the {{featureGroup}}</label>
+                  <input type="text"  class="form-control" [(ngModel)]="missingModel.desc" placeholder="Describe {{featureGroup}} clearly"/>
+                </div>
+                <div class="form-group">
+                    <label for="Missing Item Title" class="form-control-label">Last Seen Area/Location</label>
+                    <input type="text"  class="form-control" [(ngModel)]="missingModel.lastSeen" maxlength="150" placeholder="Last Seen Area/Location"/>
+                  </div>
+
+                <div class="form-group">
+                  <label for="Missing Item Title" class="form-control-label">Explain Incidence in Details</label>
+                  <textarea class="form-control" [(ngModel)]="missingModel.fullInfo" placeholder="Details of Incidence"></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label for="Missing Item Title" class="form-control-label">Features of the {{featureGroup}}</label>
+
+                  <div class="input-group" id="dropdown3">
+                      <div class="input-group-btn">
+                          <button type="button" class="btn btn-dark btn-mini dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              {{featureType}}
+                          </button>
+                          <div class="dropdown-menu">
+                              <small class="dropdown-item" (click)="SelectFeatureType(featureType)" *ngFor="let featureType of activeFeatureTypes">{{featureType.name}}</small>
+                          </div>
+                      </div>
+                      <input type="text" class="form-control form-control-sm" [(ngModel)]="featureValue" placeholder="Input {{featureType}} here" >
+                      <div class="input-group-btn">
+                          <button type="button" (click)="AddFeature(featureValue)"class="btn btn-primary btn-mini" aria-haspopup="true" aria-expanded="false">
+                            Add
+                          </button>
+                      </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <table class="table table-bordered treat" *ngIf="missingVM.features.length > 0">
+                      <tr style="background-color: #f5f5f5;">
+                          <td><p>S/N</p></td>
+                        <td>
+                          <p>FEATURE</p>
+                        </td>
+                        <td>
+                          <p>DETAILS</p>
+                        </td>
+                        <td>
+                          &nbsp;
+                        </td>
+                      </tr>
+                      <tr *ngFor="let feature of missingVM.features; let i=index">
+                          <td><p>{{i+1}}</p></td>
+                          <td>
+                            <p>{{feature.featureType}}</p>
+                          </td>
+                          <td><p>{{feature.value}}</p></td>
+                          <td>
+                            <p class="text-danger pointer text-center" (click) = "RemoveFeature(i)">x</p>
+                          </td>
+                      </tr>
+                    </table>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="State" class="form-control-label">State</label>
+                    <input type="text"  class="form-control" [(ngModel)]="missingModel.state" placeholder="State of Incidence"/>
+                  </div>
+
+                <div class="form-group">
+                    <label for="City" class="form-control-label">City</label>
+                    <input type="text"  class="form-control" [(ngModel)]="missingModel.city" placeholder="City of Incidence"/>
+                  </div>
+
+                <div class="form-group">
+                    <label for="PostalCode" class="form-control-label">Postal Code</label>
+                    <input type="text"  class="form-control" [(ngModel)]="missingModel.postalCode" placeholder="Postal Code Around Incidence Area"/>
+                  </div>
+
+                <div class="form-group text-right">
+                    <span class="btn btn-default btn-mini" (click)="Post()">Post <i class="ti ti-arrow-right"></i> </span>
+                </div>
+
+
+            </div>
+          </div>
+       </div>
+
+       <div class="col-xl-6 col-lg-12">
+          <div class="card">
+             <div class="card-block horizontal-card-img d-flex">
+                <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                <div class="d-inlineblock  p-l-20">
+                  <h6>Josephin Doe</h6>
+                  <a href="#">contact@admin.com</a>
+               </div>
+                <h6 class="txt-warning rotate-txt">Designer</h6>
+             </div>
+          </div>
+       </div>
+       <div class="col-xl-6 col-lg-12">
+          <div class="card">
+             <div class="card-block horizontal-card-img d-flex">
+                <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                <div class="d-inlineblock  p-l-20">
+                  <h6>Josephin Doe</h6>
+                  <a href="#">contact@admin.com</a>
+               </div>
+                <h6 class="txt-warning rotate-txt">Designer</h6>
+             </div>
+          </div>
+       </div>
+       <div class="col-xl-6 col-lg-12">
+          <div class="card">
+             <div class="card-block horizontal-card-img d-flex">
+                <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                <div class="d-inlineblock  p-l-20">
+                  <h6>Josephin Doe</h6>
+                  <a href="#">contact@admin.com</a>
+               </div>
+                <h6 class="txt-warning rotate-txt">Designer</h6>
+             </div>
+          </div>
+       </div>
+       <div class="col-xl-6 col-lg-12">
+          <div class="card">
+             <div class="card-block horizontal-card-img d-flex">
+                <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                <div class="d-inlineblock  p-l-20">
+                  <h6>Josephin Doe</h6>
+                  <a href="#">contact@admin.com</a>
+               </div>
+                <h6 class="txt-warning rotate-txt">Designer</h6>
+             </div>
+          </div>
+       </div>
+
+
+       <div class="col-lg-12">
+          <div class="card">
+             <div class="card-block horizontal-card-img d-flex">
+                <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                <div class="d-inlineblock  p-l-20">
+                  <h6>Josephin Doe</h6>
+                  <a href="#">contact@admin.com</a>
+               </div>
+                <h6 class="txt-warning rotate-txt">Designer</h6>
+             </div>
+          </div>
+       </div>
+    </div>
+
+    <div class="col-xl-4 col-lg-4">
+        <!-- adv -->
+        <div class="card">
+           <div class="card-block horizontal-card-img d-flex">
+              <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+              <div class="d-inlineblock  p-l-20">
+                <h6>Josephin Doe</h6>
+                <a href="#">contact@admin.com</a>
+             </div>
+              <h6 class="txt-warning rotate-txt">Designer</h6>
+           </div>
+        </div>
+        <!-- adv -->
+        <div class="card">
+           <div class="card-block horizontal-card-img d-flex">
+              <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+              <div class="d-inlineblock  p-l-20">
+                <h6>Josephin Doe</h6>
+                <a href="#">contact@admin.com</a>
+             </div>
+              <h6 class="txt-warning rotate-txt">Designer</h6>
+           </div>
+        </div>
+        <div class="card">
+           <div class="card-header" style="margin-bottom: 0; padding-bottom: 0;">
+              <h5 class="card-header-text">
+               <p>Missing Persons</p>
+              </h5>
+              <hr>
+           </div>
+           <div class="card-block" style="padding-top: 0;">
+              <div class="table-responsive">
+                 <table class="table m-b-0 photo-table point">
+                        <tbody>
+
+                           <tr>
+                              <th>
+                                 <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                              </th>
+                              <td>
+                                <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                              </td>
+                           </tr>
+
+                           <tr>
+                              <th>
+                                 <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                              </th>
+                              <td>
+                                <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                              </td>
+                           </tr>
+
+                           <tr>
+                              <th>
+                                 <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                              </th>
+                              <td>
+                                <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                              </td>
+                           </tr>
+
+                           <tr>
+                              <th>
+                                 <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                              </th>
+                              <td>
+                                <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                              </td>
+                           </tr>
+                        </tbody>
+                 </table>
+              </div>
+           </div>
+        </div>
+        <!-- adv -->
+        <div class="card">
+           <div class="card-block horizontal-card-img d-flex">
+              <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+              <div class="d-inlineblock  p-l-20">
+                <h6>Josephin Doe</h6>
+                <a href="#">contact@admin.com</a>
+             </div>
+              <h6 class="txt-warning rotate-txt">Designer</h6>
+           </div>
+        </div>
+        <!-- adv -->
+        <div class="card">
+           <div class="card-block horizontal-card-img d-flex">
+              <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+              <div class="d-inlineblock  p-l-20">
+                <h6>Josephin Doe</h6>
+                <a href="#">contact@admin.com</a>
+             </div>
+              <h6 class="txt-warning rotate-txt">Designer</h6>
+           </div>
+        </div>
+        <div class="card">
+           <div class="card-header" style="margin-bottom: 0; padding-bottom: 0;">
+              <h5 class="card-header-text">
+               <p>Missing Items</p>
+              </h5>
+              <hr>
+           </div>
+           <div class="card-block" style="padding-top: 0;">
+              <div class="table-responsive">
+                 <table class="table m-b-0 photo-table point">
+                        <tbody>
+
+                            <tr>
+                                <th>
+                                   <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                </th>
+                                <td>
+                                  <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                  <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                  <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                </td>
+                             </tr>
+
+                             <tr>
+                                <th>
+                                   <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                </th>
+                                <td>
+                                  <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                  <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                  <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                </td>
+                             </tr>
+
+                             <tr>
+                                <th>
+                                   <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                </th>
+                                <td>
+                                  <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                  <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                  <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                </td>
+                             </tr>
+
+                             <tr>
+                                <th>
+                                   <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                </th>
+                                <td>
+                                  <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                  <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                  <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                </td>
+                             </tr>
+                        </tbody>
+                 </table>
+              </div>
+           </div>
+        </div>
+     </div>
+ </div>

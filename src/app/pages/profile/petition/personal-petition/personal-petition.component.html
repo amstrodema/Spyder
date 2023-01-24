@@ -1,0 +1,32 @@
+<div class="card">
+  <div class="card-block">
+    <div class="card" *ngIf="profileRecords.length < 1">
+      <p class="text-center">
+        No Records Found
+      </p>
+    </div>
+    <div class="card" *ngFor="let record of profileRecords; let i=index">
+      <div class="table-responsive">
+        <table class="table m-b-0">
+          <tbody>
+            <tr (click)="OpenClick(record.type, record.id)">
+              <td class="pointer">
+                <p class="text-muted">
+                  <small>{{record.type | uppercase}}</small>
+                </p>
+                <hr>
+                <p class="text-dark"><b>{{record.title}}</b> - {{record.date | date}}</p>
+                <hr>
+                <p>{{record.body}}
+                </p>
+                <p class="text-muted">
+                  <small>Likes: {{record.likes}} | Dislikes: {{record.dislikes}} | Comments: {{record.comments}} </small>
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

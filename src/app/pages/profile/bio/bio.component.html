@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="main-header">
+          <table>
+            <tr>
+              <td style="width: 73px">
+                  <a href="{{user.image}}" data-lightbox="profileImage">
+                      <img src="{{user.image}}" class="img-circle" style="height: 70px !important; width: 70px !important" alt="User Image">
+                    </a>
+              </td>
+              <td class="padded" style="padding-left: 1em !important">
+                <p class="bold">{{user.name}}</p>
+                <p>@{{user.username}}</p>
+                <p><span *ngIf="user.city != ''">{{user.city}}, </span>{{user.country}}</p>
+              </td>
+              <td>
+                <!-- <p class="text-right" *ngIf="isEdit">
+                    <i class="anchor">edit</i>
+                </p> -->
+              </td>
+            </tr>
+            <!-- <tr>
+              <td colspan="2">
+                  <p style="max-width: 600px;">
+                   {{user.bio}}
+                  </p>
+              </td>
+            </tr> -->
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>

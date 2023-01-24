@@ -1,0 +1,114 @@
+
+<!-- NAV -->
+<header class="main-header-top hidden-print">
+    <a  [routerLink]="['']" routerLinkActive="router-link-active" class="logo animate">
+
+      <app-spinner></app-spinner>
+    </a>
+
+  <nav class="navbar navbar-static-top">
+     <!-- Sidebar toggle button-->
+     <a data-toggle="offcanvas" class="sidebar-toggle"></a>
+     <ul class="top-nav lft-nav">
+        <li>
+           <a (click)="FreeZonePages('wallet')" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle drop icon-circle drop-image">
+              <i class="icon-wallet"></i><span> Wallet</span>
+           </a>
+        </li>
+     </ul>
+     <!-- Navbar Right Menu-->
+     <div class="navbar-custom-menu">
+       <ul class="top-nav">
+          <!--Notification Menu-->
+
+          <li class="dropdown notification-menu">
+              <a  id="morphsearch-search" class="drop icon-circle txt-white">
+                  <i class="ti-search"></i>
+               </a>
+           <span>
+              <a data-toggle="dropdown" data-target="notify-drop" aria-expanded="false" class="dropdown-toggle" *ngIf="isLoggedIn">
+                  <i class="icon-bell text-white" *ngIf="notificationHybrid.unReadNotification < 1"></i>
+                  <i class="icon-bell text-warning bold" *ngIf="notificationHybrid.unReadNotification > 0"></i>
+                </a>
+                <ul class="dropdown-menu notify-drop">
+                  <li class="not-head">You have <b class="text-primary">{{notificationHybrid.unReadNotification}}</b> new notifications.</li>
+                  <li class="bell-notification" *ngIf="notificationHybrid.unReadInbox > 0">
+                    <a href="javascript:;" class="media">
+                      <span class="media-left media-icon">
+                        <img class="img-circle" src="assets/images/avatar-1.png" alt="User Image">
+                      </span>
+                      <div class="media-body"><span class="block">You have </span><span class="text-muted block-time">{{notificationHybrid.unReadInbox}} unread messages</span></div>
+                    </a>
+                  </li>
+                  <li class="bell-notification" *ngFor="let notify of notificationHybrid.notificationVMs; let i=index">
+                    <a href="javascript:;" class="media">
+                      <div class="media-body"><span class="block">{{notify.message}}</span><span class="text-muted block-time">{{notify.dateCreated}}</span></div>
+                    </a>
+                  </li>
+                  <li class="not-footer" (click)="openNotifications()">
+                    <a>See all notifications.</a>
+                  </li>
+                </ul>
+           </span>
+
+
+
+            <a data-toggle="dropdown" data-target="settings-menu" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle drop icon-circle drop-image">
+                <span>
+                  <img class="img-circle" *ngIf="isLoggedIn" src="{{navbar.image}}" style="width:40px; height: 40px;" alt="User Image">
+                 </span>
+                 <span>
+                   <i class="icon icon-user" *ngIf="!isLoggedIn"></i>
+                  </span>
+
+                  <span *ngIf="!isLoggedIn">&nbsp;&nbsp;<b>{{navbar.userName}}</b> <i class=" icofont icofont-simple-down"  *ngIf="isLoggedIn"></i></span>
+             </a>
+             <ul class="dropdown-menu settings-menu"  *ngIf="isLoggedIn">
+                <li (click)="openSettings()"><a><i class="icon-settings"></i> Settings</a></li>
+                <li  (click)="openProfile()"><a><i class="icon-user"></i> Profile</a></li>
+                <!-- <li (click)="moveSide()"><a><i class="icon-envelope-open"></i> My Messages</a></li> -->
+                <li class="p-0">
+                   <div class="dropdown-divider m-0"></div>
+                </li>
+                <!-- <li><a href="#"><i class="icon-lock"></i> Lock Screen</a></li> -->
+                <li style="overflow: hidden;" (click)= "LogOut()"><a><i class="icon-logout"></i> Logout ({{navbar.userName}})</a></li>
+
+             </ul>
+          </li>
+
+       </ul>
+
+        <!-- search -->
+        <div id="morphsearch" class="morphsearch">
+
+           <form class="morphsearch-form">
+
+              <input class="morphsearch-input" name = "searchString" [(ngModel)]="searchString" maxlength="30" autocomplete="off" type="search" placeholder="Search..." />
+
+              <button class="morphsearch-submit" (click)="GlobalSearch()">Search</button>
+           </form>
+           <div class="morphsearch-content" style="margin-top: -1em">
+              <app-spinner3 *ngIf="isLoading"></app-spinner3>
+              <p *ngIf="notFound" class="text-center">No records found for: <b>{{searchString}}</b></p>
+              <div class=" makeScrollable" id="clickCloseTop">
+                  <div class="col-md-4 clickClose"  *ngFor="let item of searchVM; let i=index"  title="{{item.title}}">
+                      <a class="dummy-media-object" (click)="ItemClick(item.valueType, item.id)">
+                         <img src="{{item.image}}" style="max-height: 50px" alt="PagePreloadingEffect" />
+                         <h3 class="no-wrap" style="overflow-x: hidden">{{item.title}}
+                           <p>{{item.brief}}</p>
+                         </h3>
+                      </a>
+
+
+                   </div>
+              </div>
+           </div>
+           <!-- /morphsearch-content -->
+           <span class="morphsearch-close" (click)="CloseSearch()"><i class="icofont icofont-search-alt-1"></i></span>
+        </div>
+        <!-- search end -->
+     </div>
+  </nav>
+
+</header>
+<!-- /NAV -->

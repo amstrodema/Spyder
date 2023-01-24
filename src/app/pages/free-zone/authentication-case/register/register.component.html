@@ -1,0 +1,118 @@
+<section class="log d-flex justify-content-center" style="padding-top: 1em; padding-bottom: 1em;">
+  <!-- Container-fluid starts -->
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+          <div class="login-card card-block bg-white">
+            <form class="md-float-material" action="index.html">
+              <div class="text-center">
+                <a [routerLink]="['']" routerLinkActive="router-link-active">
+                  <img src="assets/images/logo-black.png" alt="logo">
+                </a>
+              </div>
+              <hr>
+              <p class="text-center bolder">CREATE A <span class="text-danger">SPYDER</span> ACCOUNT</p>
+              <hr>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="md-input-wrapper">
+
+                    <input type="text" class="md-form-control" autocomplete="off"  name="fName" [(ngModel)]="registration.fName" required>
+                    <label>First Name</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="md-input-wrapper">
+                    <input type="text" class="md-form-control" autocomplete="off"  name="lName" [(ngModel)]="registration.lName" required>
+                    <label>Last Name</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-md-6">
+                    <div class="md-input-wrapper">
+                      <input type="text" class="md-form-control form-control" autocomplete="off"  name="username" [(ngModel)]="registration.username" required="required">
+                      <label>Username</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="md-input-wrapper">
+                          <input type="text" class="md-form-control form-control" autocomplete="off" name="email" [(ngModel)]="registration.email" required="required">
+                          <label>Email Address</label>
+                        </div>
+                  </div>
+                </div>
+
+              <div class="row">
+                  <div class="col-md-6">
+                    <div class="md-input-wrapper">
+                      <input type="text" class="md-form-control" autocomplete="off" name="state" [(ngModel)]="registration.state" required>
+                      <label>State</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="md-input-wrapper">
+                      <input type="text" class="md-form-control" autocomplete="off" name="city" [(ngModel)]="registration.city" required>
+                      <label>City</label>
+                    </div>
+                  </div>
+                </div>
+
+              <div class="row">
+                  <div class="col-md-6">
+                    <div class="md-input-wrapper">
+                      <select name="country" class="md-form-control form-control" [(ngModel)]="registration.countryID" required>
+                      <option value="{{country.id}}" *ngFor="let country of countries">{{country.name}}</option>
+                      </select>
+                      <label>Country</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="md-input-wrapper">
+                      <input type="text" class="md-form-control" name="refererCode" autocomplete="off"  [(ngModel)]="registration.refererCode" required>
+                      <label>Referral Code</label>
+                    </div>
+                  </div>
+                </div>
+
+
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="md-input-wrapper">
+                          <input type="password" class="md-form-control" name="password" [(ngModel)]="registration.password" required="required">
+                          <label>Password</label>
+                        </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="md-input-wrapper">
+                          <input type="password" class="md-form-control"  name="confirmPassword" [(ngModel)]="confirmPassword" required="required">
+                          <label>Confirm Password</label>
+                        </div>
+                  </div>
+                </div>
+
+
+              <div class="col-xs-10 offset-xs-1">
+                <button type="submit" (click)="Post()" class="btn btn-primary btn-md btn-block waves-effect waves-light m-b-20">Sign up
+                </button>
+              </div>
+              <div class="row">
+                <div class="col-xs-12 text-center">
+                  <small class="text-muted">Already have an account? </small>
+                  <small (click)="Login()" class="f-w-600 p-l-5 anchor">Sign In Here</small>
+
+                </div>
+              </div>
+            </form>
+            <!-- end of form -->
+          </div>
+          <!-- end of login-card -->
+        </div>
+        <!-- end of col-sm-12 -->
+      </div>
+      <!-- end of row-->
+    </div>
+    <!-- end of container-fluid -->
+
+</section>

@@ -1,0 +1,77 @@
+<div class="row" *ngIf="showGallery">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-block">
+        <div class="light-box">
+          <!-- Row start -->
+          <div class="row">
+            <p class="text-center" *ngIf="galleryVM.images.length < 1">No images in gallery</p>
+            <!-- Multi images starts -->
+            <div class="col-xl-2 col-lg-3 col-sm-3 col-xs-12" *ngFor="let image of galleryVM.images; let i=index">
+              <a href="{{image.original}}" data-lightbox="galleryImage">
+                <img src="{{image.original}}" class="img-fluid" alt="">
+              </a>
+            </div>
+            <!-- <div class="col-xl-2 col-lg-3 col-sm-3 col-xs-12">
+                            <a href="assets/images/light-box/l5.jpg" data-lightbox="example-set"
+                              data-title="Lorem ipsum dolor sit amet, consectetur adipiscing lorem impus dolorsit.onsectetur adipiscing.">
+                              <img src="assets/images/light-box/sl5.jpg" class="img-fluid" alt="">
+                            </a>
+                          </div> -->
+
+          </div>
+          <!-- Row end -->
+          <div class="row" *ngIf="showImageGalleryModifier">
+            <div class="form-group col-xs-6" *ngIf="!isSavingImage">
+              <hr>
+              <input type="file" (change)="OptionFileChangeEvent($event)" class="btn btn-mini"
+                style="margin-top: 0.5em;" />
+              <br>
+              <button class="btn btn-mini btn-default" style="margin-top: 1em;" (click)="SaveImage()">Upload New
+                Image</button>
+
+            </div>
+            <app-spinner3 *ngIf="isSavingImage"></app-spinner3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-block">
+        <div class="light-box">
+
+          <!-- Row start -->
+          <div class="row">
+              <p class="text-center" *ngIf="galleryVM.links.length < 1">No videos in gallery</p>
+            <!-- Video gallery starts -->
+            <div class="col-xl-2 col-lg-3 col-sm-3 col-xs-12" *ngFor="let link of galleryVM.links; let i=index">
+              <a href="{{link.address}}" data-toggle="lightbox" data-gallery="youtubevideos">
+                <img src="assets/images/light-box/v1.jpg" class="img-fluid" alt="">
+              </a>
+            </div>
+
+            <!-- Video gallery ends -->
+
+          </div>
+          <!-- Row end -->
+          <div class="row" *ngIf="showLinkGalleryModifier">
+            <div class="form-group col-xs-6" *ngIf="!isSavingLink">
+            <hr>
+              <input type="text" [(ngModel)]="youtubeLink" class="form-control form-control-sm"
+                placeholder="http://www.youtube.com/watch?v=k6mFF3VmVAs" style="margin-top: 0.5em;" />
+
+              <button class="btn btn-mini btn-default" (click)="SaveLink()" style="margin-top: 1em;">Submit Youtube
+                Link</button>
+
+            </div>
+            <app-spinner3 *ngIf="isSavingLink"></app-spinner3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+

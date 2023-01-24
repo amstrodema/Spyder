@@ -1,0 +1,143 @@
+<div class="row">
+  <div class="col-md-12 p-0">
+     <div class="card">
+        <div class="card-block" *ngIf="isPool">
+           <div class="table-responsive">
+              <table class="table">
+                <thead>
+                       <tr>
+                       <td>
+                          <p class="noWrap">S/N</p>
+                       </td>
+                       <td>
+                          <p class="noWrap">POOL NAME</p>
+                       </td>
+                       <td>
+                         <p class="noWrap">TYPE</p>
+                       </td>
+                       <td>
+                         <p>
+                         DESCRIPTION
+                         </p>
+                       </td>
+                    </tr>
+                  <tr>
+                    <td>
+                       <input type="text" class="form-control" disabled>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control">
+                    </td>
+                    <td>
+                        <input type="text" class="form-control">
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" disabled>
+                    </td>
+                  </tr>
+                </thead>
+                 <tbody>
+                    <tr (click)="OpenFeed()">
+                       <td>
+                          <p class="noWrap">1</p>
+                       </td>
+                       <td>
+                          <p class="noWrap">High School</p>
+                       </td>
+                       <td>
+                         <p class="noWrap">System</p>
+                       </td>
+                       <td>
+                         <p><i class="text-muted">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                          ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                         </i></p>
+                       </td>
+                    </tr>
+
+                    <tr (click)="OpenFeed()">
+                      <td>
+                         <p class="noWrap">2</p>
+                      </td>
+                      <td>
+                         <p class="noWrap">NYSC</p>
+                      </td>
+                      <td>
+                        <p class="noWrap">Custom</p>
+                      </td>
+                      <td>
+                        <p>
+                        <i class="text-muted">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                          ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                        </i>
+                        </p>
+                      </td>
+                   </tr>
+                 </tbody>
+              </table>
+           </div>
+        </div>
+        <div class="card-block" *ngIf="!isPool">
+            <hr>
+            <a class="anchor" (click)="CloseFeed()"><i class="icofont icofont-arrow-left"></i><small>Back</small></a>
+          </div>
+     </div>
+
+     <div class="col-xl-6 col-lg-12 grid-item">
+        <div class="card">
+           <div class="card-block horizontal-card-img d-flex">
+              <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+              <div class="d-inlineblock  p-l-20">
+                <h6>Josephin Doe</h6>
+                <a href="#">contact@admin.com</a>
+             </div>
+              <h6 class="txt-warning rotate-txt">Designer</h6>
+           </div>
+        </div>
+     </div>
+
+     <div class="col-xl-6 col-lg-12 grid-item">
+        <div class="card">
+           <div class="card-block horizontal-card-img d-flex">
+              <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+              <div class="d-inlineblock  p-l-20">
+                <h6>Josephin Doe</h6>
+                <a href="#">contact@admin.com</a>
+             </div>
+              <h6 class="txt-warning rotate-txt">Designer</h6>
+           </div>
+        </div>
+     </div>
+
+     <div class="col-xl-6 col-lg-12 grid-item">
+        <div class="card">
+           <div class="card-block horizontal-card-img d-flex">
+              <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+              <div class="d-inlineblock  p-l-20">
+                <h6>Josephin Doe</h6>
+                <a href="#">contact@admin.com</a>
+             </div>
+              <h6 class="txt-warning rotate-txt">Designer</h6>
+           </div>
+        </div>
+     </div>
+
+     <div class="col-xl-6 col-lg-12 grid-item">
+        <div class="card">
+           <div class="card-block horizontal-card-img d-flex">
+              <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+              <div class="d-inlineblock  p-l-20">
+                <h6>Josephin Doe</h6>
+                <a href="#">contact@admin.com</a>
+             </div>
+              <h6 class="txt-warning rotate-txt">Designer</h6>
+           </div>
+        </div>
+     </div>
+
+  </div>
+
+
+</div>

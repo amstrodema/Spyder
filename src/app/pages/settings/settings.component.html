@@ -1,0 +1,288 @@
+<div class="content-wrapper">
+  <div class="container-fluid">
+    <!-- Main content starts -->
+
+        <!-- Row Starts -->
+        <div class="row">
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="main-header">
+                  <h5><b>SETTINGS</b></h5>
+                  <ol class="breadcrumb breadcrumb-title breadcrumb-arrow">
+                      <li class="breadcrumb-item"><a [routerLink]="['']" routerLinkActive="router-link-active" ><i class="icofont icofont-home"></i></a>
+                      </li>
+                    <li class="breadcrumb-item"><small>Settings</small></li>
+                  </ol>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <!-- Row end -->
+
+    <!-- General Row Starts -->
+    <!-- <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="table-responsive">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td colspan="2">
+                    <p class="bold">General Settings</p>
+                    <small></small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p>Allow </p>
+                  </td>
+                  <td class="text-right">
+                    <p class="anchor">Global</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p>Country Preference</p>
+                  </td>
+                  <td class="text-right">
+                    <p class="anchor">Default</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p>Specify Country</p>
+                  </td>
+                  <td class="text-right">
+                    <p class="anchor">Nigeria</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- General Row Ends -->
+
+    <!-- Row Starts -->
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="table-responsive">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td colspan="2">
+                    <p class="bold">Content Settings</p>
+                    <small></small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p>Local Exposure Range</p>
+                  </td>
+                  <td class="text-right">
+                    <p class="anchor">
+                      <input type="checkbox" (change) ="PutSettings()" [(ngModel)]="setting.isLocalRange" role="switch" class="switch" />
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p>Specific Country</p>
+                  </td>
+                  <td class="text-right">
+                      <select name="country" (change) ="PutSettings()" class="md-form-control form-control" style="float: right; border: none"
+                      [(ngModel)]="setting.viewCountryID" [disabled]= !setting.isLocalRange required>
+                          <!-- <option value="{{setting.viewCountryID}}">{{setting.country}}</option> -->
+                        <option value="{{country.id}}" *ngFor="let country of countries">{{country.name}}</option>
+                        </select>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Row Ends -->
+
+    <!-- Row Starts -->
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="table-responsive">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td colspan="2">
+                    <p class="bold">Messaging Settings</p>
+                    <small></small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p>Allow incoming messages</p>
+                  </td>
+                  <td class="text-right">
+                      <input type="checkbox"  (change) ="PutSettings()" [(ngModel)]="setting.isAllowMessaging" role="switch" class="switch" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p>Recieve anonymous messages</p>
+                  </td>
+                  <td class="text-right">
+                      <input type="checkbox" (change) ="PutSettings()" [(ngModel)]="setting.isRecieveAnoymousMessages" role="switch" class="switch" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p>Anonymous Messaging</p>
+                  </td>
+                  <td class="text-right">
+                      <input type="checkbox" (change) ="PutSettings()" [(ngModel)]="setting.isAnoymousMessaging" role="switch" class="switch" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Row Ends -->
+
+    <!-- Wallet Row Starts -->
+    <!-- <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="table-responsive">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td colspan="2">
+                    <p class="bold">Wallet Settings</p>
+                    <small></small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p>Range</p>
+                  </td>
+                  <td class="text-right">
+                    <p class="anchor">Global</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p>Country Preference</p>
+                  </td>
+                  <td class="text-right">
+                    <p class="anchor">Default</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p>Specify Country</p>
+                  </td>
+                  <td class="text-right">
+                    <p class="anchor">Nigeria</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- Wallet Row Ends -->
+
+    <!-- Row Starts -->
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="table-responsive">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td colspan="2">
+                    <p class="bold">Notification Settings</p>
+                    <small></small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p>Email Notification</p>
+                  </td>
+                  <td class="text-right">
+                      <input type="checkbox"  (change) ="PutSettings()" [(ngModel)]="setting.isSendNotificationToMail" role="switch" class="switch" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p>Reaction Notification
+                      <br>
+                      <small class="text-muted">Get notified when your content recieves a reaction</small>
+                    </p>
+
+                  </td>
+                  <td class="text-right">
+                      <input type="checkbox"  (change) ="PutSettings()" [(ngModel)]="setting.isReactionNotification" role="switch" class="switch" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Row Ends -->
+
+    <!-- Row Starts -->
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="table-responsive">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td colspan="2">
+                    <p class="bold">Privacy Settings</p>
+                    <small></small>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p>Public Access</p>
+                  </td>
+                  <td class="text-right">
+                      <input type="checkbox"  (change) ="PutSettings()" [(ngModel)]="setting.isAllowAccess" role="switch" class="switch" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p>Show Email Address</p>
+                  </td>
+                  <td class="text-right">
+                      <input type="checkbox" (change) ="PutSettings()" [(ngModel)]="setting.isShowEmail" role="switch" class="switch" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p>Show Phone Number</p>
+                  </td>
+                  <td class="text-right">
+                      <input type="checkbox" (change) ="PutSettings()" [(ngModel)]="setting.isShowPhoneNo" role="switch" class="switch" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Row Ends -->
+  </div>
+</div>

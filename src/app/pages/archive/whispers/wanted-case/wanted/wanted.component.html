@@ -1,0 +1,411 @@
+<div class="content-wrapper">
+    <!-- Container-fluid starts -->
+    <div class="container-fluid">
+      <!-- Main content starts -->
+      <!-- Row Starts -->
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="main-header">
+              <h5><b>WANTED</b></h5>
+              <ol class="breadcrumb breadcrumb-title breadcrumb-arrow">
+                <li class="breadcrumb-item"><a [routerLink]="['']" routerLinkActive="router-link-active" ><i class="icofont icofont-home"></i></a>
+                </li>
+                <li class="breadcrumb-item"><small>Archives</small></li>
+                <li class="breadcrumb-item"><small>Whispers</small></li>
+                <li class="breadcrumb-item"><small>Wanted</small></li>
+              </ol>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- Row end -->
+
+
+      <div class="row">
+        <div class="col-xl-12 col-lg-12">
+          <div class="card">
+            <div class="card-block">
+                <h5><b>Raise Awarness On Wanted Persons</b></h5>
+                <p class="text-danger">Profile wanted persons in your community and help keep others safe <br><span class="text-default">Terms and Conditions</span></p>
+                <hr>
+                <p>
+                    <a class="anchor btn btn-mini" (click)="NewWanted()" *ngIf="!toggleSearchFilterIndicator">New Entry <i class="icon-plus"></i></a>
+                </p>
+            </div>
+          </div>
+          </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xl-8 col-lg-8">
+           <div class="card">
+              <div class="card-block">
+                 <div class="table-responsive">
+                    <table class="table m-b-0 photo-table point">
+                      <thead>
+                          <tr class="border-bottom">
+                              <td colspan="6">
+                                 <span>
+                                  <span style="float: left;">
+                                      <span class="input-group-btn" *ngIf="!toggleSearchFilterIndicator">
+                                          <button type="button" class="btn btn-default btn-mini" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                              Filter Items <i class="icofont icofont-filter"></i>
+                                          </button>
+                                          <div class="dropdown-menu">
+                                              <small class="dropdown-item" href="#"><i class="icofont icofont-filter"></i> All Items</small>
+                                              <small class="dropdown-item" href="#"><i class="icofont icofont-phone"></i> Phones</small>
+                                              <small class="dropdown-item" href="#"><i class="icofont icofont-drive"></i> Vehicles</small>
+                                              <small class="dropdown-item" href="#">Documents</small>
+                                              <div role="separator" class="dropdown-divider"></div>
+                                              <small class="dropdown-item" href="#"><i class="icofont icofont-filter"></i> All Items</small>
+                                          </div>
+                                      </span>
+                                  </span>
+
+                                     <span class="input-group" *ngIf="toggleSearchFilterIndicator"  style="width: 70%; float: left;">
+                                         <span class="input-group-btn" id="btn-addon3.1">
+                                             <span type="submit" (click)="toggleSearchFilter(false)" class="btn btn-default btn-mini">
+                                             x
+                                             </span>
+                                         </span>
+                                         <input id="btnaddon2" type="text" class="form-control form-control-sm thresold-i"
+                                           placeholder="Type your keywords..." maxlength="25" aria-describedby="btn-addon2">
+                                         <span class="input-group-btn" id="btn-addon2">
+                                           <button type="submit" class="btn btn-primary  btn-mini">
+                                             Go!
+                                           </button>
+                                         </span>
+                                       </span>
+
+                                     <span style="float: right;">
+                                       <i class="btn btn-mini icon-magnifier" (click)="toggleSearchFilter(true)" *ngIf="!toggleSearchFilterIndicator"></i>
+                                       <i class="btn btn-mini icofont icofont-long-arrow-up"></i>
+                                       <i class="btn btn-mini icon-settings"></i>
+                                     </span>
+                                   </span>
+                              </td>
+                            </tr>
+                      </thead>
+                           <tbody>
+
+                              <tr (click)="WantedDetails()">
+                                  <th>
+                                     <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                  </th>
+                                  <td>
+                                    <p class="text-dark"><b>Xaomi 26001</b></p>
+                                    <p>Slightly blue-gray color, with silver patch. Stolen around 3am at gunpoint.
+                                    </p>
+                                    <p class="text-muted">
+                                      <small>Imei: 3099904958356849384</small>
+                                    </p>
+                                  </td>
+                               </tr>
+                               <tr (click)="WantedDetails()">
+                                  <th>
+                                     <img class="img-circle" src="assets/images/avatar-1.png" alt="User">
+                                  </th>
+                                  <td>
+                                    <p class="text-dark"><b>Camry Pencil Light 2001</b></p>
+                                    <p>
+                                      Stain free Camry, snatched today at Cresent Bolevard
+                                    </p>
+                                    <p class="text-muted">
+                                      <small>Registration: 899 88A DDFF</small>
+                                    </p>
+                                  </td>
+                               </tr>
+                               <tr (click)="WantedDetails()">
+                                  <th>
+                                     <img class="img-circle" src="assets/images/avatar-3.png" alt="User">
+                                  </th>
+                                  <td>
+                                    <p class="text-dark"><b>Dell Inspiron 3521</b></p>
+                                    <p>Black casing. Stolen around Adegbayi Ibadan</p>
+                                    <p class="text-muted">
+                                      <small>Product ID: 123HDJOE-PEOO-PWOEUUKD</small>
+                                    </p>
+                                  </td>
+                               </tr>
+                           </tbody>
+                    </table>
+                 </div>
+              </div>
+           </div>
+
+           <div class="col-xl-6 col-lg-12">
+              <div class="card">
+                 <div class="card-block horizontal-card-img d-flex">
+                    <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                    <div class="d-inlineblock  p-l-20">
+                      <h6>Josephin Doe</h6>
+                      <a href="#">contact@admin.com</a>
+                   </div>
+                    <h6 class="txt-warning rotate-txt">Designer</h6>
+                 </div>
+              </div>
+           </div>
+           <div class="col-xl-6 col-lg-12">
+              <div class="card">
+                 <div class="card-block horizontal-card-img d-flex">
+                    <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                    <div class="d-inlineblock  p-l-20">
+                      <h6>Josephin Doe</h6>
+                      <a href="#">contact@admin.com</a>
+                   </div>
+                    <h6 class="txt-warning rotate-txt">Designer</h6>
+                 </div>
+              </div>
+           </div>
+           <div class="col-xl-6 col-lg-12">
+              <div class="card">
+                 <div class="card-block horizontal-card-img d-flex">
+                    <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                    <div class="d-inlineblock  p-l-20">
+                      <h6>Josephin Doe</h6>
+                      <a href="#">contact@admin.com</a>
+                   </div>
+                    <h6 class="txt-warning rotate-txt">Designer</h6>
+                 </div>
+              </div>
+           </div>
+           <div class="col-xl-6 col-lg-12">
+              <div class="card">
+                 <div class="card-block horizontal-card-img d-flex">
+                    <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                    <div class="d-inlineblock  p-l-20">
+                      <h6>Josephin Doe</h6>
+                      <a href="#">contact@admin.com</a>
+                   </div>
+                    <h6 class="txt-warning rotate-txt">Designer</h6>
+                 </div>
+              </div>
+           </div>
+
+
+           <div class="col-lg-12">
+              <div class="card">
+                 <div class="card-block horizontal-card-img d-flex">
+                    <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                    <div class="d-inlineblock  p-l-20">
+                      <h6>Josephin Doe</h6>
+                      <a href="#">contact@admin.com</a>
+                   </div>
+                    <h6 class="txt-warning rotate-txt">Designer</h6>
+                 </div>
+              </div>
+           </div>
+        </div>
+
+        <div class="col-xl-4 col-lg-4">
+            <!-- adv -->
+            <div class="card">
+               <div class="card-block horizontal-card-img d-flex">
+                  <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                  <div class="d-inlineblock  p-l-20">
+                    <h6>Josephin Doe</h6>
+                    <a href="#">contact@admin.com</a>
+                 </div>
+                  <h6 class="txt-warning rotate-txt">Designer</h6>
+               </div>
+            </div>
+            <!-- adv -->
+            <div class="card">
+               <div class="card-block horizontal-card-img d-flex">
+                  <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                  <div class="d-inlineblock  p-l-20">
+                    <h6>Josephin Doe</h6>
+                    <a href="#">contact@admin.com</a>
+                 </div>
+                  <h6 class="txt-warning rotate-txt">Designer</h6>
+               </div>
+            </div>
+            <div class="card">
+               <div class="card-header" style="margin-bottom: 0; padding-bottom: 0;">
+                  <h5 class="card-header-text">
+                   <p>Missing Persons</p>
+                  </h5>
+                  <hr>
+               </div>
+               <div class="card-block" style="padding-top: 0;">
+                  <div class="table-responsive">
+                     <table class="table m-b-0 photo-table point">
+                            <tbody>
+
+                               <tr>
+                                  <th>
+                                     <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                  </th>
+                                  <td>
+                                    <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                    <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                    <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                  </td>
+                               </tr>
+
+                               <tr>
+                                  <th>
+                                     <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                  </th>
+                                  <td>
+                                    <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                    <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                    <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                  </td>
+                               </tr>
+
+                               <tr>
+                                  <th>
+                                     <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                  </th>
+                                  <td>
+                                    <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                    <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                    <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                  </td>
+                               </tr>
+
+                               <tr>
+                                  <th>
+                                     <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                  </th>
+                                  <td>
+                                    <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                    <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                    <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                  </td>
+                               </tr>
+                            </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+            <!-- adv -->
+            <div class="card">
+               <div class="card-block horizontal-card-img d-flex">
+                  <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                  <div class="d-inlineblock  p-l-20">
+                    <h6>Josephin Doe</h6>
+                    <a href="#">contact@admin.com</a>
+                 </div>
+                  <h6 class="txt-warning rotate-txt">Designer</h6>
+               </div>
+            </div>
+            <!-- adv -->
+            <div class="card">
+               <div class="card-block horizontal-card-img d-flex">
+                  <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                  <div class="d-inlineblock  p-l-20">
+                    <h6>Josephin Doe</h6>
+                    <a href="#">contact@admin.com</a>
+                 </div>
+                  <h6 class="txt-warning rotate-txt">Designer</h6>
+               </div>
+            </div>
+            <div class="card">
+               <div class="card-header" style="margin-bottom: 0; padding-bottom: 0;">
+                  <h5 class="card-header-text">
+                   <p>Stolen Items</p>
+                  </h5>
+                  <hr>
+               </div>
+               <div class="card-block" style="padding-top: 0;">
+                  <div class="table-responsive">
+                     <table class="table m-b-0 photo-table point">
+                            <tbody>
+
+                                <tr>
+                                    <th>
+                                       <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                    </th>
+                                    <td>
+                                      <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                      <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                      <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                    </td>
+                                 </tr>
+
+                                 <tr>
+                                    <th>
+                                       <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                    </th>
+                                    <td>
+                                      <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                      <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                      <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                    </td>
+                                 </tr>
+
+                                 <tr>
+                                    <th>
+                                       <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                    </th>
+                                    <td>
+                                      <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                      <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                      <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                    </td>
+                                 </tr>
+
+                                 <tr>
+                                    <th>
+                                       <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                    </th>
+                                    <td>
+                                      <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                      <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                      <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                    </td>
+                                 </tr>
+                            </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+     </div>
+
+       <div class="row">
+          <div class="col-xl-4 col-lg-12 grid-item">
+              <div class="card">
+                 <div class="card-block horizontal-card-img d-flex">
+                    <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                    <div class="d-inlineblock  p-l-20">
+                      <h6>Josephin Doe</h6>
+                      <a href="#">contact@admin.com</a>
+                   </div>
+                    <h6 class="txt-warning rotate-txt">Designer</h6>
+                 </div>
+              </div>
+           </div>
+           <div class="col-xl-4 col-lg-12 grid-item">
+              <div class="card">
+                 <div class="card-block horizontal-card-img d-flex">
+                    <img class="media-object img-circle" src="assets/images/lockscreen.png" alt="Generic placeholder image">
+                    <div class="d-inlineblock  p-l-20">
+                      <h6>Josephin Doe</h6>
+                      <a href="#">contact@admin.com</a>
+                   </div>
+                    <h6 class="txt-danger rotate-txt">Developer</h6>
+                 </div>
+              </div>
+           </div>
+           <div class="col-xl-4 col-lg-12 grid-item">
+              <div class="card">
+                 <div class="card-block horizontal-card-img d-flex">
+                    <img class="media-object img-circle" src="assets/images/lockscreen.png" alt="Generic placeholder image">
+                    <div class="d-inlineblock  p-l-20">
+                      <h6>Josephin Doe</h6>
+                      <a href="#">contact@admin.com</a>
+                   </div>
+                    <h6 class="txt-danger rotate-txt">Developer</h6>
+                 </div>
+              </div>
+           </div>
+       </div>
+
+    </div>
+  </div>

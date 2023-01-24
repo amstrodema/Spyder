@@ -1,0 +1,93 @@
+
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-block">
+                           <div class="user-block-2-activities pointer" (click)="ViewRecord('missing')">
+                              <div class="user-block-2-active">
+                                  <p><i class="icofont icofont-users"></i> Missing
+                                 <label class="label label-primary">{{data.missingRecord}}</label></p>
+                              </div>
+                           </div>
+                           <div class="user-block-2-activities pointer" (click)="ViewRecord('stolen')">
+                              <div class="user-block-2-active">
+                                  <p><i class="icofont icofont-clock-time"></i>Stolen Items
+                                 <label class="label label-primary">{{data.stolenRecord}}</label></p>
+                              </div>
+                           </div>
+                           <div class="user-block-2-activities" (click)="ViewRecord('found')">
+                              <div class="user-block-2-active">
+                                  <p><i class="icofont icofont-users"></i> Found
+                                 <label class="label label-primary">{{data.foundRecord}}</label></p>
+                              </div>
+                           </div>
+                           <!-- <div class="text-center">
+                              <button type="button" class="btn btn-mini btn-warning waves-effect waves-light text-uppercase m-r-30">
+                                 Follows &nbsp;<i class="icon-bell"></i>
+                                   </button>
+                              <button type="button" class="btn btn-mini btn-primary waves-effect waves-light text-uppercase">
+                                  Whisper &nbsp;<i class="icon-plus"></i>
+                                   </button>
+                        </div> -->
+                        </div>
+                     </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="card">
+                        <div class="card-block">
+                            <p>MISSING</p> <hr>
+                            <div class="card">
+                                <p class="text-center" *ngIf="missingData.length < 1">
+                                    No Records Found
+                                  </p>
+                              <div class="table-responsive" *ngFor="let missing of missingData; let i=index">
+                                <table class="table m-b-0">
+                                  <tbody>
+                                    <tr (click)="MissingDetails(missing)">
+                                      <th class="tint text-center" style="width: 25%;">
+                                        <img class="img-square" style="max-height: 100px !important;" src="{{missing.image}}" alt="User">
+                                      </th>
+                                      <td class="pointer">
+                                        <p class="text-dark"><b>{{missing.title}}</b></p>
+                                        <p>{{missing.desc}}
+                                        </p>
+                                        <p class="text-muted">
+                                          <small>Incidence: {{missing.fullInfo}}</small>
+                                        </p>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                        </div>
+                     </div>
+                    <div class="card">
+                        <div class="card-block">
+                            <p>STOLEN</p> <hr>
+                            <div class="card">
+                                <p class="text-center" *ngIf="stolenData.length < 1">
+                                    No Records Found
+                                  </p>
+                              <div class="table-responsive" *ngFor="let missing of stolenData; let i=index">
+                                <table class="table m-b-0">
+                                  <tbody>
+                                    <tr (click)="MissingDetails(missing)">
+                                      <th class="tint text-center" style="width: 25%;">
+                                        <img class="img-square" style="max-height: 100px !important;" src="{{missing.image}}" alt="User">
+                                      </th>
+                                      <td class="pointer">
+                                        <p class="text-dark"><b>{{missing.title}}</b></p>
+                                        <p>{{missing.desc}}
+                                        </p>
+                                        <p class="text-muted">
+                                          <small>Incidence: {{missing.fullInfo}}</small>
+                                        </p>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                        </div>
+                     </div>
+                </div>

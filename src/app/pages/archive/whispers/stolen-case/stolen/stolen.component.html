@@ -1,0 +1,33 @@
+<div class="content-wrapper">
+      <!-- Container-fluid starts -->
+      <div class="container-fluid">
+        <!-- Main content starts -->
+        <!-- Row Starts -->
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="main-header">
+                <h5><b>STOLEN ITEMS</b></h5>
+                <ol class="breadcrumb breadcrumb-title breadcrumb-arrow">
+                  <li class="breadcrumb-item"><a [routerLink]="['']" routerLinkActive="router-link-active" ><i class="icofont icofont-home"></i></a>
+                  </li>
+                  <li class="breadcrumb-item"><small>Archives</small></li>
+                  <li class="breadcrumb-item"><small>Whispers</small></li>
+                  <li class="breadcrumb-item"><small>Stolen</small></li>
+                </ol>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- Row end -->
+        <div style="margin-bottom: 0.7em;">
+            <a class="anchor btn btn-mini btn-default" (click)="newstolen() ">New Entry <i class="icon-plus"></i></a>
+        </div>
+
+        <app-awareness-case [awarenessTypeNo] = 2 [target] = target></app-awareness-case>
+
+      </div>
+    </div>
+

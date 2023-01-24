@@ -1,0 +1,11 @@
+.makeScrollable{
+  max-height: 90vh !important;
+  overflow-y:scroll !important
+}
+@media (max-width: 767px)
+{
+    .makeScrollable{
+      max-height: 70vh !important;
+       overflow-y:scroll !important;
+}
+}

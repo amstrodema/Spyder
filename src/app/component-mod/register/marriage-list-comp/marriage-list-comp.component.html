@@ -1,0 +1,131 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-block">
+        <div class="table-responsive">
+
+          <table class="table photo-table">
+            <thead>
+              <tr>
+                <td style="white-space: nowrap;">
+                  <p>S/N</p>
+                </td>
+                <td style="white-space: nowrap;">
+                  <p>GROOM NAME</p>
+                </td>
+                <td style="white-space: nowrap;">
+                  <p>BRIDE NAME</p>
+                </td>
+                <td>
+                  <p>DATE</p>
+                </td>
+                <td>
+                  <p>STATUS</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="text" class="form-control" [(ngModel)]="ss1" (ngModelChange) = DataSearch() disabled>
+                </td>
+                <td>
+                  <input type="text" class="form-control form-control-sm" [(ngModel)]="ss2" (ngModelChange) = DataSearch()>
+                </td>
+                <td>
+                  <input type="text" class="form-control form-control-sm" [(ngModel)]="ss3" (ngModelChange) = DataSearch()>
+                </td>
+                <td>
+                  <input type="text" class="form-control form-control-sm" [(ngModel)]="ss4" (ngModelChange) = DataSearch()>
+                </td>
+                <td>
+                  <input type="text" class="form-control form-control-sm" [(ngModel)]="ss5" (ngModelChange) = DataSearch() style="min-width: 7em;">
+                </td>
+              </tr>
+            </thead>
+            <tbody  *ngIf="data.length > 0">
+
+              <tr (click)="MarriageRecordDetails(record.id)" *ngFor="let record of data; let i=index">
+                <td>
+                  <p>{{i+1}}</p>
+                </td>
+                <td>
+                  <p>{{record.groomLName}} {{record.groomFName}}</p>
+                </td>
+                <td>
+                  <p>{{record.brideLName}} {{record.brideFName}}</p>
+                </td>
+
+                <td>
+                  <p class="noWrap"><i class="text-muted">{{record.weddingDate}}</i></p>
+                </td>
+                <td>
+                  <p class="text-muted">{{record.status}}</p>
+                </td>
+
+              </tr>
+            </tbody>
+          </table>
+          <p class="text-center"  *ngIf="data.length < 1">No marriage records found.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+        <div class="card-block text-center">
+            <img src= "assets/images/ads2.jpg" style="max-width: 50%; max-height: 3em;"/>
+        </div>
+      </div>
+
+    <!-- <div class="col-xl-6 col-lg-12 grid-item">
+      <div class="card">
+        <div class="card-block horizontal-card-img d-flex">
+          <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+          <div class="d-inlineblock  p-l-20">
+            <h6>Josephin Doe</h6>
+            <a href="#">contact@admin.com</a>
+          </div>
+          <h6 class="txt-warning rotate-txt">Designer</h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-6 col-lg-12 grid-item">
+      <div class="card">
+        <div class="card-block horizontal-card-img d-flex">
+          <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+          <div class="d-inlineblock  p-l-20">
+            <h6>Josephin Doe</h6>
+            <a href="#">contact@admin.com</a>
+          </div>
+          <h6 class="txt-warning rotate-txt">Designer</h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-6 col-lg-12 grid-item">
+      <div class="card">
+        <div class="card-block horizontal-card-img d-flex">
+          <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+          <div class="d-inlineblock  p-l-20">
+            <h6>Josephin Doe</h6>
+            <a href="#">contact@admin.com</a>
+          </div>
+          <h6 class="txt-warning rotate-txt">Designer</h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-6 col-lg-12 grid-item">
+      <div class="card">
+        <div class="card-block horizontal-card-img d-flex">
+          <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+          <div class="d-inlineblock  p-l-20">
+            <h6>Josephin Doe</h6>
+            <a href="#">contact@admin.com</a>
+          </div>
+          <h6 class="txt-warning rotate-txt">Designer</h6>
+        </div>
+      </div>
+    </div> -->
+
+  </div>
+</div>

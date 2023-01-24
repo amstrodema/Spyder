@@ -1,0 +1,379 @@
+
+
+<aside class="main-sidebar hidden-print ">
+  <section class="sidebar" id="sidebar-scroll">
+     <!-- Sidebar Menu-->
+     <ul class="sidebar-menu">
+         <li class="nav-level">--- Overview</li>
+         <li class="treeview">
+             <a class="waves-effect waves-dark"  (click)="openPage('trending')">
+                 <i class="icon-speedometer"></i><span> Trending</span>
+             </a>
+         </li>
+         <li class="treeview">
+             <a class="waves-effect waves-dark"  (click)="openPage('petitions')">
+                 <i class="icon-anchor"></i><span> Petitions</span>
+             </a>
+         </li>
+         <!-- <li class="treeview">
+             <a class="waves-effect waves-dark"  (click)="openPage('sos')">
+                 <i class="icon-fire"></i><span> SOS</span>
+             </a>
+         </li> -->
+         <li class="nav-level">--- Archives</li>
+         <li class="treeview"><a class="waves-effect waves-dark"><i class="icon-layers"></i><span> Halls</span><i class="icon-arrow-down"></i></a>
+             <ul class="treeview-menu">
+                <li>
+                  <a class="waves-effect waves-dark" (click)="hallPages('legend')">
+                    <i class="icon-star"></i> Hall of Legends
+                  </a>
+                </li>
+                <li>
+                    <a class="waves-effect waves-dark" (click)="hallPages('hero')">
+                      <i class="icon-shield"></i> Hall of Heros
+                    </a>
+                  </li>
+                <li>
+                  <a class="waves-effect waves-dark" (click)="hallPages('fallen')">
+                    <i class="icofont icofont-flora-flower"></i> Hall of Fallen Heros
+                  </a>
+                </li>
+                <li>
+                  <a class="waves-effect waves-dark" (click)="hallPages('fame')">
+                    <i class="icofont icofont-trophy-alt"></i> Hall of Fame
+                  </a>
+                </li>
+                 <li><a class="waves-effect waves-dark" (click)="hallPages('shame')"><i class="icofont icofont-bug"></i>
+                   Hall of Shame</a></li>
+             </ul>
+         </li>
+
+         <li class="treeview"><a class="waves-effect waves-dark"><i class="icon-event"></i><span> Registrar</span><span class="label label-success menu-caption">New</span><i class="icon-arrow-down"></i></a>
+             <ul class="treeview-menu">
+                 <li><a class="waves-effect waves-dark" (click)="openPage('demise')"><i class="icofont icofont-tags"></i> Death Register</a></li>
+                 <!-- <li><a class="waves-effect waves-dark" (click)="openPage('item')"><i class="icofont icofont-attachment"></i> Item Register</a></li> -->
+                 <li><a class="waves-effect waves-dark" (click)="openPage('marriage')"><i class="icofont icofont-ui-love"></i> Marriage Register</a></li>
+             </ul>
+         </li>
+
+        <!-- <li class="treeview">
+          <a class="waves-effect waves-dark" (click)="openPage('pools')">
+            <i class="icon-globe-alt"></i><span> Pools</span>
+          </a>
+        </li> -->
+
+         <li class="treeview"><a class="waves-effect waves-dark"><i class="icon-bubbles"></i><span> Whispers</span><i class="icon-arrow-down"></i></a>
+             <ul class="treeview-menu">
+                 <li class="treeview"><a class="waves-effect waves-dark" (click)="whisperPages('confession')"><i class="icofont icofont-ui-record"></i> Confessions</a></li>
+
+                 <li class="treeview"><a class="waves-effect waves-dark"  (click)="whisperPages('found')"><i class="icofont icofont-flag-alt-2"></i><span> Found</span></a></li>
+
+                 <li class="treeview"><a class="waves-effect waves-dark"  (click)="whisperPages('missing')"><i class="icofont icofont-flag-alt-2"></i><span> Missing</span></a></li>
+
+                 <li class="treeview"><a class="waves-effect waves-dark"  (click)="whisperPages('scammer')"><i class="icofont icofont-danger-zone"></i><span> Scammers</span></a></li>
+
+                 <li class="treeview"><a class="waves-effect waves-dark"  (click)="whisperPages('stolen')"><i class="icofont icofont-danger-zone"></i><span> Stolen</span></a></li>
+
+            <!-- <li class="treeview"><a class="waves-effect waves-dark"  (click)="whisperPages('wanted')"><i class="icofont icofont-danger-zone"></i><span> Wanted</span></a></li> -->
+
+              <li class="treeview"><a class="waves-effect waves-dark"  (click)="whisperPages('whistle')"><i class="icofont icofont-ui-volume"></i><span> Whistle Blower</span></a></li>
+             </ul>
+         </li>
+
+
+
+
+         <!-- <li class="nav-level">--- Discovery</li>
+         <li class="treeview">
+            <a class="waves-effect waves-dark"  (click)="DiscoveryPages('connect')">
+                <i class="icon-link"></i><span> Connect</span>
+            </a>
+        </li>
+        <li class="treeview">
+           <a class="waves-effect waves-dark"  (click)="DiscoveryPages('history')">
+               <i class="icon-magic-wand"></i><span> History</span>
+           </a>
+       </li>
+      <li class="treeview">
+         <a class="waves-effect waves-dark" (click)="DiscoveryPages('trace')">
+             <i class="icon-magnifier"></i><span> Trace</span>
+         </a>
+     </li> -->
+       <!-- <li class="treeview">
+          <a class="waves-effect waves-dark" href="basic-table.html">
+              <i class="icon-list"></i><span> Reunion</span>
+          </a>
+      </li>
+      <li class="treeview">
+         <a class="waves-effect waves-dark" href="basic-table.html">
+             <i class="icon-list"></i><span> Trace</span>
+         </a>
+     </li> -->
+
+         <li class="nav-level">--- Free Zone</li>
+         <li class="treeview" *ngIf="!isLogged"><a class="waves-effect waves-dark"><i class="icon-key"></i><span> Authentication</span><i class="icon-arrow-down"></i></a>
+          <ul class="treeview-menu">
+              <li><a class="waves-effect waves-dark" (click)="openPage('register')" target="_blank"><i class="icon-note"></i> Register</a></li>
+
+              <li><a class="waves-effect waves-dark"  (click)="openPage('login')" target="_blank"><i class="icon-lock-open"></i><span> Login</span></a></li>
+
+          </ul>
+      </li>
+
+      <!-- <li class="treeview">
+          <a class="waves-effect waves-dark" (click)="FreeZonePages('rank')">
+              <i class="icon-star"></i><span> Rank</span>
+          </a>
+      </li> -->
+
+      <li class="treeview">
+          <a class="waves-effect waves-dark" (click)="FreeZonePages('wallet')">
+              <i class="icon-wallet"></i><span> Wallet</span>
+          </a>
+      </li>
+
+      <li class="treeview">
+          <a class="waves-effect waves-dark"  (click)="FreeZonePages('market')">
+              <i class="icon-basket-loaded"></i><span> Market Place</span>
+          </a>
+      </li>
+
+     </ul>
+  </section>
+</aside>
+
+   <!-- Sidebar chat start -->
+   <div id="sidebar" class="p-fixed header-users showChat">
+      <div class="had-container">
+         <div class="card card_main header-users-main">
+            <div class="card-content user-box">
+               <div class="md-group-add-on p-20">
+                  <span class="md-add-on">
+                                 <i class="icofont icofont-search-alt-2 chat-search"></i>
+                              </span>
+                  <div class="md-input-wrapper">
+                     <input type="text" class="md-form-control" name="username" id="search-friends">
+                     <label>Search</label>
+                  </div>
+
+               </div>
+               <div class="media friendlist-main">
+
+                  <h6><small class="text-danger" style="cursor: pointer;" (click)="moveSide()">- x - </small> &nbsp;&nbsp;&nbsp; Friend List</h6>
+
+               </div>
+               <div class="main-friend-list">
+                  <div class="media friendlist-box" (click)="openFriendList()" data-id="1" data-status="online" data-username="Josephin Doe" data-toggle="tooltip" data-placement="left" title="Josephin Doe">
+
+                     <a class="media-left">
+                        <img class="media-object img-circle" src="/../assets/images/avatar-1.png" alt="Generic placeholder image">
+                        <img class="media-object img-circle" src="assets/images/avatar-1.png" alt="Generic placeholder image">
+                        <div class="live-status bg-success"></div>
+                     </a>
+                     <div class="media-body">
+                        <div class="friend-header">Josephin Doe</div>
+                        <span>20min ago</span>
+                     </div>
+                  </div>
+                  <div class="media friendlist-box" (click)="openFriendList()" data-id="3" data-status="online" data-username="Alice" data-toggle="tooltip" data-placement="left" title="Alice">
+                     <a class="media-left">
+                        <img class="media-object img-circle" src="assets/images/avatar-2.png" alt="Generic placeholder image">
+                        <div class="live-status bg-success"></div>
+                     </a>
+                     <div class="media-body">
+                        <div class="friend-header">Alice</div>
+                        <span>1 hour ago</span>
+                     </div>
+                  </div>
+                  <div class="media friendlist-box" (click)="openFriendList()" data-id="7" data-status="offline" data-username="Michael Scofield" data-toggle="tooltip" data-placement="left" title="Michael Scofield">
+                     <a class="media-left">
+                        <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                        <div class="live-status bg-danger"></div>
+                     </a>
+                     <div class="media-body">
+                        <div class="friend-header">Michael Scofield</div>
+                        <span>3 hours ago</span>
+                     </div>
+                  </div>
+                  <div class="media friendlist-box" (click)="openFriendList()" data-id="5" data-status="online" data-username="Irina Shayk" data-toggle="tooltip" data-placement="left" title="Irina Shayk">
+                     <a class="media-left">
+                        <img class="media-object img-circle" src="assets/images/avatar-4.png" alt="Generic placeholder image">
+                        <div class="live-status bg-success"></div>
+                     </a>
+                     <div class="media-body">
+                        <div class="friend-header">Irina Shayk</div>
+                        <span>1 day ago</span>
+                     </div>
+                  </div>
+                  <div class="media friendlist-box" (click)="openFriendList()" data-id="6" data-status="offline" data-username="Sara Tancredi" data-toggle="tooltip" data-placement="left" title="Sara Tancredi">
+                     <a class="media-left">
+                        <img class="media-object img-circle" src="assets/images/avatar-5.png" alt="Generic placeholder image">
+                        <div class="live-status bg-danger"></div>
+                     </a>
+                     <div class="media-body">
+                        <div class="friend-header">Sara Tancredi</div>
+                        <span>2 days ago</span>
+                     </div>
+                  </div>
+                  <div class="media friendlist-box" (click)="openFriendList()" data-id="1" data-status="online" data-username="Josephin Doe" data-toggle="tooltip" data-placement="left" title="Josephin Doe">
+                     <a class="media-left">
+                        <img class="media-object img-circle" src="assets/images/avatar-1.png" alt="Generic placeholder image">
+                        <div class="live-status bg-success"></div>
+                     </a>
+                     <div class="media-body">
+                        <div class="friend-header">Josephin Doe</div>
+                        <span>20min ago</span>
+                     </div>
+                  </div>
+                  <div class="media friendlist-box" (click)="openFriendList()" data-id="3" data-status="online" data-username="Alice" data-toggle="tooltip" data-placement="left" title="Alice">
+                     <a class="media-left">
+                        <img class="media-object img-circle" src="assets/images/avatar-2.png" alt="Generic placeholder image">
+                        <div class="live-status bg-success"></div>
+                     </a>
+                     <div class="media-body">
+                        <div class="friend-header">Alice</div>
+                        <span>1 hour ago</span>
+                     </div>
+                  </div>
+                  <div class="media friendlist-box" (click)="openFriendList()" data-id="1" data-status="online" data-username="Josephin Doe" data-toggle="tooltip" data-placement="left" title="Josephin Doe">
+
+                     <a class="media-left">
+                        <img class="media-object img-circle" src="assets/images/avatar-1.png" alt="Generic placeholder image">
+                        <div class="live-status bg-success"></div>
+                     </a>
+                     <div class="media-body">
+                        <div class="friend-header">Josephin Doe</div>
+                        <span>20min ago</span>
+                     </div>
+                  </div>
+                  <div class="media friendlist-box" (click)="openFriendList()" data-id="3" data-status="online" data-username="Alice" data-toggle="tooltip" data-placement="left" title="Alice">
+                     <a class="media-left">
+                        <img class="media-object img-circle" src="assets/images/avatar-2.png" alt="Generic placeholder image">
+                        <div class="live-status bg-success"></div>
+                     </a>
+                     <div class="media-body">
+                        <div class="friend-header">Alice</div>
+                        <span>1 hour ago</span>
+                     </div>
+                  </div>
+                  <div class="media friendlist-box" (click)="openFriendList()" data-id="1" data-status="online" data-username="Josephin Doe" data-toggle="tooltip" data-placement="left" title="Josephin Doe">
+
+                     <a class="media-left">
+                        <img class="media-object img-circle" src="assets/images/avatar-1.png" alt="Generic placeholder image">
+                        <div class="live-status bg-success"></div>
+                     </a>
+                     <div class="media-body">
+                        <div class="friend-header">Josephin Doe</div>
+                        <span>20min ago</span>
+                     </div>
+                  </div>
+                  <div class="media friendlist-box" (click)="openFriendList()" data-id="3" data-status="online" data-username="Alice" data-toggle="tooltip" data-placement="left" title="Alice">
+                     <a class="media-left">
+                        <img class="media-object img-circle" src="assets/images/avatar-2.png" alt="Generic placeholder image">
+                        <div class="live-status bg-success"></div>
+                     </a>
+                     <div class="media-body">
+                        <div class="friend-header">Alice</div>
+                        <span>1 hour ago</span>
+                     </div>
+                  </div>
+                  <div class="media friendlist-box" (click)="openFriendList()" data-id="1" data-status="online" data-username="Josephin Doe" data-toggle="tooltip" data-placement="left" title="Josephin Doe">
+
+                     <a class="media-left">
+                        <img class="media-object img-circle" src="assets/images/avatar-1.png" alt="Generic placeholder image">
+                        <div class="live-status bg-success"></div>
+                     </a>
+                     <div class="media-body">
+                        <div class="friend-header">Josephin Doe</div>
+                        <span>20min ago</span>
+                     </div>
+                  </div>
+                  <div class="media friendlist-box" (click)="openFriendList()" data-id="1" data-status="online" data-username="Josephin Doe" data-toggle="tooltip" data-placement="left" title="Josephin Doe">
+
+                     <a class="media-left">
+                        <img class="media-object img-circle" src="assets/images/avatar-1.png" alt="Generic placeholder image">
+                        <div class="live-status bg-success"></div>
+                     </a>
+                     <div class="media-body">
+                        <div class="friend-header">Josephin Doe</div>
+                        <span>20min ago</span>
+                     </div>
+                  </div>
+                  <div class="media friendlist-box" (click)="openFriendList()" data-id="1" data-status="online" data-username="Josephin Doe" data-toggle="tooltip" data-placement="left" title="Josephin Doe">
+
+                     <a class="media-left">
+                        <img class="media-object img-circle" src="assets/images/avatar-1.png" alt="Generic placeholder image">
+                        <div class="live-status bg-success"></div>
+                     </a>
+                     <div class="media-body">
+                        <div class="friend-header">Josephin Doe</div>
+                        <span>20min ago</span>
+                     </div>
+                  </div>
+                  <div class="media friendlist-box" (click)="openFriendList()" data-id="1" data-status="online" data-username="Josephin Doe" data-toggle="tooltip" data-placement="left" title="Josephin Doe">
+
+                     <a class="media-left">
+                        <img class="media-object img-circle" src="assets/images/avatar-1.png" alt="Generic placeholder image">
+                        <div class="live-status bg-success"></div>
+                     </a>
+                     <div class="media-body">
+                        <div class="friend-header">Josephin Doe</div>
+                        <span>20min ago</span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+   </div>
+
+   <div class="showChat_inner">
+      <div class="media chat-inner-header">
+         <a class="back_chatBox" (click)="backList()">
+            <i class="icofont icofont-rounded-left"></i> Josephin Doe
+         </a>
+      </div>
+      <div class="media chat-messages">
+         <a class="media-left photo-table">
+            <img class="media-object img-circle m-t-5" src="assets/images/avatar-1.png" alt="Generic placeholder image">
+            <div class="live-status bg-success"></div>
+         </a>
+         <div class="media-body chat-menu-content">
+            <div class="">
+               <p class="chat-cont">I'm just looking around. Will you tell me someItem about yourself?</p>
+               <p class="chat-time">8:20 a.m.</p>
+            </div>
+         </div>
+      </div>
+      <div class="media chat-messages">
+         <div class="media-body chat-menu-reply">
+            <div class="">
+               <p class="chat-cont">I'm just looking around. Will you tell me someItem about yourself?</p>
+               <p class="chat-time">8:20 a.m.</p>
+            </div>
+         </div>
+         <div class="media-right photo-table">
+            <a>
+               <img class="media-object img-circle m-t-5" src="assets/images/avatar-2.png" alt="Generic placeholder image">
+               <div class="live-status bg-success"></div>
+            </a>
+         </div>
+      </div>
+      <div class="media chat-reply-box">
+         <div class="md-input-wrapper">
+            <input type="text" class="md-form-control" id="inputEmail" name="inputEmail">
+            <label>Share your thoughts</label>
+            <span class="highlight"></span>
+            <span class="bar"></span> <button type="button" class="chat-send waves-effect waves-light">
+                  <i class="icofont icofont-location-arrow f-20 "></i>
+              </button>
+
+            <button type="button" class="chat-send waves-effect waves-light">
+                 <i class="icofont icofont-location-arrow f-20 "></i>
+             </button>
+         </div>
+
+      </div>
+   </div>
+   <!-- Sidebar chat end-->

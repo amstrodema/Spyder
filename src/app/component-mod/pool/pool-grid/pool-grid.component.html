@@ -1,0 +1,71 @@
+<p>{{poolType}}</p>
+<hr>
+<div class="col-md-12 p-0" *ngIf="isPool">
+  <div class="col-md-4 grid-item ">
+      <div class="card">
+         <div class="card-block horizontal-card-img d-flex hoverEffect" (click)="OpenFeed()">
+            <img class="media-object img-square" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+            <div class="d-inlineblock  p-l-20">
+                <p class="noWrap">
+                  HIGH SCHOOL
+                  </p>
+                  <p class="text-muted"><i>Private Pool</i></p>
+                  <p class="text-warning"><i>Paid</i></p>
+           </div>
+         </div>
+      </div>
+   </div>
+
+
+  <div class="col-md-4 grid-item ">
+      <div class="card">
+         <div class="card-block horizontal-card-img d-flex hoverEffect cautionOverflow" (click)="OpenFeed()">
+            <img class="media-object img-square" src="assets/images/avatar-2.png" alt="Generic placeholder image">
+            <div class="d-inlineblock  p-l-20">
+                <p>
+                  BLACK BELT
+                  </p>
+                  <p class="text-muted"><i>Public Pool</i></p>
+                  <p class="text-warning"><i>Paid</i></p>
+           </div>
+         </div>
+      </div>
+   </div>
+
+  <div class="col-md-4 grid-item ">
+      <div class="card">
+         <div class="card-block horizontal-card-img d-flex hoverEffect cautionOverflow" (click)="OpenFeed()">
+            <img class="media-object img-square" src="assets/images/avatar-2.png" alt="Generic placeholder image">
+            <div class="d-inlineblock  p-l-20">
+                <p>
+                  TERTIARY INSTITUTION
+                  </p>
+                  <p class="text-muted"><i>Public Pool</i></p>
+                  <p class="text-success"><i>Free</i></p>
+           </div>
+         </div>
+      </div>
+   </div>
+
+  <div class="col-md-4 grid-item ">
+      <div class="card">
+         <div class="card-block horizontal-card-img d-flex hoverEffect cautionOverflow" (click)="OpenFeed()">
+            <img class="media-object img-square" src="assets/images/avatar-1.png" alt="Generic placeholder image">
+            <div class="d-inlineblock  p-l-20">
+                <p>
+                  RELIGIOUS INSTITUTION
+                  </p>
+                  <p class="text-muted"><i>Public Pool</i></p>
+                  <p class="text-success"><i>Free</i></p>
+           </div>
+         </div>
+      </div>
+   </div>
+
+</div>
+<div class="col-md-12 p-0" *ngIf="!isPool">
+  <a class="anchor" (click)="CloseFeed()"><i class="icofont icofont-arrow-left"></i><small>Back</small></a>
+  <hr>
+  <hr>
+  <a class="anchor" (click)="CloseFeed()"><i class="icofont icofont-arrow-left"></i><small>Back</small></a>
+</div>

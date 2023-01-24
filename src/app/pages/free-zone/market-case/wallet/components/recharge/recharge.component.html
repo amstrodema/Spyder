@@ -1,0 +1,42 @@
+<div class="card">
+    <div class="card-block">
+      <div class="table-responsive">
+        <table class="table treat" style="padding-bottom: 0em;">
+          <tr>
+              <td>
+                  <div class="form-group">
+                      <input type="number" class="form-control form-control-sm" [(ngModel)]="spyAmount" (change)= "ChangeInSpy()" placeholder="Amount of SPY" min="1">
+                      <small class="text-primary" (click)="LoadMax()">Max: {{MaxAmount}}SPY</small>
+                    </div>
+              </td>
+              <td>
+                  <div class="form-group">
+                      <input type="number" class="form-control form-control-sm" [(ngModel)]="cost" (change) = ChangeInAmount() placeholder="Cost (₦)" min="0">
+                      <small>₦{{parameter.value}}/SPY</small>
+                    </div>
+              </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+                <button class="btn btn-mini btn-success" style="width: 100%;"
+                angular4-paystack
+                [paystackOptions]="options"
+                (paymentInit)="paymentInit()"
+                (onClose)="paymentCancel()"
+                (callback)="paymentDone($event)"
+                [disabled] = isDisabled
+              >
+              <i class="ti ti-download"></i>
+              &nbsp;Recharge</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+
+      <div style="width: 100%;" [hidden]="isLoaded" class="bg-white">
+          <app-spinner3></app-spinner3>
+          <p class="bold text-center">DO NOT LEAVE THIS PAGE</p>
+        </div>
+    </div>
+  </div>

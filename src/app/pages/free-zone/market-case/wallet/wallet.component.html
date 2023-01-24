@@ -1,0 +1,275 @@
+<div class="content-wrapper">
+  <!-- Container-fluid starts -->
+  <div class="container-fluid">
+    <!-- Main content starts -->
+    <!-- Row Starts -->
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="main-header">
+            <h5><b>WALLET</b></h5>
+            <ol class="breadcrumb breadcrumb-title breadcrumb-arrow">
+              <li class="breadcrumb-item"><a [routerLink]="['']" routerLinkActive="router-link-active"><i
+                    class="icofont icofont-home"></i></a>
+              </li>
+              <li class="breadcrumb-item"><small>Free Zone</small></li>
+              <li class="breadcrumb-item"><a><small>Wallet</small></a>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- Row end -->
+
+    <div class="row">
+      <div class="col-xl-8 col-lg-8">
+
+        <app-spinner3 *ngIf="wallet == null"></app-spinner3>
+        <div class="tint" *ngIf="wallet != null">
+          <div class="table-responsive">
+            <table style="width: 100%;">
+              <tr>
+                <td><button class="btn btn-mini {{balanceBtn}}" style="width: 100%;" (click)="BalanceClick()"><i
+                      class="icon-home"></i>&nbsp;&nbsp;Home</button></td>
+                <td><button class="btn btn-mini {{rechargeBtn}}" style="width: 100%;" [disabled]=!user.isActivated
+                    (click)="RechargeClick()"><i class="ti ti-download"></i>
+                    &nbsp; &nbsp;Recharge</button></td>
+                <td><button class="btn btn-mini {{swapBtn}}" [disabled] = !user.isActivated style="width: 100%;" (click)="SwapClick()"><i
+                      class="icofont icofont-refresh"></i>
+                    &nbsp;&nbsp;Swap</button></td>
+              </tr>
+              <tr>
+                <td><button class="btn btn-mini {{transferBtn}}" [disabled] = !user.isActivated style="width: 100%;" (click)="TransferClick()"> <i
+                      class="icofont icofont-exchange"></i>
+                    &nbsp;&nbsp;Transfer</button></td>
+                <td><button class="btn btn-mini {{withdrawalBtn}}" [disabled] = !user.isActivated style="width: 100%;" (click)="WithdrawalClick()"><i
+                      class="ti ti-credit-card"></i> &nbsp;
+                    &nbsp;Withdraw</button></td>
+                <td><button class="btn btn-mini {{referralBtn}}" style="width: 100%;" [disabled] = !user.isActivated (click)="ReferralClick()"><i
+                      class="ti ti-user"></i> &nbsp;
+                    &nbsp;Referral</button></td>
+              </tr>
+              <tr>
+                <td><button class="btn btn-mini {{sellBtn}}" style="width: 100%;" (click)="SellClick()" disabled><i
+                      class="ti ti-shopping-cart-full"></i>
+                    &nbsp;&nbsp;Sell</button>
+                </td>
+                <td><button class="btn btn-mini {{historyBtn}}" style="width: 100%;" (click)="HistoryClick()"
+                    disabled><i class="ti ti-desktop"></i> &nbsp;
+                    &nbsp;History</button></td>
+              </tr>
+            </table>
+          </div>
+
+        </div>
+        <div *ngIf="!isHide">
+          <div [hidden]="!isLoaded && !isActivated && !isWalletLoaded">
+            <button class="btn btn-mini btn-danger" style="width: 100%;" *ngIf="!isActivated" angular4-paystack
+              [paystackOptions]="activateOptions" (paymentInit)="ActivationPaymentInit()"
+              (onClose)="ActivationPaymentCancel()" (callback)="ActivationPaymentDone($event)">
+              <i class="icon-lock"></i>&nbsp;&nbsp; Activate Account
+            </button>
+
+          </div>
+        </div>
+
+        <div style="width: 100%;" [hidden]="isLoaded" class="bg-white">
+          <app-spinner3></app-spinner3>
+          <p class="bold text-center">DO NOT LEAVE THIS PAGE</p>
+        </div>
+
+        <app-balance *ngIf="balance && wallet != null" [wallet]=wallet></app-balance>
+        <app-recharge *ngIf="recharge" [wallet]=wallet></app-recharge>
+
+        <app-sell *ngIf="sell"></app-sell>
+
+        <app-swap *ngIf="swap" [wallet]=wallet ></app-swap>
+
+        <app-transfer *ngIf="transfer"  [wallet]=wallet ></app-transfer>
+
+        <app-withdraw *ngIf="withdrawal" [wallet]=wallet></app-withdraw>
+
+        <app-referral *ngIf="referral"  [wallet]=wallet ></app-referral>
+
+
+
+        <div class="card">
+          <div class="card-block text-center">
+            <img src="assets/images/ads2.jpg" style="max-width: 50%; max-height: 3em;" />
+          </div>
+        </div>
+
+      </div>
+      <div class="col-xl-4 col-lg-4">
+        <div class="card">
+          <div class="card-block text-center">
+            <img src="assets/images/ads.jpg" style="max-width: 60%;" />
+          </div>
+        </div>
+        <!-- <div class="card">
+          <div class="card-header" style="margin-bottom: 0; padding-bottom: 0;">
+            <h5 class="card-header-text">
+              <p>Missing Persons</p>
+            </h5>
+            <hr>
+          </div>
+          <div class="card-block" style="padding-top: 0;">
+            <div class="table-responsive">
+              <table class="table m-b-0 photo-table point">
+                <tbody>
+
+                  <tr>
+                    <th>
+                      <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                    </th>
+                    <td>
+                      <a href="#" class="text-dark" style="white-space: nowrap;">James Ibori S.</a>
+                      <p>5' 6" tall with blue eyes and chiseled lips</p>
+                      <small class="text-muted" style="white-space: nowrap;">Last Seen: <i>23rd January,
+                          2022</i></small>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th>
+                      <img class=" img-circle" src="assets/images/avatar-4.png" alt="User">
+                    </th>
+                    <td>
+                      <a href="#" class="text-dark">Adam Clason J.</a>
+                      <p class="text-muted"><i>Hall of Shame Petition</i></p>
+                    </td>
+                  </tr>
+
+
+                  <tr>
+                    <th>
+                      <img class="img-fluid img-circle" src="assets/images/avatar-3.png" alt="User">
+                    </th>
+                    <td>
+                      <a href="#" class="text-dark">James Ibori S.</a>
+                      <p class="text-muted"><i>Hall of Fame Petition</i></p>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th>
+                      <img class="img-fluid img-circle" src="assets/images/avatar-1.png" alt="User">
+                    </th>
+                    <td style="white-space: nowrap;">
+                      <a href="#" class="text-dark">Adam Clason J.</a>
+                      <p class="text-muted"><i>Hall of Shame Petition</i></p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" style="margin-bottom: 0; padding-bottom: 0;">
+            <h5 class="card-header-text">
+              <p>Top Confessions</p>
+            </h5>
+            <hr>
+          </div>
+          <div class="card-block" style="padding-top: 0;">
+            <div class="table-responsive">
+              <table class="table m-b-0 photo-table point">
+                <tbody>
+
+                  <tr>
+                    <th>
+                      <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                    </th>
+                    <td style="white-space: nowrap;">
+                      <a href="#" class="text-dark">James Ibori S.</a>
+                      <p class="text-muted"><i>Hall of Fame Petition</i></p>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th>
+                      <img class=" img-circle" src="assets/images/avatar-4.png" alt="User">
+                    </th>
+                    <td>
+                      <a href="#" class="text-dark">Adam Clason J.</a>
+                      <p class="text-muted"><i>Hall of Shame Petition</i></p>
+                    </td>
+                  </tr>
+
+
+                  <tr>
+                    <th>
+                      <img class="img-fluid img-circle" src="assets/images/avatar-3.png" alt="User">
+                    </th>
+                    <td>
+                      <a href="#" class="text-dark">James Ibori S.</a>
+                      <p class="text-muted"><i>Hall of Fame Petition</i></p>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th>
+                      <img class="img-fluid img-circle" src="assets/images/avatar-1.png" alt="User">
+                    </th>
+                    <td style="white-space: nowrap;">
+                      <a href="#" class="text-dark">Adam Clason J.</a>
+                      <p class="text-muted"><i>Hall of Shame Petition</i></p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+
+
+
+
+
+    <!-- <div class="row">
+      <div class="col-xl-4 col-lg-12 grid-item">
+        <div class="card">
+          <div class="card-block horizontal-card-img d-flex">
+            <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+            <div class="d-inlineblock  p-l-20">
+              <h6>Josephin Doe</h6>
+              <a href="#">contact@admin.com</a>
+            </div>
+            <h6 class="txt-warning rotate-txt">Designer</h6>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-12 grid-item">
+        <div class="card">
+          <div class="card-block horizontal-card-img d-flex">
+            <img class="media-object img-circle" src="assets/images/lockscreen.png" alt="Generic placeholder image">
+            <div class="d-inlineblock  p-l-20">
+              <h6>Josephin Doe</h6>
+              <a href="#">contact@admin.com</a>
+            </div>
+            <h6 class="txt-danger rotate-txt">Developer</h6>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-12 grid-item">
+        <div class="card">
+          <div class="card-block horizontal-card-img d-flex">
+            <img class="media-object img-circle" src="assets/images/lockscreen.png" alt="Generic placeholder image">
+            <div class="d-inlineblock  p-l-20">
+              <h6>Josephin Doe</h6>
+              <a href="#">contact@admin.com</a>
+            </div>
+            <h6 class="txt-danger rotate-txt">Developer</h6>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+  </div>
+</div>

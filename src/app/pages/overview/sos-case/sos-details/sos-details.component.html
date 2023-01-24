@@ -1,0 +1,326 @@
+<div class="content-wrapper">
+  <!-- Container-fluid starts -->
+  <div class="container-fluid">
+    <!-- Main content starts -->
+    <!-- Row Starts -->
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="main-header">
+            <h5><b>SOS DETAILS</b></h5>
+            <ol class="breadcrumb breadcrumb-title breadcrumb-arrow">
+                <li class="breadcrumb-item"><a [routerLink]="['']" routerLinkActive="router-link-active" ><i class="icofont icofont-home"></i></a>
+                </li>
+              <li class="breadcrumb-item"><small>Overview</small></li>
+              <li class="breadcrumb-item"><a [routerLink]="['/sos']" routerLinkActive="router-link-active" ><small>SOS</small></a>
+              </li>
+              <li class="breadcrumb-item"><small>Help ME!</small></li>
+            </ol>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- Row end -->
+
+
+    <div class="row">
+      <div class="col-xl-12 col-lg-12">
+        <div class="card">
+          <div class="card-block">
+              <h5><b>You Are Close To This Help Signal</b></h5>
+              <p class="text-danger">Be security conscious. Do not attempt to provide help or support alone if deemed dangerous <br><span class="text-primary">Terms and Conditions</span></p>
+              <hr>
+              <p>
+                  <a class="anchor btn btn-mini btn-default" (click)="Rebounce()">Rebounce Alert <i class="icon-bell"></i></a> &nbsp;
+                  <a class="btn btn-mini anchor" (click)="MessageSafeContact()">Message Safe List <i class="icon-bubbles"></i></a>
+              </p>
+          </div>
+        </div>
+        </div>
+  </div>
+
+  <div class="row">
+      <div class="col-xl-8 col-lg-8">
+         <div class="card">
+            <div class="card-block">
+              <app-details-feed></app-details-feed>
+              <app-gallery></app-gallery>
+              <app-comment-box></app-comment-box>
+            </div>
+         </div>
+
+         <div class="col-xl-6 col-lg-12">
+            <div class="card">
+               <div class="card-block horizontal-card-img d-flex">
+                  <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                  <div class="d-inlineblock  p-l-20">
+                    <h6>Josephin Doe</h6>
+                    <a href="#">contact@admin.com</a>
+                 </div>
+                  <h6 class="txt-warning rotate-txt">Designer</h6>
+               </div>
+            </div>
+         </div>
+         <div class="col-xl-6 col-lg-12">
+            <div class="card">
+               <div class="card-block horizontal-card-img d-flex">
+                  <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                  <div class="d-inlineblock  p-l-20">
+                    <h6>Josephin Doe</h6>
+                    <a href="#">contact@admin.com</a>
+                 </div>
+                  <h6 class="txt-warning rotate-txt">Designer</h6>
+               </div>
+            </div>
+         </div>
+         <div class="col-xl-6 col-lg-12">
+            <div class="card">
+               <div class="card-block horizontal-card-img d-flex">
+                  <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                  <div class="d-inlineblock  p-l-20">
+                    <h6>Josephin Doe</h6>
+                    <a href="#">contact@admin.com</a>
+                 </div>
+                  <h6 class="txt-warning rotate-txt">Designer</h6>
+               </div>
+            </div>
+         </div>
+         <div class="col-xl-6 col-lg-12">
+            <div class="card">
+               <div class="card-block horizontal-card-img d-flex">
+                  <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                  <div class="d-inlineblock  p-l-20">
+                    <h6>Josephin Doe</h6>
+                    <a href="#">contact@admin.com</a>
+                 </div>
+                  <h6 class="txt-warning rotate-txt">Designer</h6>
+               </div>
+            </div>
+         </div>
+
+
+         <div class="col-lg-12">
+            <div class="card">
+               <div class="card-block horizontal-card-img d-flex">
+                  <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                  <div class="d-inlineblock  p-l-20">
+                    <h6>Josephin Doe</h6>
+                    <a href="#">contact@admin.com</a>
+                 </div>
+                  <h6 class="txt-warning rotate-txt">Designer</h6>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="col-xl-4 col-lg-4">
+          <!-- adv -->
+          <div class="card">
+             <div class="card-block horizontal-card-img d-flex">
+                <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                <div class="d-inlineblock  p-l-20">
+                  <h6>Josephin Doe</h6>
+                  <a href="#">contact@admin.com</a>
+               </div>
+                <h6 class="txt-warning rotate-txt">Designer</h6>
+             </div>
+          </div>
+          <!-- adv -->
+          <div class="card">
+             <div class="card-block horizontal-card-img d-flex">
+                <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                <div class="d-inlineblock  p-l-20">
+                  <h6>Josephin Doe</h6>
+                  <a href="#">contact@admin.com</a>
+               </div>
+                <h6 class="txt-warning rotate-txt">Designer</h6>
+             </div>
+          </div>
+          <div class="card">
+             <div class="card-header" style="margin-bottom: 0; padding-bottom: 0;">
+                <h5 class="card-header-text">
+                 <p>Missing Persons</p>
+                </h5>
+                <hr>
+             </div>
+             <div class="card-block" style="padding-top: 0;">
+                <div class="table-responsive">
+                   <table class="table m-b-0 photo-table point">
+                          <tbody>
+
+                             <tr>
+                                <th>
+                                   <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                </th>
+                                <td>
+                                  <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                  <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                  <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                </td>
+                             </tr>
+
+                             <tr>
+                                <th>
+                                   <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                </th>
+                                <td>
+                                  <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                  <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                  <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                </td>
+                             </tr>
+
+                             <tr>
+                                <th>
+                                   <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                </th>
+                                <td>
+                                  <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                  <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                  <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                </td>
+                             </tr>
+
+                             <tr>
+                                <th>
+                                   <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                </th>
+                                <td>
+                                  <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                  <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                  <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                </td>
+                             </tr>
+                          </tbody>
+                   </table>
+                </div>
+             </div>
+          </div>
+          <!-- adv -->
+          <div class="card">
+             <div class="card-block horizontal-card-img d-flex">
+                <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                <div class="d-inlineblock  p-l-20">
+                  <h6>Josephin Doe</h6>
+                  <a href="#">contact@admin.com</a>
+               </div>
+                <h6 class="txt-warning rotate-txt">Designer</h6>
+             </div>
+          </div>
+          <!-- adv -->
+          <div class="card">
+             <div class="card-block horizontal-card-img d-flex">
+                <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                <div class="d-inlineblock  p-l-20">
+                  <h6>Josephin Doe</h6>
+                  <a href="#">contact@admin.com</a>
+               </div>
+                <h6 class="txt-warning rotate-txt">Designer</h6>
+             </div>
+          </div>
+          <div class="card">
+             <div class="card-header" style="margin-bottom: 0; padding-bottom: 0;">
+                <h5 class="card-header-text">
+                 <p>Stolen Items</p>
+                </h5>
+                <hr>
+             </div>
+             <div class="card-block" style="padding-top: 0;">
+                <div class="table-responsive">
+                   <table class="table m-b-0 photo-table point">
+                          <tbody>
+
+                              <tr>
+                                  <th>
+                                     <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                  </th>
+                                  <td>
+                                    <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                    <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                    <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                  </td>
+                               </tr>
+
+                               <tr>
+                                  <th>
+                                     <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                  </th>
+                                  <td>
+                                    <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                    <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                    <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                  </td>
+                               </tr>
+
+                               <tr>
+                                  <th>
+                                     <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                  </th>
+                                  <td>
+                                    <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                    <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                    <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                  </td>
+                               </tr>
+
+                               <tr>
+                                  <th>
+                                     <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                  </th>
+                                  <td>
+                                    <a href="#" class="text-dark"  style="white-space: nowrap;">James Ibori S.</a>
+                                    <p>5' 6" tall with blue eyes and chiseled lips</p>
+                                    <small class="text-muted"  style="white-space: nowrap;">Last Seen: <i>23rd January, 2022</i></small>
+                                  </td>
+                               </tr>
+                          </tbody>
+                   </table>
+                </div>
+             </div>
+          </div>
+       </div>
+   </div>
+
+     <div class="row">
+        <div class="col-xl-4 col-lg-12 grid-item">
+            <div class="card">
+               <div class="card-block horizontal-card-img d-flex">
+                  <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                  <div class="d-inlineblock  p-l-20">
+                    <h6>Josephin Doe</h6>
+                    <a href="#">contact@admin.com</a>
+                 </div>
+                  <h6 class="txt-warning rotate-txt">Designer</h6>
+               </div>
+            </div>
+         </div>
+         <div class="col-xl-4 col-lg-12 grid-item">
+            <div class="card">
+               <div class="card-block horizontal-card-img d-flex">
+                  <img class="media-object img-circle" src="assets/images/lockscreen.png" alt="Generic placeholder image">
+                  <div class="d-inlineblock  p-l-20">
+                    <h6>Josephin Doe</h6>
+                    <a href="#">contact@admin.com</a>
+                 </div>
+                  <h6 class="txt-danger rotate-txt">Developer</h6>
+               </div>
+            </div>
+         </div>
+         <div class="col-xl-4 col-lg-12 grid-item">
+            <div class="card">
+               <div class="card-block horizontal-card-img d-flex">
+                  <img class="media-object img-circle" src="assets/images/lockscreen.png" alt="Generic placeholder image">
+                  <div class="d-inlineblock  p-l-20">
+                    <h6>Josephin Doe</h6>
+                    <a href="#">contact@admin.com</a>
+                 </div>
+                  <h6 class="txt-danger rotate-txt">Developer</h6>
+               </div>
+            </div>
+         </div>
+     </div>
+
+  </div>
+</div>

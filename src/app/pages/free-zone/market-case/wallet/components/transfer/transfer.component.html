@@ -1,0 +1,41 @@
+<div class="card">
+    <div class="card-block">
+
+      <div class="table-responsive">
+        <table class="table treat" style="padding-bottom: 0em;">
+          <tr>
+              <td>
+                  <div class="form-group" [hidden]="!isSendSpyID">
+                      <input type="text" [(ngModel)]="transferTrans.walletAddress" placeholder="SPY Address" class="form-control form-control-sm" placeholder="spyQSI47Zbt10LLDzhHBEu1Y2q0X86fVa1DyJXnq1sBPOrn81F12R">
+                      <p><small class="anchor" (click)="toggleIsSendSpyID()">Use SPY Link instead</small></p>
+                    </div>
+
+                    <div class="form-group" [hidden]="isSendSpyID">
+                        <input type="text" [(ngModel)]="transferTrans.receiverRefCode" placeholder="SPY LINK" class="form-control form-control-sm" placeholder="Jeff.spy">
+                        <p><small class="anchor" (click)="toggleIsSendSpyID()">Use SPY Address instead</small></p>
+                      </div>
+              </td>
+              <td>
+                  <div class="form-group">
+                      <input type="number" placeholder="Amount of SPY" [(ngModel)]="transferTrans.amount" max="{{wallet.spy}}" class="form-control form-control-sm" min="0">
+                      <p><small>Max: {{wallet.spy}}SPY</small></p>
+                    </div>
+              </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+                <button  class="btn btn-mini btn-primary" style="width: 100%;" (click)="Transfer()">
+                    <i class="icofont icofont-exchange"></i>
+                  &nbsp;Transfer</button><br>
+                <div style="margin-top: 0.5em;">
+                 <p>
+                    <small class="anchor" (click)="CopyID(wallet.address)">{{wallet.address}}</small> &nbsp;| &nbsp;
+                    <small class="anchor" (click)="CopyLink(wallet.refCode+'.spy')">{{wallet.refCode}}.spy</small>
+                 </p>
+                </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>

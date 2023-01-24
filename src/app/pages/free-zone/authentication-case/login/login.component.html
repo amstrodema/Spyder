@@ -1,0 +1,83 @@
+<section class="login p-fixed d-flex text-center bg-primary">
+	<!-- Container-fluid starts -->
+	<div class="container-fluid">
+		<div class="row">
+
+			<div class="col-sm-12">
+				<div class="login-card card-block">
+					<form class="md-float-material">
+						<div class="text-center">
+                <a [routerLink]="['']" routerLinkActive="router-link-active">
+                    <img src="assets/images/logo-black.png" alt="logo">
+                    </a>
+						</div><br>
+						<p class="text-center text-dark bolder">
+							SIGN INTO YOUR ACCOUNT
+            </p>
+            <hr>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="md-input-wrapper">
+									<input type="text" name="username" [(ngModel)]="loginModel.username" autocomplete="off"  class="md-form-control" required="required"/>
+									<label>Email / Username</label>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="md-input-wrapper">
+									<input type="password" name="password" [(ngModel)]="loginModel.password" autocomplete="off"  class="md-form-control" required="required"/>
+									<label>Password</label>
+								</div>
+							</div>
+							<div class="col-sm-6 col-xs-12">
+							<div class="rkmd-checkbox checkbox-rotate checkbox-ripple m-b-25">
+								<label class="input-checkbox checkbox-primary">
+									<input type="checkbox" id="checkbox">
+									<span class="checkbox"></span>
+								</label>
+								<div class="captions"><small>Remember Me</small></div>
+
+							</div>
+								</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<button type="button" (click)="Login()" class="btn btn-primary btn-md btn-block waves-effect text-center">LOGIN</button>
+              </div>
+
+							<div class="col-xs-12 forgot-phone" style="margin-top: 1em;">
+                <small class="anchor" (click)="ForgotPassword()">Forgot password?</small> <br>
+                <small class="anchor" (click)="ResendVerification()">Resend verification</small>
+                  </div>
+						</div><hr>
+						<!-- <div class="card-footer"> -->
+					<div class="row">
+            <div class="col-xs-12">
+							<small class="text-muted">Don't have an account?</small>
+							<small (click)="Register()" class="anchor f-w-600 p-l-5">Sign Up Now</small>
+						</div>
+          </div>
+
+					<div class="row">
+            <br>
+            <div class="col-xs-12">
+                <a [routerLink]="['']" routerLinkActive="router-link-active">
+                  <small>Home</small>
+                </a>
+                <span class="text-dark"> | </span>
+                <a [routerLink]="['/search']" routerLinkActive="router-link-active">
+                  <small>Get Started</small>
+                </a>
+						</div>
+          </div>
+						<!-- </div> -->
+					</form>
+					<!-- end of form -->
+				</div>
+				<!-- end of login-card -->
+			</div>
+			<!-- end of col-sm-12 -->
+		</div>
+		<!-- end of row -->
+	</div>
+	<!-- end of container-fluid -->
+</section>

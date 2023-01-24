@@ -1,0 +1,6 @@
+<app-spinner3 *ngIf="!isLoaded"></app-spinner3>
+
+<app-details-feed [feed]=feed [feedFlag] =0 [tagLink] = tagLink [tag] = tag *ngIf="isLoaded"></app-details-feed>
+<app-gallery [itemID] = recordID [creatorID] = authorID  *ngIf="isLoaded"></app-gallery>
+<!-- comment box -->
+<app-comment-box [route] = route [itemID] = recordID  *ngIf="isLoaded"></app-comment-box>

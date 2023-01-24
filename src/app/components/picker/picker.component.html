@@ -1,0 +1,29 @@
+<div class="modal-header bg-primary">
+    <h2 class="modal-title text-white">
+     <small>{{title}}</small>
+    </h2>
+    <button type="button" class="close" aria-label="Close" (click)="close()">
+      <span aria-hidden="true" class="text-white">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body form-horizontal" style="background-color: #f8f8f8;">
+   <div class="row"  *ngIf="disabled == 0">
+      <label class="col-md-6" style="font-weight: normal !important;" *ngFor="let optn of data; let i=index">
+         <span class="fa-pull-left">
+            <input type="checkbox" (click)="selectionPicker(i)" id="" autocomplete="off"  [checked]= SolveSelection(i)>
+            {{optn.name}}
+         </span>
+        </label>
+   </div>
+   <div class="row"  *ngIf="disabled == 1">
+
+      <label class="col-md-6" style="font-weight: normal !important;" *ngFor="let optn of res; let i=index" >
+          <span class="fa-pull-left">
+             {{ResolveName(optn)}}
+          </span>
+         </label>
+  </div>
+
+     <button class="btn btn-sm fa-pull-right" (click)="save()" *ngIf="disabled == 0">Done</button>
+<div></div>

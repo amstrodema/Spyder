@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panels-wells">
+
+            <div class="card">
+               <div class="card-block">
+                  <div class="row">
+                      <p class="text-center"  *ngIf="deathRecords.length < 1">No death records found.</p>
+                      <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6" *ngFor="let deathRecord of deathRecords; let i=index">
+                         <div class="panel panel-default">
+                            <div class="panel-heading txt-black text-center">
+                                <a href="{{deathRecord.image}}" data-lightbox="deathRecords"
+                            data-title="{{deathRecord.name}}">
+                            <img src="{{deathRecord.image}}" class="img-square" alt="{{deathRecord.name}}">
+                          </a>
+                            </div>
+                            <div class="panel-body">
+                                <p class="HeadBlender"><b>{{deathRecord.name}}</b></p>
+                                <p><small>Birth: {{deathRecord.birthDate}}</small></p>
+                                <p><small>Death: {{deathRecord.deathDate}}</small></p>
+                            </div>
+                            <div class="panel-footer">
+                            <!-- <span class="btn btn-mini"><i class="icon-flag"></i></span> -->
+                              <span class="btn btn-mini" (click)=" DeathRecordDetails(deathRecord.id)"><i class="icon-feed"></i></span>
+                              <!-- <span class="btn btn-mini"><i class="icon-link"></i></span> -->
+                            </div>
+                         </div>
+                      </div>
+
+                   <!-- end of row -->
+                </div>
+               </div>
+            </div>
+         </section>
+    </div>
+
+
+ </div>

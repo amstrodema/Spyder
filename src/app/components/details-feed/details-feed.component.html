@@ -1,0 +1,64 @@
+<div class="row" *ngIf="feed == undefined">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-block">
+          <app-spinner3></app-spinner3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row"  *ngIf="feed != undefined">
+    <div class="col-lg-12">
+      <div class="card">
+          <div class="main-header">
+              <h6 class= "anchor" (click)="Back()"><b>{{tag | uppercase}}</b></h6>
+              <h3><b>{{feed.title}}</b></h3>
+              <span style="border-top: solid thin #f5f5f5; margin-top: -0.4em; padding-top: 0.4em">
+                  <small class="anchor" (click)="openProfile(feed.author, feed.authorID)"><i class="icofont icofont-user"></i> {{feed.author}}</small>
+                  <i class="icofont icofont-calendar" style="margin-left: 1em; color: red;"></i> <small> {{feed.day}} </small>
+                  <i class="icofont icofont-clock-time" style="margin-left: 1em;"></i> <small> {{feed.time}}</small>
+              </span>
+          </div>
+        </div>
+
+    </div>
+  </div>
+
+  <div class="row" *ngIf="feed != undefined">
+      <div class="col-lg-12">
+        <div class="card">
+           <div class="card-block">
+              <p class="text-center">
+                  <a href="{{feed.image}}" data-lightbox="example"
+                  data-title="{{feed.title | uppercase}}">
+                    <img src="{{feed.image}}" style="max-width: 50%;" alt="{{feed.title}}">
+                  </a>
+              </p>
+              <p class="text-center bold" *ngIf="feedFlag>0" style="margin-top: 1em;">
+             {{feed.brief}}
+           </p>
+              <hr>
+            <p>
+               {{feed.article}}
+            </p>
+
+            <footer style="margin-top: 1em;">
+                <span class="btn btn-mini  {{SolveReaction(feed.isReact, feed.isLike)}}" (click)="ControlButtonBgType(true)"><i class="icofont icofont-thumbs-up"></i><small> {{feed.totalUpVotes}}</small></span>
+                <span class="btn btn-mini  {{SolveReaction2(feed.isReact, feed.isLike)}}" style="margin-left: 1em;" (click)="ControlButtonBgType(false)"><i class="icofont icofont-thumbs-down"></i><small> {{feed.totalDownVotes}}</small></span>
+                <span class="btn btn-mini" style="margin-left: 1em;" (click)="Copy()"><i class="icofont icofont-ui-copy"></i></span>
+                <span class="btn btn-mini" style="margin-left: 1em;" (click)="Flag()"><i class="icofont icofont-flag-alt-2"></i></span>
+                <!-- <span class="btn btn-mini" style="margin-left: 1em;" *ngIf="feedFlag ==1"><i class="icon-link"></i></span> -->
+              </footer>
+
+            <hr>
+
+           </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+

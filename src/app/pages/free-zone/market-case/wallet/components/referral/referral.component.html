@@ -1,0 +1,53 @@
+<div class="card">
+    <div class="card-block">
+      <p class="text-center"  *ngIf="referrals.length< 1">
+        No referral yet. Keep sharing your referral link.
+      </p>
+      <table class="table treat"  *ngIf="referrals.length> 0">
+        <tr>
+          <td colspan="2">
+              <p class="text-primary">Second Leg: {{totalSecondLeg}}</p>
+            </td>
+            <td colspan="3" class="text-right">
+                <small (click)="CopyLink()" class="text-primary" style="cursor:pointer">Copy Referral Link</small>
+            </td>
+        </tr>
+        <tr>
+          <td>
+            <p>S/N</p>
+          </td>
+          <td>
+            <p>SPY ID</p>
+          </td>
+          <td class="text-center">
+            <p>Referrals</p>
+          </td>
+          <td  class="text-center">
+           <p>Status</p>
+          </td>
+          <td>
+            &nbsp;
+          </td>
+        </tr>
+        <tr *ngFor="let referral of referrals; let i=index">
+          <td>
+            <p><label>{{i+1}}</label></p>
+          </td>
+          <td>
+            <p><label>{{referral.refCode}}</label></p>
+          </td>
+          <td class="text-center">
+            <p><label>{{referral.ref}}</label></p>
+          </td>
+          <td class="text-center">
+            <p><label>{{Parapharase(referral.isActive)}}</label></p>
+          </td>
+          <td class="text-right">
+            <p><label>{{referral.dateCreated | date}}</label></p>
+          </td>
+        </tr>
+      </table>
+      <hr>
+      <small (click)="CopyLink()" style="cursor:pointer" class="text-primary">Copy Referral Link</small>
+    </div>
+  </div>
