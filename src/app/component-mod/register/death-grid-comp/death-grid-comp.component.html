@@ -8,7 +8,7 @@
                       <p class="text-center"  *ngIf="deathRecords.length < 1">No death records found.</p>
                       <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6" *ngFor="let deathRecord of deathRecords; let i=index">
                          <div class="panel panel-default">
-                            <div class="panel-heading txt-black text-center">
+                            <div class="panel-heading txt-black text-center" style="height:10em; overflow: hidden">
                                 <a href="{{deathRecord.image}}" data-lightbox="deathRecords"
                             data-title="{{deathRecord.name}}">
                             <img src="{{deathRecord.image}}" class="img-square" alt="{{deathRecord.name}}">

@@ -42,11 +42,11 @@ import { ScammerComponent } from 'src/app/pages/archive/whispers/scammer-case/sc
 import { FoundCaseComponent } from 'src/app/pages/archive/whispers/found-case/found-case.component';
 import { NewFoundComponent } from 'src/app/pages/archive/whispers/found-case/new-found/new-found.component';
 import { MarketPlaceComponent } from 'src/app/pages/free-zone/market-case/market-place/market-place.component';
-import { WalletComponent } from 'src/app/pages/free-zone/market-case/wallet/wallet.component';
 import { ProfileComponent } from 'src/app/pages/profile/profile.component';
 import { TrendingComponent } from 'src/app/pages/overview/trending-case/trending.component';
 import { SettingsComponent } from 'src/app/pages/settings/settings.component';
 import { NotificationComponent } from 'src/app/pages/notification/notification.component';
+import { WalletComponent } from 'src/app/pages/free-zone/wallet/wallet.component';
 
 export const AdminLayoutRoutes: Routes = [
   { path: '',       component: TrendingComponent },
@@ -59,6 +59,7 @@ export const AdminLayoutRoutes: Routes = [
   { path: 'hall-of-legends',       component: HallComponent },
   { path: 'hall-of-heros',       component: HallComponent },
   { path: 'hall-of-fallen-heros',       component: HallComponent },
+  { path: 'hall-of-the-unforgotten',       component: HallComponent },
 
   { path: 'petition/new',       component: AddHallComponent },
   { path: 'petition/details/:id',       component: PetitionViewComponent },

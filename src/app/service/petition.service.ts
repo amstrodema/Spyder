@@ -16,7 +16,12 @@ export class PetitionService {
    }
 
   NewPetition(hallRecord:HallRecord): Observable<any> {
-    return this.httpClient.post(ModelClass.baseUrl+`api/petition`, hallRecord);
+
+    let requestObj:RequestObject = ModelClass.GetRequestObject();
+    requestObj.data = hallRecord;
+    requestObj.appID = ModelClass.clientSystem.appID;
+
+    return this.httpClient.post(ModelClass.baseUrl+`api/petition`, requestObj);
   }
 
   GetPetitionVMs(): Observable<any> {
@@ -43,7 +48,13 @@ export class PetitionService {
   //   return this.httpClient.get(ModelClass.baseUrl+`api/Petition/GetPetitionDetailsVM_Logged?userID=`+userID+`&recordID=`+ recordID);
   // }
 
-  VotePetition(vote:Vote): Observable<any> {
-    return this.httpClient.post(ModelClass.baseUrl+`api/vote`, vote);
+  VotePetition(vote:Vote, authorID:string): Observable<any> {
+
+    let requestObj:RequestObject = ModelClass.GetRequestObject();
+    requestObj.data = vote;
+    requestObj.appID = ModelClass.clientSystem.appID;
+
+    requestObj.authorID = authorID;
+    return this.httpClient.post(ModelClass.baseUrl+`api/vote`, requestObj);
   }
 }

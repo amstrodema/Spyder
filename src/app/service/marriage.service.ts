@@ -20,6 +20,11 @@ GetMarriageVMByID(itemID:string): Observable<any> {
   return this.httpClient.get(ModelClass.baseUrl+`api/marriage/GetMarriageVMByID?id=`+itemID);
 }
 NewMarriage(marriageVM:MarriageVM): Observable<any> {
-  return this.httpClient.post(ModelClass.baseUrl+`api/marriage`, marriageVM);
+
+  let requestObj:RequestObject = ModelClass.GetRequestObject();
+  requestObj.data = marriageVM;
+  requestObj.appID = ModelClass.clientSystem.appID;
+
+  return this.httpClient.post(ModelClass.baseUrl+`api/marriage`, requestObj);
 }
 }

@@ -8,7 +8,7 @@
                     <p class="text-center"  *ngIf="data.length < 1">No marriage records found.</p>
                     <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6" *ngFor="let marriageRecord of data; let i=index">
                        <div class="panel panel-default">
-                          <div class="panel-heading txt-black">
+                          <div class="panel-heading txt-black" style="height:10em; overflow: hidden">
                             <a href="{{marriageRecord.image}}" data-lightbox="weddingRecords"
                             data-title="{{marriageRecord.brideFName}} weds {{marriageRecord.groomFName}}">
                             <img src="{{marriageRecord.image}}" class="img-square" alt="couple">
@@ -32,12 +32,6 @@
                  <!-- end of row -->
               </div>
              </div>
-
-             <div class="card-footer">
-                 <small>
-                    Records were petitoned for or granted on merit. Massive down votes will lead to immediate dismissal of record(s).
-                </small>
-           </div>
           </div>
        </section>
   </div>

@@ -46,7 +46,7 @@ export class HallDetailsComponent implements OnInit {
       this.feed ={id:hallRecord.id, title:hallRecord.recordOwnerName, author: hallRecord.petitioner,time:hallRecord.time, day:hallRecord.day, image:hallRecord.recordOwnerImage
       ,brief:hallRecord.brief, article:hallRecord.recordOwnerStory, isLike:hallRecord.isLike, isReact:hallRecord.isReact, btnBgTypeDisLike:hallRecord.btnBgTypeDisLike,
     btnBgTypeLike:hallRecord.btnBgTypeLike, totalDownVotes:hallRecord.totalDownVotes, totalUpVotes:hallRecord.totalUpVotes,
-    votePercentage:hallRecord.votePercentage, authorID : hallRecord.petitionerID}
+    votePercentage:hallRecord.votePercentage, authorID : hallRecord.petitionerID, totalVotesRequired: hallRecord.totalVotesRequired}
     this.isLoaded = true;
     });
   }

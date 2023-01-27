@@ -15,7 +15,8 @@ export const ROUTES: RouteInfo[] = [
   { path: '/search/hall-of-fallen-heros', title: 'Hall of Fallen Heros',  icon:'', class: '', route: 'hall-of-fallen-heros' },
   { path: '/search/hall-of-heros', title: 'Heros',  icon:'', class: '' , route: 'heros'},
   { path: '/search/death-register', title: 'Death Register',  icon:'', class: '', route: 'death-register'},
-  { path: '/search/marriage-register', title: 'Marriage Register',  icon:'', class: '' , route: 'marriage-register'}
+  { path: '/search/marriage-register', title: 'Marriage Register',  icon:'', class: '' , route: 'marriage-register'},
+  { path: '/search/hall-of-the-unforgotten', title: 'Hall of The Unforgotten',  icon:'', class: '' , route: 'hall-of-the-unforgotten'}
 ];
 export class GenericModel {
   public static galleryLoadCount:number = 0;

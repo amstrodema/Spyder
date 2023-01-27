@@ -15,6 +15,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { FormsModule } from '@angular/forms';
 import { NotificationComponent } from './notification/notification.component';
 import { ComponentsModule } from '../components/components.module';
+import { WalletModule } from './free-zone/wallet/wallet.module';
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import { ComponentsModule } from '../components/components.module';
     ProfileModule,
     TrendingModule,
     FormsModule,
-    ComponentsModule
+    ComponentsModule,
+    WalletModule
   ],
   declarations: [PagesComponent, SettingsComponent, NotificationComponent],
 })

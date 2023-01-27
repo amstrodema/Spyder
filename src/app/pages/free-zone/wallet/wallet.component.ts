@@ -1,19 +1,19 @@
-import { Component, OnInit } from "@angular/core";
-import { PaystackOptions } from "angular4-paystack";
-import { ModelClass } from "src/app/models/modelClass";
-import { Router } from "@angular/router";
-import { WalletService } from "src/app/service/wallet.service";
-import { ResponseMessage } from "src/app/models/responseMessage";
-import { Notifier } from "src/app/models/notifier";
-import { Payment } from "src/app/models/payment";
-import { Wallet } from "src/app/models/wallet";
-import { Registration } from "src/app/models/registration";
-import { TrxRef } from "src/app/models/trxRef";
+import { Component, OnInit } from '@angular/core';
+import { Notifier } from 'src/app/models/notifier';
+import { ResponseMessage } from 'src/app/models/responseMessage';
+import { ModelClass } from 'src/app/models/modelClass';
+import { TrxRef } from 'src/app/models/trxRef';
+import { Router } from '@angular/router';
+import { WalletService } from 'src/app/service/wallet.service';
+import { Wallet } from 'src/app/models/wallet';
+import { Payment } from 'src/app/models/payment';
+import { PaystackOptions } from 'angular4-paystack';
+import { Registration } from 'src/app/models/registration';
 
 @Component({
-  selector: "app-wallet",
-  templateUrl: "./wallet.component.html",
-  styleUrls: ["./wallet.component.scss"]
+  selector: 'app-wallet',
+  templateUrl: './wallet.component.html',
+  styleUrls: ['./wallet.component.scss']
 })
 export class WalletComponent implements OnInit {
   withdrawal: boolean = false;

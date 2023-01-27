@@ -70,7 +70,8 @@ export class PetitionViewComponent implements OnInit {
           totalDownVotes: hallRecord.totalDownVotes,
           totalUpVotes: hallRecord.totalUpVotes,
           votePercentage: hallRecord.votePercentage,
-          authorID : hallRecord.petitionerID
+          authorID : hallRecord.petitionerID,
+          totalVotesRequired: hallRecord.totalVotesRequired
         };
         this.titleService.setTitle(
           "SPYDER - Sign this petition to enlist " +

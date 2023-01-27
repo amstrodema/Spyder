@@ -104,6 +104,9 @@ export class SidebarComponent implements OnInit {
 
   hallPages(val){
     switch (val) {
+      case "unforgotten":
+        this.router.navigate(["/search/hall-of-the-unforgotten"], { replaceUrl: false });
+        break;
       case "fame":
         this.router.navigate(["/search/hall-of-fame"], { replaceUrl: false });
         break;

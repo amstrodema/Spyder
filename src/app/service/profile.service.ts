@@ -10,8 +10,13 @@ export class ProfileService {
 
   constructor(private httpClient: HttpClient) { }
 
-  GetProfileContent(userID): Observable<any> {
-    return this.httpClient.get(ModelClass.baseUrl+`api/generic/GetProfileContent?userID=`+userID);
+  GetProfileContent(profileUserID): Observable<any> {
+    if (ModelClass.user != null) {
+    return this.httpClient.get(ModelClass.baseUrl+`api/generic/GetProfileContent?userID=`+ModelClass.user.id+'&appID='+ModelClass.clientSystem.appID+'&profileUserID='+profileUserID);
+
+    } else {
+    return this.httpClient.get(ModelClass.baseUrl+`api/generic/GetProfileContent?profileUserID=`+profileUserID);
+    }
   }
 
   GetProfileContentWithComment(userID): Observable<any> {

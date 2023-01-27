@@ -73,7 +73,7 @@ export class NewMarriageRegisterComponent implements OnInit {
       this.PushValue(this.marriageFeature);
 
       this.featureValue = "";
-      Notifier.Notify('Feature added', 'success', 0);
+      Notifier.Notify('Wedding Feature added', 'success', 0);
     }
   }
 
@@ -85,7 +85,7 @@ export class NewMarriageRegisterComponent implements OnInit {
       this.PushTypeValue(this.marriageTypeFeature);
 
       this.marriageFeatureValue = "";
-      Notifier.Notify('Marriage type added', 'success', 0);
+      Notifier.Notify('Wedding type added', 'success', 0);
     }
   }
 
@@ -151,6 +151,8 @@ export class NewMarriageRegisterComponent implements OnInit {
       this.marriageModel.createdBy = ModelClass.user.id;
       this.marriageModel.countryID = ModelClass.user.countryID;
       this.newMarriage.marriage = this.marriageModel;
+
+      this.newMarriage.features = [];
 
       for (let index = 0; index < this.marriageFeatures.length; index++) {
         this.newMarriage.features.push(this.marriageFeatures[index]);

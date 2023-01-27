@@ -6,6 +6,7 @@ import { ScriptLoader } from "./script-loader";
 import { Setting } from './setting';
 import { NotificationHybrid } from './notificationHybrid';
 import { NotificationService } from '../service/notification.service';
+import { ClientSystem } from './clientSystem';
 
 export class ModelClass {
 
@@ -17,6 +18,7 @@ static baseUrl2:string = "http://localhost:4200/";
 static isLogged:boolean = false;
 static user:Registration;
 static settings:Setting;
+static clientSystem:ClientSystem;
 static prevRoute:string;
 static errorPage:string;
 static navBar:Navbar = new Navbar();
@@ -38,22 +40,28 @@ static GetRequestObject(){
 }
 
 static CheckLoggedIn(){
-  let x = JSON.parse(sessionStorage.getItem("User"));
-  if(x != null){
+  try {
+    this.user = JSON.parse(sessionStorage.getItem("User"));
+  this.settings = JSON.parse(sessionStorage.getItem("Settings"));
+  this.clientSystem = JSON.parse(sessionStorage.getItem("ClientSystem"));
+  if(this.user != null && this.settings != null && this.clientSystem != null){
     this.isLogged = true;
-    this.user = x;
+
     if (this.user.image == undefined) {
       let dummy:Registration = new Registration();
       this.user.image = dummy.image;
     }
-    try {
-      this.settings = JSON.parse(sessionStorage.getItem("Settings"));
-    } catch (error) {
 
-    }
     this.navBar.userName = this.user.username;
   }
   else{
+    this.user = null;
+    this.settings = null;
+    this.clientSystem = null;
+
+    this.isLogged = false;
+  }
+  } catch (error) {
     this.isLogged = false;
   }
 }

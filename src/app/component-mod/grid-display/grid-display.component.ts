@@ -30,7 +30,7 @@ export class GridDisplayComponent implements OnInit {
     this.hallName = this.genericModel.GetTitle(this.location);
   }
 
-  ControlButtonBgType(isLike:boolean, i:number){
+  ControlButtonBgType(isLike:boolean, i:number, petitionerID: string){
     if (ModelClass.isLogged) {
       var obj = this.hallRecords[i];
     var objHolder = this.hallRecords[i];
@@ -42,7 +42,7 @@ export class GridDisplayComponent implements OnInit {
     let vote:Vote = {isLike:isLike, isReact:obj.isReact, btnBgTypeDisLike:obj.btnBgTypeDisLike, btnBgTypeLike:obj.btnBgTypeLike, itemID:obj.id, userCountryID: ModelClass.user.countryID, userID: ModelClass.user.id, createdBy: ModelClass.user.id};
 
 
-    this.petitionService.VotePetition(vote).subscribe((response: ResponseMessage) => {
+    this.petitionService.VotePetition(vote,petitionerID).subscribe((response: ResponseMessage) => {
       if (response.statusCode != 200) {
         Notifier.Notify(response.message, "danger", 2000);
         obj = objHolder;

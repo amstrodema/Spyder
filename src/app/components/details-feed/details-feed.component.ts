@@ -72,7 +72,7 @@ export class DetailsFeedComponent implements OnInit {
 
     if (this.feedFlag > 0)
       this.petitionService
-        .VotePetition(vote)
+        .VotePetition(vote, this.feed.authorID)
         .subscribe((response: ResponseMessage) => {
           if (response.statusCode != 200) {
             Notifier.Notify(response.message, "danger", 2000);
@@ -89,7 +89,7 @@ export class DetailsFeedComponent implements OnInit {
         });
     else
       this.likeService
-        .Like(vote)
+        .Like(vote, this.feed.authorID)
         .subscribe((response: ResponseMessage) => {
           if (response.statusCode != 200) {
             Notifier.Notify(response.message, "danger", 2000);

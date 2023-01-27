@@ -14,5 +14,6 @@ export class Feed {
   isLike: boolean;
   totalUpVotes:number;
   totalDownVotes:number;
+  totalVotesRequired:number;
   votePercentage:number
 }
