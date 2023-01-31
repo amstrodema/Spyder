@@ -38,9 +38,14 @@ export class ConfessionServiceService {
   }
 
   Confess(confession: Confession): Observable<any> {
+
+    let requestObj:RequestObject = ModelClass.GetRequestObject();
+    requestObj.data = confession;
+    requestObj.appID = ModelClass.clientSystem.appID;
+
     return this.httpClient.post(
       ModelClass.baseUrl + `api/confession`,
-      confession
+      requestObj
     );
   }
 }

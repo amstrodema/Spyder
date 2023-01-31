@@ -31,6 +31,11 @@ export class HallService {
   }
 
   VoteHall(vote:Vote): Observable<any> {
-    return this.httpClient.post(ModelClass.baseUrl+`api/vote`, vote);
+
+    let requestObj:RequestObject = ModelClass.GetRequestObject();
+    requestObj.data = vote;
+    requestObj.appID = ModelClass.clientSystem.appID;
+
+    return this.httpClient.post(ModelClass.baseUrl+`api/vote`, requestObj);
   }
 }

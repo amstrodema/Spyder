@@ -19,6 +19,10 @@ GetDeathRecordDetails(itemID:string): Observable<any> {
   return this.httpClient.get(ModelClass.baseUrl+`api/death/`+itemID);
 }
 NewDeathRecord(death:Death): Observable<any> {
-  return this.httpClient.post(ModelClass.baseUrl+`api/death`, death);
+  let requestObj:RequestObject = ModelClass.GetRequestObject();
+  requestObj.data = death;
+  requestObj.appID = ModelClass.clientSystem.appID;
+
+  return this.httpClient.post(ModelClass.baseUrl+`api/death`, requestObj);
 }
 }

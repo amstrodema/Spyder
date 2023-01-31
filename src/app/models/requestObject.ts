@@ -5,4 +5,6 @@ export class RequestObject {
   data:any;
   flag: number;
   itemID: string;
+  authorID: string;
+  appID: string;
 }

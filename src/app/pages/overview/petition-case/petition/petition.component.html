@@ -48,11 +48,11 @@
                                          </span>
                                        </span>
 
-                                     <span style="float: right;">
+                                     <!-- <span style="float: right;">
                                        <i class="btn btn-mini icon-magnifier" (click)="toggleSearchFilter(true)" *ngIf="!toggleSearchFilterIndicator"></i>
                                        <i class="btn btn-mini icofont {{arrowButton}}" (click)="toggleArrow()"></i>
-                                       <!-- <i class="btn btn-mini icon icon-settings"></i> -->
-                                     </span>
+                                       <i class="btn btn-mini icon icon-settings"></i>
+                                     </span> -->
                                    </span>
                               </td>
                             </tr>
@@ -81,19 +81,19 @@
                                       <td class="no-wrap text-center">
                                         <button type="button"
                                           class="btn btn-mini {{SolveReaction(true,petiton.btnBgTypeLike)}} {{petiton.btnBgTypeLike}} btn-standard waves-effect waves-light"
-                                          (click)="ControlButtonBgType(true, i)">
+                                          (click)="ControlButtonBgType(true, i, petiton.petitionerID)">
                                           <i class="icofont icofont-thumbs-up"></i> {{petiton.totalUpVotes}}
                                         </button>
                                       </td>
                                       <td class=" text-center">
                                         <button type="button"
                                           class="btn btn-mini {{SolveReaction(false,petiton.btnBgTypeDisLike)}} {{petiton.btnBgTypeDisLike}} btn-standard waves-effect waves-light"
-                                          (click)="ControlButtonBgType(false, i)">
+                                          (click)="ControlButtonBgType(false, i, petiton.petitionerID)">
                                           <i class="icofont icofont-thumbs-down"></i> {{petiton.totalDownVotes}}
                                         </button>
                                       </td>
                                       <td>
-                                       <small class="text-dark padded">{{petiton.votePercentage}}%</small>
+                                       <small class="text-dark padded">{{petiton.votePercentage | number: '1.0-2'}}%</small>
                                       </td>
                                     </tr>
 

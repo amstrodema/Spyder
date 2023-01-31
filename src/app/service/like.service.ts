@@ -18,7 +18,12 @@ export class LikeService {
     }
    }
 
-   Like(vote:Vote): Observable<any> {
-    return this.httpClient.post(ModelClass.baseUrl+`api/like`, vote);
+   Like(like:Vote, authorID: string): Observable<any> {
+    let requestObj:RequestObject = ModelClass.GetRequestObject();
+    requestObj.data = like;
+    requestObj.appID = ModelClass.clientSystem.appID;
+    requestObj.authorID = authorID;
+
+    return this.httpClient.post(ModelClass.baseUrl+`api/like`, requestObj);
   }
 }

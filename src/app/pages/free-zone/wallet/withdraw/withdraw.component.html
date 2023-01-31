@@ -6,7 +6,7 @@
           <tr>
               <td>
                   <div class="form-group">
-                      <input type="number" placeholder="Amount to Withdraw (₦)" value="{{wallet.ref}}" class="form-control form-control-sm" min="1" readonly>
+                      <input type="number" placeholder="Amount to Withdraw (₦)" value="{{wallet.ref | number: '1.0-2'}}" class="form-control form-control-sm" min="1" readonly>
                     </div>
               </td>
           </tr>
@@ -17,7 +17,7 @@
                   &nbsp;Withdraw</button>
                 <button  class="btn btn-mini btn-primary" style="width: 100%;" *ngIf="isDisable" [disabled]= isDisable>
                     <i class="ti ti-credit-card"></i> &nbsp;
-                  &nbsp;Minimum Withdraw is ₦{{minWithdrawal}}</button>
+                  &nbsp;Minimum Withdraw is ₦{{minWithdrawal | number: '1.0-2'}}</button>
             </td>
           </tr>
         </table>

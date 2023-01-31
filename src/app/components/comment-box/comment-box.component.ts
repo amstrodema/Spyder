@@ -13,6 +13,7 @@ import { Notifier } from 'src/app/models/notifier';
 export class CommentBoxComponent implements OnInit {
   @Input() route;
   @Input() itemID: string;
+  @Input() authorID: string;
   comments:Comment[] =[];
   comment: Comment = new Comment();
   constructor(private commentService:CommentService) { }
@@ -43,7 +44,7 @@ export class CommentBoxComponent implements OnInit {
 
     if(this.comment.details == ""){ Notifier.Notify("Empty comment", "danger", 2000);}
     else{
-     this.commentService.Comment(this.comment).subscribe((response: ResponseMessage) => {
+     this.commentService.Comment(this.comment, this.authorID).subscribe((response: ResponseMessage) => {
        if (response.statusCode == 200) {
          Notifier.Notify(response.message, "success", 2000);
          this.comments = response.data;

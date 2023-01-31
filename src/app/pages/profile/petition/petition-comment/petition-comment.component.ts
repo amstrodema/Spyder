@@ -20,6 +20,7 @@ export class PetitionCommentComponent implements OnInit {
   @Input() userID ;
  isLoggedIn = ModelClass.isLogged;
  profileRecords:Profile[] = [];
+ isLoading: boolean = true;
 
   constructor(private router:Router, private profileService:ProfileService) { }
 
@@ -34,6 +35,7 @@ export class PetitionCommentComponent implements OnInit {
         else {
            Notifier.Notify(response.message, "danger", 2000);
         }
+        this.isLoading = false;
       });
   }
   OpenClick(valueType: string, id: string){

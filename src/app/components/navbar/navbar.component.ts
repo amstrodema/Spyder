@@ -36,9 +36,13 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     ModelClass.LoadScripts();
     ModelClass.CheckLoggedIn();
-    this.navbar.image = ModelClass.user.image;
-    this.isLoggedIn = ModelClass.isLogged;
+
+    if (ModelClass.isLogged) {
+      this.navbar.image = ModelClass.user.image;
     this.GetAllNotificationAlert();
+    }
+
+    this.isLoggedIn = ModelClass.isLogged;
   }
 
   moveSide(){

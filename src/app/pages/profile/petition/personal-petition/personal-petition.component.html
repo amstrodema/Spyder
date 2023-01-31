@@ -1,6 +1,7 @@
 <div class="card">
   <div class="card-block">
-    <div class="card" *ngIf="profileRecords.length < 1">
+    <app-spinner3 *ngIf="isLoading"></app-spinner3>
+    <div class="card" *ngIf="profileRecords.length < 1 && !isLoading">
       <p class="text-center">
         No Records Found
       </p>

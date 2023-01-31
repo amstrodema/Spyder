@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
 
           sessionStorage.setItem("User", JSON.stringify(response.data.user));
           sessionStorage.setItem("Settings", JSON.stringify(response.data.settings));
+          sessionStorage.setItem("ClientSystem", JSON.stringify(response.data.clientSystem));
           ModelClass.CheckLoggedIn();
           //To Do: use localStorage
           //localStorage.setItem("User", JSON.stringify(response.data));

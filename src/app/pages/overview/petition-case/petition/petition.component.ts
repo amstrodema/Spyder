@@ -80,7 +80,7 @@ export class PetitionComponent implements OnInit {
   }
 
 
-  ControlButtonBgType(isLike:boolean, i:number){
+  ControlButtonBgType(isLike:boolean, i:number, petitioner: string){
     if(this.isLoggedIn){
       var obj:HallRecord = this.hallRecords[i];
       var objHolder:HallRecord = this.hallRecords[i];
@@ -89,7 +89,7 @@ export class PetitionComponent implements OnInit {
       let vote:Vote = {isLike:isLike, isReact:obj.isReact, btnBgTypeDisLike:obj.btnBgTypeDisLike, btnBgTypeLike:obj.btnBgTypeLike, itemID:obj.id, userCountryID: ModelClass.user.countryID, userID: ModelClass.user.id, createdBy: ModelClass.user.id};
 
 
-      this.petitionService.VotePetition(vote).subscribe((response: ResponseMessage) => {
+      this.petitionService.VotePetition(vote, petitioner).subscribe((response: ResponseMessage) => {
         if (response.statusCode != 200) {
           Notifier.Notify(response.message, "danger", 2000);
           obj = objHolder;
@@ -102,6 +102,12 @@ export class PetitionComponent implements OnInit {
         obj.totalDownVotes = voteVM.totalDownVote;
         obj.totalUpVotes = voteVM.totalUpVote;
         obj.votePercentage = voteVM.votePercentage;
+
+        if (obj.votePercentage >= 100) {
+          this.hallRecords.splice(i,1);
+          this.hallRecordsHolder.splice(i,1);
+          Notifier.Notify("Petition Confirmed!", "success", 2000);
+        }
       });
     }
     else{

@@ -12,7 +12,9 @@
               <td class="padded" style="padding-left: 1em !important">
                 <p class="bold">{{user.name}}</p>
                 <p>@{{user.username}}</p>
-                <p><span *ngIf="user.city != ''">{{user.city}}, </span>{{user.country}}</p>
+                <p><span *ngIf="user.city != '' && user.city != undefined">{{user.city}}, </span>{{user.country}}</p>
+                <p *ngIf="user.phone != '' && user.phone != undefined">Phone: {{user.phone}}</p>
+                <p *ngIf="user.email != '' && user.email != undefined">Email: {{user.email}}</p>
               </td>
               <td>
                 <!-- <p class="text-right" *ngIf="isEdit">

@@ -24,9 +24,19 @@ export class GalleryService {
   }
 
    SaveImage(image:Image): Observable<any> {
-    return this.httpClient.post(ModelClass.baseUrl+`api/image`, image);
+
+    let requestObj:RequestObject = ModelClass.GetRequestObject();
+    requestObj.data = image;
+    requestObj.appID = ModelClass.clientSystem.appID;
+
+    return this.httpClient.post(ModelClass.baseUrl+`api/image`, requestObj);
   }
   SaveLink(link:Link): Observable<any> {
-    return this.httpClient.post(ModelClass.baseUrl+`api/link`, link);
+
+    let requestObj:RequestObject = ModelClass.GetRequestObject();
+    requestObj.data = link;
+    requestObj.appID = ModelClass.clientSystem.appID;
+
+    return this.httpClient.post(ModelClass.baseUrl+`api/link`, requestObj);
   }
 }

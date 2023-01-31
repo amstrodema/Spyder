@@ -25,7 +25,7 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="card">
-            <app-spinner *ngIf="!isLoaded"></app-spinner>
+            <app-spinner3 *ngIf="!isLoaded"></app-spinner3>
             <p *ngIf="isLoaded && notifications.length < 1">No notification found</p>
           <div *ngFor="let notif of notifications; let i=index">
             <div  *ngIf="notif.isRead">

@@ -50,6 +50,16 @@ export class SettingsComponent implements OnInit {
     });
   }
   PutSettings() {
+      if(this.setting.isLocalRange){
+        if(this.setting.viewCountryID == ModelClass.defaultGuid){
+          try {
+            this.setting.viewCountryID = this.countries[0].id;
+          } catch (error) {
+
+          }
+        }
+      }
+
     this.settingService.PutSettings(this.setting).subscribe((response: ResponseMessage) => {
       if (response.statusCode == 200) {
         sessionStorage.setItem("Settings", JSON.stringify(this.setting));

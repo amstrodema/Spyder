@@ -18,6 +18,7 @@ export class HallRecord {
   isApproved: boolean;
   totalUpVotes: number;
   totalDownVotes: number;
+  totalVotesRequired: number;
   votePercentage:number;
   clickObject: string;
   isAnonymous:boolean;

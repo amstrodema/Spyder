@@ -24,10 +24,16 @@ export class MissingService {
     this.requestObject = ModelClass.GetRequestObject();
     this.requestObject.data = awarenessTypeNo;
     this.requestObject.itemID = itemTypeID;
+
     return this.httpClient.post(ModelClass.baseUrl+`api/missing/GetMissingByItemTypeID`,this.requestObject);
   }
   NewMissing(missingVM:MissingVM): Observable<any> {
-    return this.httpClient.post(ModelClass.baseUrl+`api/missing`, missingVM);
+
+    let requestObj:RequestObject = ModelClass.GetRequestObject();
+    requestObj.data = missingVM;
+    requestObj.appID = ModelClass.clientSystem.appID;
+
+    return this.httpClient.post(ModelClass.baseUrl+`api/missing`, requestObj);
   }
 
 }

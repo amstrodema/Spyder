@@ -18,6 +18,7 @@
          <div *ngIf="isLoaded">
             <div class="card">
                 <div class="main-header">
+              <h6 class= "text-danger" style="cursor: pointer;"  [routerLink]="['/search/death-register']" routerLinkActive="router-link-active"><b>{{"Death Register" | uppercase}}</b></h6>
                     <h3 class="bold">{{deathModel.name}}</h3>
                     <hr class="slim">
                   <ol class="breadcrumb breadcrumb-title breadcrumb-arrow">
@@ -26,7 +27,7 @@
                     </li>
                     <li class="breadcrumb-item"><small>Archives</small></li>
                     <li class="breadcrumb-item"><small>Whispers</small></li>
-                    <li class="breadcrumb-item"><a [routerLink]="['/death-register']"
+                    <li class="breadcrumb-item"><a [routerLink]="['/serch/death-register']"
                         routerLinkActive="router-link-active"><small>Death</small></a>
                     </li>
                     <li class="breadcrumb-item"><small>{{deathModel.name}}</small></li>
@@ -34,10 +35,10 @@
 
                 </div>
               </div>
-              <p style="margin-bottom: 0.7em;">
+              <!-- <p style="margin-bottom: 0.7em;">
                   <a class="anchor btn btn-mini btn-default" (click)="Alert()">Ping Author <i class="icon-bell"></i></a> &nbsp;
                   <a class="btn btn-mini anchor btn-default" (click)="SendMessage()">Send Message <i class="icon-bubbles"></i></a>
-              </p>
+              </p> -->
 
           <div class="card">
             <div class="card-block">

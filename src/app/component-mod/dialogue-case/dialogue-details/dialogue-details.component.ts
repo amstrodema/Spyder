@@ -34,7 +34,7 @@ export class DialogueDetailsComponent implements OnInit {
 
       this.feed ={id:record.id, title:record.title, author: record.createdBy,time:record.time, day:record.date, image:record.image
       ,brief:"", article:record.details, isLike:record.isLike, isReact:record.isReact, btnBgTypeDisLike:"",
-    btnBgTypeLike:"", totalDownVotes:record.totalDisLikes, totalUpVotes:record.totalLikes,votePercentage:0, authorID: record.createdByID }
+    btnBgTypeLike:"", totalDownVotes:record.totalDisLikes, totalUpVotes:record.totalLikes,votePercentage:0, authorID: record.createdByID, totalVotesRequired: 0 }
      this.isLoaded = true;
   }
       else{

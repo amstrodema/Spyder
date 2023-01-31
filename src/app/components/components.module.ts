@@ -12,7 +12,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DetailsFeedComponent } from './details-feed/details-feed.component';
 import { CommentBoxComponent } from './comment-box/comment-box.component';
 import { PickerComponent } from './picker/picker.component';
-import { StopwatchComponent } from './stopwatch/stopwatch.component';
+// import { StopwatchComponent } from './stopwatch/stopwatch.component';
 import { FormsModule } from '@angular/forms';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { SettingComponent } from './market-place/setting/setting.component';
@@ -36,7 +36,6 @@ import { SearchViewComponent } from './navbar/search-view/search-view.component'
     CommentBoxComponent,
     DetailsFeedComponent,
     PickerComponent,
-    StopwatchComponent,
     GalleryComponent,
     SpinnerComponent,
     SettingComponent,
@@ -53,7 +52,6 @@ import { SearchViewComponent } from './navbar/search-view/search-view.component'
     CommentBoxComponent,
     DetailsFeedComponent,
     PickerComponent,
-    StopwatchComponent,
     GalleryComponent,
     SpinnerComponent,
     SettingComponent,

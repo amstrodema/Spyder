@@ -46,8 +46,12 @@ export class HallComponent implements OnInit {
           this.hallName = "Hall of Heros";
           this.banner = "Exceptionally Courageous and Noble People";
         break;
-      case "Fallen Heros":
+      case "Hall of Fallen Heros":
           this.hallName = "Hall of Fallen Heros";
+          this.banner = "Exceptionally Courageous and Noble Casualties";
+        break;
+      case "Hall of The Unforgotten":
+          this.hallName = "Hall of The Unforgotten";
           this.banner = "Exceptionally Courageous and Noble Casualties";
         break;
       case "Hall of Fame":
