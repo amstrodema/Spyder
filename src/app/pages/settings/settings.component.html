@@ -127,7 +127,7 @@
                     <p>Allow incoming messages</p>
                   </td>
                   <td class="text-right">
-                      <input type="checkbox"  (change) ="PutSettings()" [(ngModel)]="setting.isAllowMessaging" role="switch" class="switch" />
+                      <input type="checkbox" disabled (change) ="PutSettings()" [(ngModel)]="setting.isAllowMessaging" role="switch" class="switch" />
                   </td>
                 </tr>
                 <tr>
@@ -135,7 +135,7 @@
                     <p>Recieve anonymous messages</p>
                   </td>
                   <td class="text-right">
-                      <input type="checkbox" (change) ="PutSettings()" [(ngModel)]="setting.isRecieveAnoymousMessages" role="switch" class="switch" />
+                      <input type="checkbox" disabled (change) ="PutSettings()" [(ngModel)]="setting.isRecieveAnoymousMessages" role="switch" class="switch" />
                   </td>
                 </tr>
                 <tr>
@@ -143,7 +143,7 @@
                     <p>Anonymous Messaging</p>
                   </td>
                   <td class="text-right">
-                      <input type="checkbox" (change) ="PutSettings()" [(ngModel)]="setting.isAnoymousMessaging" role="switch" class="switch" />
+                      <input type="checkbox" disabled (change) ="PutSettings()" [(ngModel)]="setting.isAnoymousMessaging" role="switch" class="switch" />
                   </td>
                 </tr>
               </tbody>
@@ -217,7 +217,7 @@
                     <p>Email Notification</p>
                   </td>
                   <td class="text-right">
-                      <input type="checkbox"  (change) ="PutSettings()" [(ngModel)]="setting.isSendNotificationToMail" role="switch" class="switch" />
+                      <input type="checkbox" disabled (change) ="PutSettings()" [(ngModel)]="setting.isSendNotificationToMail" role="switch" class="switch" />
                   </td>
                 </tr>
                 <tr>
@@ -229,7 +229,7 @@
 
                   </td>
                   <td class="text-right">
-                      <input type="checkbox"  (change) ="PutSettings()" [(ngModel)]="setting.isReactionNotification" role="switch" class="switch" />
+                      <input type="checkbox" disabled (change) ="PutSettings()" [(ngModel)]="setting.isReactionNotification" role="switch" class="switch" />
                   </td>
                 </tr>
               </tbody>

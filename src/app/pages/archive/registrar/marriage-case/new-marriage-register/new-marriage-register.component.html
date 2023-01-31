@@ -13,7 +13,7 @@
                 </li>
               <li class="breadcrumb-item"><small>Archives</small></li>
               <li class="breadcrumb-item"><small>Registrar</small></li>
-              <li class="breadcrumb-item"><a [routerLink]="['/marriage-register']" routerLinkActive="router-link-active" ><small>Marriage Register</small></a></li>
+              <li class="breadcrumb-item"><a [routerLink]="['/search/marriage-register']" routerLinkActive="router-link-active" ><small>Marriage Register</small></a></li>
               <li class="breadcrumb-item" *ngIf="!isEdit"><small>New</small></li>
               <li class="breadcrumb-item" *ngIf="isEdit"><small>Modify - {{marriageModel.brideFName}} weds {{marriageModel.groomFName}}</small></li>
             </ol>
@@ -203,8 +203,13 @@
       </div>
 
       <div class="col-xl-4 col-lg-4">
+        <div class="card">
+          <div class="card-block text-center">
+              <img src= "assets/images/ads.jpg" style="max-width: 60%;"/>
+          </div>
+        </div>
           <!-- adv -->
-          <div class="card">
+          <!-- <div class="card">
              <div class="card-block horizontal-card-img d-flex">
                 <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
                 <div class="d-inlineblock  p-l-20">
@@ -213,9 +218,9 @@
                </div>
                 <h6 class="txt-warning rotate-txt">Designer</h6>
              </div>
-          </div>
+          </div> -->
           <!-- adv -->
-          <div class="card">
+          <!-- <div class="card">
              <div class="card-block horizontal-card-img d-flex">
                 <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
                 <div class="d-inlineblock  p-l-20">
@@ -284,9 +289,9 @@
                    </table>
                 </div>
              </div>
-          </div>
+          </div> -->
           <!-- adv -->
-          <div class="card">
+          <!-- <div class="card">
              <div class="card-block horizontal-card-img d-flex">
                 <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
                 <div class="d-inlineblock  p-l-20">
@@ -295,9 +300,9 @@
                </div>
                 <h6 class="txt-warning rotate-txt">Designer</h6>
              </div>
-          </div>
+          </div> -->
           <!-- adv -->
-          <div class="card">
+          <!-- <div class="card">
              <div class="card-block horizontal-card-img d-flex">
                 <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
                 <div class="d-inlineblock  p-l-20">
@@ -366,48 +371,17 @@
                    </table>
                 </div>
              </div>
-          </div>
+          </div> -->
        </div>
    </div>
 
-     <div class="row">
-        <div class="col-xl-4 col-lg-12 grid-item">
-            <div class="card">
-               <div class="card-block horizontal-card-img d-flex">
-                  <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
-                  <div class="d-inlineblock  p-l-20">
-                    <h6>Josephin Doe</h6>
-                    <a href="#">contact@admin.com</a>
-                 </div>
-                  <h6 class="txt-warning rotate-txt">Designer</h6>
-               </div>
-            </div>
-         </div>
-         <div class="col-xl-4 col-lg-12 grid-item">
-            <div class="card">
-               <div class="card-block horizontal-card-img d-flex">
-                  <img class="media-object img-circle" src="assets/images/lockscreen.png" alt="Generic placeholder image">
-                  <div class="d-inlineblock  p-l-20">
-                    <h6>Josephin Doe</h6>
-                    <a href="#">contact@admin.com</a>
-                 </div>
-                  <h6 class="txt-danger rotate-txt">Developer</h6>
-               </div>
-            </div>
-         </div>
-         <div class="col-xl-4 col-lg-12 grid-item">
-            <div class="card">
-               <div class="card-block horizontal-card-img d-flex">
-                  <img class="media-object img-circle" src="assets/images/lockscreen.png" alt="Generic placeholder image">
-                  <div class="d-inlineblock  p-l-20">
-                    <h6>Josephin Doe</h6>
-                    <a href="#">contact@admin.com</a>
-                 </div>
-                  <h6 class="txt-danger rotate-txt">Developer</h6>
-               </div>
-            </div>
-         </div>
-     </div>
+   <div>
+    <div class="card">
+      <div class="card-block text-center">
+          <img src= "assets/images/ads2.jpg" style="max-width: 50%; max-height: 3em;"/>
+      </div>
+    </div>
+   </div>
 
   </div>
 </div>

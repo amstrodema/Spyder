@@ -6,11 +6,13 @@ import { PetitionVoteComponent } from './petition/petition-vote/petition-vote.co
 import { PetitionCommentComponent } from './petition/petition-comment/petition-comment.component';
 import { PersonalPetitionComponent } from './petition/personal-petition/personal-petition.component';
 import { RouterModule } from '@angular/router';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    ComponentsModule
   ],
   declarations: [ProfileComponent, BioComponent, PetitionVoteComponent, PetitionCommentComponent, PersonalPetitionComponent]
 })

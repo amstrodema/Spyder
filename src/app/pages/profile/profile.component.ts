@@ -16,7 +16,8 @@ export class ProfileComponent implements OnInit {
   petitionComment: boolean = false;
   petitionVote: boolean = false;
   userID: string;
-  user:Registration
+  user:Registration;
+  isLoading:boolean= true;
 
   constructor(private router: Router,
     private activeRoute: ActivatedRoute, private profileService:ProfileService) {
@@ -48,6 +49,8 @@ export class ProfileComponent implements OnInit {
           else {
              Notifier.Notify(response.message, "danger", 2000);
           }
+
+          this.isLoading = false;
         });
     }
 

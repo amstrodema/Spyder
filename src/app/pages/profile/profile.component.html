@@ -2,6 +2,7 @@
     <div class="container-fluid">
       <!-- Main content starts -->
 
+      <app-spinner3 *ngIf="isLoading"></app-spinner3>
       <!-- Row Starts -->
      <app-bio [user]= user [userID] = userID *ngIf="user != null"></app-bio>
       <!-- Row end -->
