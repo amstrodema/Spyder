@@ -11,6 +11,7 @@
         <div *ngIf="isLoaded">
           <div class="card">
           <div class="main-header">
+              <h6 class= "anchor" style="cursor: pointer;"  [routerLink]="['/search/marriage-register']" routerLinkActive="router-link-active"><b>{{"Marriage Register" | uppercase}}</b></h6>
             <h3><b>{{marriage.brideFName}} <small><i>weds</i></small> {{marriage.groomFName}}</b></h3>
             <hr class="slim">
             <ol class="breadcrumb breadcrumb-title breadcrumb-arrow nowrap">
@@ -19,7 +20,7 @@
               </li>
               <li class="breadcrumb-item"><small>Arc...</small></li>
               <li class="breadcrumb-item"><small>Whi...</small></li>
-              <li class="breadcrumb-item"><a [routerLink]="['/marriage-register']"
+              <li class="breadcrumb-item"><a [routerLink]="['/search/marriage-register']"
                   routerLinkActive="router-link-active"><small>Marr...</small></a>
               </li>
               <li class="breadcrumb-item "><small>{{marriage.brideFName}}<small><i> weds</i></small>
@@ -29,11 +30,11 @@
           </div>
         </div>
 
-        <div style="margin-bottom: 0.7em;">
+        <!-- <div style="margin-bottom: 0.7em;">
           <a class="anchor btn btn-mini btn-default" (click)="Alert()">Ping Author <i class="icon-bell"></i></a> &nbsp;
           <a class="btn btn-mini anchor btn-default" (click)="SendMessage()">Send Message <i
               class="icon-bubbles"></i></a>
-        </div>
+        </div> -->
 
 
         <div class="card">

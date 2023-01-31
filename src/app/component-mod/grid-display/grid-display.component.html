@@ -19,9 +19,19 @@
                              <p>{{hallRecord.brief}}</p>
                           </div>
                           <div class="panel-footer">
+                            <table>
+                              <tr>
+                                <td>
                             <span class="btn btn-mini {{hallRecord.btnBgTypeLike}}" (click)="ControlButtonBgType(true,i, hallRecord.petitionerID)" style="margin-right:  0.5em;"><i class="icon-like"></i></span>
+                                </td>
+                                <td>
                             <span class="btn btn-mini {{hallRecord.btnBgTypeDisLike}}" (click)="ControlButtonBgType(false,i, hallRecord.petitionerID)" style="margin-right: 0.5em;"><i class="icon-dislike"></i></span>
+                                </td>
+                                <td>
                             <span class="btn btn-mini" (click)=" HallDetails(hallRecord.id)"><i class="icon-feed" style="margin-right:  0.5em;"></i></span>
+                                </td>
+                              </tr>
+                            </table>
                           </div>
                        </div>
                     </div>

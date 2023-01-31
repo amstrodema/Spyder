@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-xl-8 col-lg-8">
             <app-spinner3 *ngIf="!isLoaded"></app-spinner3>
-            <app-details-feed *ngIf="isLoaded" [feed]=feed [feedFlag] =1></app-details-feed>
+            <app-details-feed *ngIf="isLoaded" [feed]=feed [feedFlag] =1 [tag]= "hallName" [tagLink] = "hallLink"></app-details-feed>
             <app-gallery [creatorID] = hallRecord.petitionerID [itemID] = hallRecordID *ngIf="isLoaded"></app-gallery>
             <!-- comment box -->
             <app-comment-box [route] = route [itemID] = hallRecordID></app-comment-box>

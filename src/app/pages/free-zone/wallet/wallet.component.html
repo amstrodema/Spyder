@@ -64,20 +64,26 @@
           </div>
 
         </div>
-        <div *ngIf="!isHide">
-          <div [hidden]="!isLoaded && !isActivated && !isWalletLoaded">
-            <button class="btn btn-mini btn-danger" style="width: 100%;" *ngIf="!isActivated" angular4-paystack
-              [paystackOptions]="activateOptions" (paymentInit)="ActivationPaymentInit()"
-              (onClose)="ActivationPaymentCancel()" (callback)="ActivationPaymentDone($event)">
-              <i class="icon-lock"></i>&nbsp;&nbsp; Activate Account
-            </button>
+        <div *ngIf="isWalletLoaded">
+          <div *ngIf="!isHide">
+            <div [hidden]="!isLoaded && !isActivated && !isWalletLoaded">
+              <button class="btn btn-mini btn-danger" style="width: 100%;" *ngIf="!isActivated" angular4-paystack
+                [paystackOptions]="activateOptions" (paymentInit)="ActivationPaymentInit()"
+                (onClose)="ActivationPaymentCancel()" (callback)="ActivationPaymentDone($event)">
+                <i class="icon-lock"></i>&nbsp;&nbsp; Activate Account
+              </button>
 
+            </div>
           </div>
         </div>
 
         <div style="width: 100%;" [hidden]="isLoaded" class="bg-white">
           <app-spinner3></app-spinner3>
           <p class="bold text-center">DO NOT LEAVE THIS PAGE</p>
+          <p class="text-center" *ngIf="trx != undefined">Copy Your Trx: {{trx}}</p>
+          <p class="text-center text-muted" *ngIf="trx != undefined"><small>Send us your Trx if activation fails.</small>
+          <br>
+          </p>
         </div>
 
         <app-balance *ngIf="balance && wallet != null" [wallet]=wallet></app-balance>

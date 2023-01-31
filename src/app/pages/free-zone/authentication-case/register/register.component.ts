@@ -17,6 +17,7 @@ registration:Registration =  new Registration();
 refCode:string;
 countries: Country[] = [];
 confirmPassword: string;
+isDisabled = false;
   constructor(private activeRoute:ActivatedRoute,private countryService:CountryService, private router: Router, private registrationService: RegistrationService) { }
 
   ngOnInit() {
@@ -55,6 +56,7 @@ confirmPassword: string;
       Notifier.Notify("Email not valid", "danger", 2000);
     }
     else {
+      this.isDisabled = true;
         this.registrationService.AddNewAccount(this.registration).subscribe((response: ResponseMessage) => {
       if (response.statusCode == 200) {
         Notifier.Notify(response.message, "success", 2000);

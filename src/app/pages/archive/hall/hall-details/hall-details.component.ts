@@ -17,6 +17,8 @@ export class HallDetailsComponent implements OnInit {
   route:string;
   feed:Feed = new Feed();
   hallRecordID = "";
+  hallName = "";
+  hallLink = "";
   hallRecord:HallRecord = new HallRecord();
   isLoaded = false;
   constructor(private location:Location, private hallService:HallService, private activeRoute:ActivatedRoute, private router:Router) {
@@ -43,6 +45,9 @@ export class HallDetailsComponent implements OnInit {
   GetHallDetails(){
     this.hallService.GetHallMemberDetailsVM(this.hallRecordID).subscribe((response: any) => {
       var hallRecord = this.hallRecord = response;
+      this.hallName = this.hallRecord.hallName;
+      this.hallLink = this.genericModel.GetPath(this.hallName);
+
       this.feed ={id:hallRecord.id, title:hallRecord.recordOwnerName, author: hallRecord.petitioner,time:hallRecord.time, day:hallRecord.day, image:hallRecord.recordOwnerImage
       ,brief:hallRecord.brief, article:hallRecord.recordOwnerStory, isLike:hallRecord.isLike, isReact:hallRecord.isReact, btnBgTypeDisLike:hallRecord.btnBgTypeDisLike,
     btnBgTypeLike:hallRecord.btnBgTypeLike, totalDownVotes:hallRecord.totalDownVotes, totalUpVotes:hallRecord.totalUpVotes,

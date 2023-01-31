@@ -1,7 +1,7 @@
 import { Navbar } from './navbar';
 import { Registration } from "./registration";
 import { RequestObject } from "./requestObject";
-import { GenericModel } from "./genericModel";
+import { GenericModel, ROUTES } from "./genericModel";
 import { ScriptLoader } from "./script-loader";
 import { Setting } from './setting';
 import { NotificationHybrid } from './notificationHybrid';
@@ -12,6 +12,10 @@ export class ModelClass {
 
 static baseUrl:string = "http://localhost:38519/";
 static baseUrl2:string = "http://localhost:4200/";
+static defaultGuid:string = "00000000-0000-0000-0000-000000000000";
+
+// static baseUrl:string = "192.168.0.101:38519/";
+// static baseUrl2:string = "192.168.0.101:4200/";
 
 // static baseUrl:string = "https://api.logit.com.ng/";
 // static baseUrl2:string = "https://spyder.logit.com.ng";
@@ -83,4 +87,6 @@ ScriptLoader.loadScripts();
 static LoadNavBar(){
 
 }
+
+
 }

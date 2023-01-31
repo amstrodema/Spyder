@@ -24,7 +24,6 @@ export class MissingService {
     this.requestObject = ModelClass.GetRequestObject();
     this.requestObject.data = awarenessTypeNo;
     this.requestObject.itemID = itemTypeID;
-    this.requestObject.countryID = ModelClass.settings.viewCountryID;
 
     return this.httpClient.post(ModelClass.baseUrl+`api/missing/GetMissingByItemTypeID`,this.requestObject);
   }

@@ -16,7 +16,6 @@ export class ConfessionServiceService {
   GetConfessionHeadLines(dialogueTypeNo: number): Observable<any> {
     this.requestObject = ModelClass.GetRequestObject();
     this.requestObject.data = dialogueTypeNo;
-    this.requestObject.countryID = ModelClass.settings.viewCountryID;
 
     return this.httpClient.post(
       ModelClass.baseUrl + `api/confession/GetHeadLines`,

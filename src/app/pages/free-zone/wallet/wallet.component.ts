@@ -29,6 +29,7 @@ export class WalletComponent implements OnInit {
   isWalletLoaded = false;
   user: Registration;
   isHide = false;
+  trx: string;
 
   withdrawalBtn = "";
   transferBtn = "";
@@ -105,6 +106,7 @@ export class WalletComponent implements OnInit {
     this.payment.message = thisRef.message;
 
     this.payment.userID = ModelClass.user.id;
+    this.trx = this.payment.transaction;
 
     this.walletService
       .ActivateAccount(this.payment)

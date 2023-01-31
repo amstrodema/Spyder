@@ -1,3 +1,4 @@
 export class ClientSystem {
-  appID: string
+  appID: string;
+  jwtToken: string;
 }

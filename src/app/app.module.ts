@@ -1,4 +1,4 @@
-import { StopwatchComponent } from './components/stopwatch/stopwatch.component';
+// import { StopwatchComponent } from './components/stopwatch/stopwatch.component';
 import { CountdownModule, CountdownGlobalConfig } from 'node_modules/ngx-countdown';
 import { CountdownConfig } from 'node_modules/ngx-countdown/interfaces';
 import { ToastrModule } from 'ngx-toastr';

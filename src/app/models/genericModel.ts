@@ -143,6 +143,14 @@ export class GenericModel {
            }
          }
 
+         GetPath(title: string) {
+           try {
+             return ROUTES.find(x => x.title == title).path;
+           } catch (e) {
+             return "";
+           }
+         }
+
          static cardImageBase: string;
 
   static FileChangeEvent(fileInput: any) {

@@ -102,6 +102,12 @@ export class PetitionComponent implements OnInit {
         obj.totalDownVotes = voteVM.totalDownVote;
         obj.totalUpVotes = voteVM.totalUpVote;
         obj.votePercentage = voteVM.votePercentage;
+
+        if (obj.votePercentage >= 100) {
+          this.hallRecords.splice(i,1);
+          this.hallRecordsHolder.splice(i,1);
+          Notifier.Notify("Petition Confirmed!", "success", 2000);
+        }
       });
     }
     else{

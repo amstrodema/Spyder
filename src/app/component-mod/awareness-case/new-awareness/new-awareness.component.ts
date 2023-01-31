@@ -102,9 +102,13 @@ export class NewAwarenessComponent implements OnInit {
   }
 
   AddFeature(val: string) {
-    if (val == "") {
-      Notifier.Notify("Empty feature", "danger", 0);
-    } else {
+    if (this.selectedType.id == "" || this.selectedType.id == undefined){
+      Notifier.Notify("Empty feature", "danger", 2000);
+    }
+    else  if (val == "") {
+      Notifier.Notify("Empty feature value", "danger", 2000);
+    }
+    else {
       var newFeature: Feature = new Feature();
       newFeature.value = val;
       newFeature.featureGroupID = this.selectedGroup.id;
