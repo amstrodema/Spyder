@@ -19,7 +19,7 @@ export class Registration {
   city:string;
   isActivated: boolean;
 
-  image:string = "assets/images/avatar-1.png";
+  image:string;
   bio:string;
   isShowMail:boolean;
   showPhone:boolean;

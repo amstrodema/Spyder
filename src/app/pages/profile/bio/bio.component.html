@@ -8,18 +8,17 @@
                   <a href="{{user.image}}" data-lightbox="profileImage">
                       <img src="{{user.image}}" class="img-circle" style="height: 70px !important; width: 70px !important" alt="User Image">
                     </a>
+                   <p hidden> <input id="imageController" type="file" (change)="OptionFileChangeEvent($event)" class="btn btn-mini"
+                    style="margin-top: 0.5em;" /></p>
               </td>
               <td class="padded" style="padding-left: 1em !important">
-                <p class="bold">{{user.name}}</p>
-                <p>@{{user.username}}</p>
+                <p class="bold">{{user.name}} (@{{user.username}})</p>
                 <p><span *ngIf="user.city != '' && user.city != undefined">{{user.city}}, </span>{{user.country}}</p>
                 <p *ngIf="user.phone != '' && user.phone != undefined">Phone: {{user.phone}}</p>
                 <p *ngIf="user.email != '' && user.email != undefined">Email: {{user.email}}</p>
-              </td>
-              <td>
-                <!-- <p class="text-right" *ngIf="isEdit">
-                    <i class="anchor">edit</i>
-                </p> -->
+                <p *ngIf="isEdit">
+                  (<label class="anchor" for="imageController">modify</label>)
+              </p>
               </td>
             </tr>
             <!-- <tr>
