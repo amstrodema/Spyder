@@ -55,13 +55,13 @@
 
             <a data-toggle="dropdown" data-target="settings-menu" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle drop icon-circle drop-image">
                 <span>
-                  <img class="img-circle" *ngIf="isLoggedIn" src="{{navbar.image}}" style="width:40px; height: 40px;" alt="User Image">
+                  <img class="img-circle" *ngIf="isLoggedIn" src="{{userImage}}" style="width:40px; height: 40px;" alt="User Image">
                  </span>
                  <span>
                    <i class="icon icon-user" *ngIf="!isLoggedIn"></i>
                   </span>
 
-                  <span *ngIf="!isLoggedIn">&nbsp;&nbsp;<b>{{navbar.userName}}</b> <i class=" icofont icofont-simple-down"  *ngIf="isLoggedIn"></i></span>
+                  <span *ngIf="!isLoggedIn">&nbsp;&nbsp;<b>Guest</b></span>
              </a>
              <ul class="dropdown-menu settings-menu"  *ngIf="isLoggedIn">
                 <li (click)="openSettings()"><a><i class="icon-settings"></i> Settings</a></li>
@@ -71,7 +71,7 @@
                    <div class="dropdown-divider m-0"></div>
                 </li>
                 <!-- <li><a href="#"><i class="icon-lock"></i> Lock Screen</a></li> -->
-                <li style="overflow: hidden;" (click)= "LogOut()"><a><i class="icon-logout"></i> Logout ({{navbar.userName}})</a></li>
+                <li style="overflow: hidden;" (click)= "LogOut()"><a><i class="icon-logout"></i> Logout ({{user.username}})</a></li>
 
              </ul>
           </li>

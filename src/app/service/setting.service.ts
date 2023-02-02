@@ -13,7 +13,7 @@ export class SettingService {
   constructor(private httpClient: HttpClient) { }
 
   GetSettings(): Observable<any> {
-    return this.httpClient.get(ModelClass.baseUrl+`api/settings/GetSettingsByUserID?userID=`+ModelClass.user.id);
+    return this.httpClient.get(ModelClass.baseUrl+`api/settings/GetSettingsByUserID?userID=`+ModelClass.user.id+'&appID='+ModelClass.clientSystem.appID);
   }
   PutSettings(setting:Setting): Observable<any> {
 
