@@ -47,13 +47,16 @@ isDisabled = false;
       Notifier.Notify("Username not valid", "danger", 2000);
     }
     else if (this.registration.fName == "" || this.registration.fName == null || this.registration.fName == undefined) {
-      Notifier.Notify("Name not valid", "danger", 2000);
+      Notifier.Notify("First name not valid", "danger", 2000);
     }
     else if (this.registration.lName == "" || this.registration.lName == null || this.registration.lName == undefined) {
-      Notifier.Notify("Name not valid", "danger", 2000);
+      Notifier.Notify("Last name not valid", "danger", 2000);
     }
     else if (this.registration.email == "" || this.registration.email == null || this.registration.email == undefined) {
       Notifier.Notify("Email not valid", "danger", 2000);
+    }
+    else if (this.registration.phone == "" || this.registration.phone == null || this.registration.phone == undefined) {
+      Notifier.Notify("Phone No. not valid", "danger", 2000);
     }
     else {
       this.isDisabled = true;
@@ -62,6 +65,7 @@ isDisabled = false;
         Notifier.Notify(response.message, "success", 2000);
         this.router.navigate(["/login"], { replaceUrl: true });
       } else {
+        this.isDisabled = false;
         Notifier.Notify(response.message, "danger", 2000);
       }
     });

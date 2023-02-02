@@ -14,6 +14,7 @@ import { LoginVM } from 'src/app/models/loginVM';
 })
 export class LoginComponent implements OnInit {
   loginModel: Login = new Login();
+  isDisabled = false;
   constructor(private loginService:LoginService, private router:Router) { }
   ngOnInit() {
   }
@@ -26,6 +27,7 @@ export class LoginComponent implements OnInit {
       Notifier.Notify("Invalid password", "danger", 2000);
     }
     else{
+      this.isDisabled = true;
       this.loginService.Login(this.loginModel).subscribe((response: ResponseMessage) => {
         if (response.statusCode == 200) {
           let loginVM: LoginVM = new LoginVM();
@@ -42,6 +44,7 @@ export class LoginComponent implements OnInit {
           Notifier.Notify(response.message, "success", 2000);
           this.router.navigate(["search"], { replaceUrl: true });
         } else {
+          this.isDisabled = false;
           Notifier.Notify(response.message, "danger", 2000);
         }
       });

@@ -22,7 +22,8 @@ import { NotificationHybrid } from 'src/app/models/notificationHybrid';
 export class NavbarComponent implements OnInit {
   public focus;
   isLoggedIn: boolean = false;
-  navbar = ModelClass.navBar;
+  user:Registration = ModelClass.user;
+  userImage = ModelClass.userImage;
   searchVM: SearchVM[] = [];
   searchString = "";
   isLoading = false;
@@ -38,7 +39,6 @@ export class NavbarComponent implements OnInit {
     ModelClass.CheckLoggedIn();
 
     if (ModelClass.isLogged) {
-      this.navbar.image = ModelClass.user.image;
     this.GetAllNotificationAlert();
     }
 
@@ -58,7 +58,7 @@ export class NavbarComponent implements OnInit {
         ModelClass.isLogged = false;
         this.notFound = false;
         ModelClass.user = new Registration();
-        this.navbar = ModelClass.navBar = new Navbar();
+        this.user = new Registration();
         Notifier.Notify(response.message, "success", 2000);
       } else {
         Notifier.Notify(response.message, "danger", 2000);

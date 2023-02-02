@@ -21,11 +21,11 @@ static defaultGuid:string = "00000000-0000-0000-0000-000000000000";
 // static baseUrl2:string = "https://spyder.logit.com.ng";
 static isLogged:boolean = false;
 static user:Registration;
+static userImage:string;
 static settings:Setting;
 static clientSystem:ClientSystem;
 static prevRoute:string;
 static errorPage:string;
-static navBar:Navbar = new Navbar();
 static isLoading:boolean = false;
 static notificationHybrid: NotificationHybrid = new NotificationHybrid();
 
@@ -56,7 +56,8 @@ static CheckLoggedIn(){
       this.user.image = dummy.image;
     }
 
-    this.navBar.userName = this.user.username;
+    this.userImage = this.user.image;
+
   }
   else{
     this.user = null;
