@@ -21,15 +21,24 @@ export class ProfileService {
     }
   }
 
-  GetProfileContentWithComment(userID): Observable<any> {
-    return this.httpClient.get(ModelClass.baseUrl+`api/generic/GetProfileContentWithComment?userID=`+userID);
+  GetProfileContentWithComment(profileUserID: string): Observable<any> {
+    if (ModelClass.user != null) {
+      return this.httpClient.get(ModelClass.baseUrl+`api/generic/GetProfileContentWithComment?userID=`+ModelClass.user.id+'&appID='+ModelClass.clientSystem.appID+'&profileUserID='+profileUserID);
+    }
+    return this.httpClient.get(ModelClass.baseUrl+`api/generic/GetProfileContentWithComment?profileUserID=`+profileUserID);
   }
 
-  GetProfileContentWithReaction(userID): Observable<any> {
-    return this.httpClient.get(ModelClass.baseUrl+`api/generic/GetProfileContentWithReaction?userID=`+userID);
+  GetProfileContentWithReaction(profileUserID: string): Observable<any> {
+    if (ModelClass.user != null) {
+      return this.httpClient.get(ModelClass.baseUrl+`api/generic/GetProfileContentWithReaction?userID=`+ModelClass.user.id+'&appID='+ModelClass.clientSystem.appID+'&profileUserID='+profileUserID);
+    }
+    return this.httpClient.get(ModelClass.baseUrl+`api/generic/GetProfileContentWithReaction?profileUserID=`+profileUserID);
   }
-  GetUserProfile(userID:string): Observable<any> {
-    return this.httpClient.get(ModelClass.baseUrl+`api/user/GetUserProfile?userID=`+ userID);
+  GetUserProfile(profileUserID:string): Observable<any> {
+    if (ModelClass.user != null) {
+    return this.httpClient.get(ModelClass.baseUrl+`api/user/GetUserProfile?userID=`+ModelClass.user.id+'&appID='+ModelClass.clientSystem.appID+'&profileUserID='+profileUserID);
+    }
+    return this.httpClient.get(ModelClass.baseUrl+`api/user/GetUserProfile?profileUserID=`+profileUserID);
   }
 
   SetUserImage(img:string): Observable<any> {

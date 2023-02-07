@@ -6,16 +6,16 @@
              <div class="card-block">
                 <div class="row">
                     <p class="text-center"  *ngIf="data.length < 1">No marriage records found.</p>
-                    <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6" *ngFor="let marriageRecord of data; let i=index">
+                    <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6" *ngFor="let marriageRecord of data; let i=index" style="margin-bottom: 0.5em;">
                        <div class="panel panel-default">
-                          <div class="panel-heading txt-black" style="height:10em; overflow: hidden">
+                          <div class="panel-heading txt-black text-center" style="height:10em; overflow: hidden">
                             <a href="{{marriageRecord.image}}" data-lightbox="weddingRecords"
                             data-title="{{marriageRecord.brideFName}} weds {{marriageRecord.groomFName}}">
                             <img src="{{marriageRecord.image}}" class="img-square" alt="couple">
                           </a>
                           </div>
                           <div class="panel-body">
-                             <p>{{marriageRecord.brideFName}} weds {{marriageRecord.groomFName}}</p>
+                             <p class="noWrap">{{marriageRecord.brideFName}} weds {{marriageRecord.groomFName}}</p>
                              <hr class="slim">
                              <p class="HeadBlender"><small><b>{{marriageRecord.weddingDate}}</b></small></p>
                              <p class="HeadBlender"><small><b>{{marriageRecord.status | uppercase}}</b></small></p>

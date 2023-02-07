@@ -30,7 +30,6 @@
          <div class="card">
             <div class="card-block">
               <div class="form-horizonatal md-float-material">
-                <p>All information presented is deemed valid until proven otherwise.</p>
 
                 <div class="form-group">
                     <hr>
@@ -87,7 +86,7 @@
                                 <small class="dropdown-item" (click)="SelectMarriageType(feature.name,feature.id, feature.featureGroupID, feature.name)" *ngFor="let feature of marriageTypes">{{feature.name}}</small>
                             </div>
                         </div>
-                        <input type="text" class="form-control form-control-sm" [(ngModel)]="marriageFeatureValue" placeholder="Input {{marriageType}} No. here" >
+                        <input type="text" class="form-control form-control-sm" [(ngModel)]="marriageFeatureValue" placeholder="Input {{marriageType}} Certificate No. here" >
                         <div class="input-group-btn">
                             <button type="button" (click)="AddMarriageTypeFeature()"class="btn btn-primary btn-mini" aria-haspopup="true" aria-expanded="false">
                               Add

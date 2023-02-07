@@ -47,10 +47,13 @@ export class RechargeComponent implements OnInit {
   }
 
   Validate(){
+    this.cost = Math.floor(this.cost /1);
+
     if (this.price == 0 ) {
       this.isDisabled = true;
       Notifier.Notify("Try again!", "danger", 2000);
     }
+    // else if(this.cost )
     else if (this.spyAmount > this.MaxAmount){
       this.isDisabled = true;
       Notifier.Notify("Purchase exceeds limit", "danger", 2000);

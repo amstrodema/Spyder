@@ -42,7 +42,7 @@ export class WithdrawComponent implements OnInit {
           if (response.statusCode == 200) {
             this.isDisable = true;
             this.withdrawals = response.data;
-
+            this.wallet.ref = 0;
             Notifier.Notify(response.message, "success", 2000);
           } else {
             Notifier.Notify(response.message, "danger", 2000);

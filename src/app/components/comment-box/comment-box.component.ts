@@ -4,6 +4,7 @@ import { ModelClass } from 'src/app/models/modelClass';
 import { CommentService } from 'src/app/service/comment.service';
 import { ResponseMessage } from 'src/app/models/responseMessage';
 import { Notifier } from 'src/app/models/notifier';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-comment-box',
@@ -16,7 +17,7 @@ export class CommentBoxComponent implements OnInit {
   @Input() authorID: string;
   comments:Comment[] =[];
   comment: Comment = new Comment();
-  constructor(private commentService:CommentService) { }
+  constructor(private commentService:CommentService, private router:Router) { }
 
   ngOnInit() {
     this.GetComment();
@@ -33,9 +34,16 @@ export class CommentBoxComponent implements OnInit {
     });
   }
 
+  openProfile(id){
+    this.router.navigate(['/search/profile/',id]);
+  }
+
   PostComment(){
     if(this.comment.details == null || this.comment.details == undefined || this.comment.details == ""){
       Notifier.Notify("Comment is empty", "danger", 2000);
+    }
+    else if (this.comment.details.length > 120){
+      Notifier.Notify("Comment exceeds limit", "danger", 2000);
     }
     else if (ModelClass.isLogged) {
 

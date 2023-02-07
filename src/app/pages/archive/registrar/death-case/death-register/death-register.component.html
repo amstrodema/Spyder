@@ -63,8 +63,8 @@
         </div>
 
         <app-spinner3 *ngIf="!isLoaded"></app-spinner3>
-      <app-death-grid-comp *ngIf="isGrid && isLoaded" [route] = route [deathRecords] = deathRecords></app-death-grid-comp>
-      <app-death-list-comp *ngIf="!isGrid && isLoaded" [route] = route [deathRecords] = deathRecords></app-death-list-comp>
+      <app-death-grid-comp *ngIf="isGrid && isLoaded"  [deathRecords] = deathRecords></app-death-grid-comp>
+      <app-death-list-comp *ngIf="!isGrid && isLoaded" [deathRecords] = deathRecords></app-death-list-comp>
 
     </div>
   </div>

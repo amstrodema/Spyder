@@ -22,6 +22,8 @@ static defaultGuid:string = "00000000-0000-0000-0000-000000000000";
 static isLogged:boolean = false;
 static user:Registration;
 static userImage:string;
+static isMarriageGrid:boolean = false;
+static isDeathGrid:boolean = false;
 static settings:Setting;
 static clientSystem:ClientSystem;
 static prevRoute:string;

@@ -63,8 +63,8 @@
       </div>
     </div>
     <app-spinner3 *ngIf="!isLoaded"></app-spinner3>
-    <app-marriage-grid-comp *ngIf="isGrid && isLoaded" [route]=route [data]=data></app-marriage-grid-comp>
-    <app-marriage-list-comp *ngIf="!isGrid && isLoaded" [route]=route [data]=data></app-marriage-list-comp>
+    <app-marriage-grid-comp *ngIf="isGrid && isLoaded"  [data]=data></app-marriage-grid-comp>
+    <app-marriage-list-comp *ngIf="!isGrid && isLoaded" [data]=data></app-marriage-list-comp>
 
   </div>
 </div>

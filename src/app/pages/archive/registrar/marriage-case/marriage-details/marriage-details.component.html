@@ -19,7 +19,6 @@
                     class="icofont icofont-home"></i></a>
               </li>
               <li class="breadcrumb-item"><small>Arc...</small></li>
-              <li class="breadcrumb-item"><small>Whi...</small></li>
               <li class="breadcrumb-item"><a [routerLink]="['/search/marriage-register']"
                   routerLinkActive="router-link-active"><small>Marr...</small></a>
               </li>
@@ -73,16 +72,13 @@
           <div class="card-block">
             <h6>Marriage Type & Certificate No.</h6>
             <hr>
-            <table class="table table-bordered treat" *ngIf="features.length > 0">
+            <table class="table treat" *ngIf="features.length > 0">
               <tr *ngFor="let feature of marriageTypes; let i=index">
-                <td>
-                  <p>{{i+1}}</p>
-                </td>
                 <td>
                   <p>{{feature.featureType}}</p>
                 </td>
                 <td>
-                  <p>{{feature.value}}</p>
+                  <p><span class="text-primary" style="float: right;">{{feature.value}}</span></p>
                 </td>
               </tr>
             </table>
@@ -93,17 +89,14 @@
           <div class="card-block">
             <h6>Wedding Specifics</h6>
             <hr>
-            <table class="table table-bordered treat" *ngIf="features.length > 0">
+            <table class="table treat" *ngIf="features.length > 0">
 
               <tr *ngFor="let feature of features; let i=index">
-                <td>
-                  <p>{{i+1}}</p>
-                </td>
                 <td>
                   <p>{{feature.featureType}}</p>
                 </td>
                 <td class="padded">
-                  <p>{{feature.value}} </p>
+                  <p><span class="text-primary" style="float: right;">{{feature.value}}</span></p>
                 </td>
               </tr>
             </table>

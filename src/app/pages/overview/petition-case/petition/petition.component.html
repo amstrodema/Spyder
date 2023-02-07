@@ -58,6 +58,8 @@
                             </tr>
                       </table>
                       <hr>
+                      <p *ngIf="hallRecords.length > 0">Showing {{hallRecords.length}} of {{hallRecords.length}} petitions</p>
+                      <hr  *ngIf="hallRecords.length > 0">
                        <div class="table-responsive">
                           <app-spinner3 *ngIf="!isLoaded"></app-spinner3>
                          <p class="text-center" *ngIf="hallRecords.length < 1 && isLoaded">No petition found. Click <a (click)="NewPetition()" class="anchor">here</a> to add new petition</p>

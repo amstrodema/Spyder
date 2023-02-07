@@ -66,7 +66,12 @@ export class NewMarriageRegisterComponent implements OnInit {
   }
 
   AddFeature(){
-    if(this.featureValue == ""){
+
+    if(this.featureType == "")
+    {
+      Notifier.Notify('Marriage Feature is empty', 'danger', 0);
+    }
+    else if(this.featureValue == ""){
    Notifier.Notify('Details is empty', 'danger', 0);
     }else{
       this.marriageFeature.value = this.featureValue;
@@ -78,7 +83,11 @@ export class NewMarriageRegisterComponent implements OnInit {
   }
 
   AddMarriageTypeFeature(){
-    if(this.marriageFeatureValue == ""){
+    if(this.marriageType == "")
+    {
+      Notifier.Notify('Marriage Type is empty', 'danger', 0);
+    }
+    else if(this.marriageFeatureValue == ""){
    Notifier.Notify('Details is empty', 'danger', 0);
     }else{
       this.marriageTypeFeature.value = this.marriageFeatureValue;

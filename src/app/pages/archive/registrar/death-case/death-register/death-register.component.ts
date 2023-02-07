@@ -12,8 +12,7 @@ import { Notifier } from 'src/app/models/notifier';
   styleUrls: ['./death-register.component.scss']
 })
 export class DeathRegisterComponent implements OnInit {
-  @Input() isGrid: boolean;
-  @Input() route: string;
+   isGrid: boolean = ModelClass.isDeathGrid;
   deathRecords:Death[] =[];
   deathHolder:Death[] =[];
 
@@ -42,7 +41,7 @@ export class DeathRegisterComponent implements OnInit {
 
 
   SetGridView(val:boolean){
-    this.isGrid = val;
+    this.isGrid = ModelClass.isDeathGrid = val;
     this.toggleSearchFilterIndicator = false;
   }
 

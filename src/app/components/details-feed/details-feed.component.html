@@ -57,8 +57,8 @@
           <!-- <span class="btn btn-mini" style="margin-left: 1em;" *ngIf="feedFlag ==1"><i class="icon-link"></i></span> -->
         </footer>
 
-        <hr>
-        <p>Votes Required: {{feed.totalVotesRequired}}</p>
+        <hr *ngIf="this.feedFlag > 0">
+        <p *ngIf="this.feedFlag > 0">Votes Required: {{feed.totalVotesRequired}}</p>
       </div>
     </div>
 

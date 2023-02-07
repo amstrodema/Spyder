@@ -18,10 +18,10 @@
                               <tbody>
                                  <tr  *ngFor="let thisComment of comments; let i=index">
                                     <td style="width: 50px;">
-                                       <img class="img-circle" src="assets/images/avatar-2.png" alt="User">
+                                       <img class="img-circle" src="{{thisComment.image}}" alt="User">
                                     </td>
                                     <td>
-                                        <a href="#" class="text-dark"  style="white-space: nowrap;"><small class="bold">{{thisComment.commenterName}}</small> - <small class="text-muted"  style="white-space: nowrap;"><i>{{thisComment.dateCreated}}</i></small></a>
+                                        <span (click)="openProfile(thisComment.userID)" class="text-dark"  style="white-space: nowrap;"><small class="bold">{{thisComment.commenterName}}</small> - <small class="text-muted"  style="white-space: nowrap;"><i>{{thisComment.dateCreated}}</i></small></span>
 
                                       <p>{{thisComment.details}}</p>
 
@@ -33,7 +33,7 @@
                  </div>
 
                   <p>
-                    <textarea id="commentArea" name="details" [(ngModel)]="comment.details" class="form-control" placeholder="Reply with a comment"></textarea>
+                    <textarea id="commentArea" name="details" [(ngModel)]="comment.details" class="form-control" maxlength="120" placeholder="Reply with a comment"></textarea>
                   </p>
 <br>
                   <div class="text-right">

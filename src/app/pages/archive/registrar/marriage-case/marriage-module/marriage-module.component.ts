@@ -11,8 +11,7 @@ import { ModelClass } from 'src/app/models/modelClass';
   styleUrls: ['./marriage-module.component.scss']
 })
 export class MarriageModuleComponent implements OnInit {
-  @Input() isGrid: boolean;
-  @Input() route: string;
+  isGrid: boolean = ModelClass.isMarriageGrid;
   data:Marriage[] =[];
   dataHolder:Marriage[] =[];
   btnBgTypeLike= "";
@@ -31,7 +30,7 @@ export class MarriageModuleComponent implements OnInit {
   }
 
   SetGridView(val:boolean){
-    this.isGrid = val;
+    this.isGrid = ModelClass.isMarriageGrid = val;
     this.toggleSearchFilterIndicator = false;
   }
 
