@@ -54,6 +54,10 @@ export class RechargeComponent implements OnInit {
       Notifier.Notify("Try again!", "danger", 2000);
     }
     // else if(this.cost )
+    else if (this.cost <= 0){
+      this.isDisabled = true;
+      Notifier.Notify("Purchase is too low", "danger", 2000);
+    }
     else if (this.spyAmount > this.MaxAmount){
       this.isDisabled = true;
       Notifier.Notify("Purchase exceeds limit", "danger", 2000);

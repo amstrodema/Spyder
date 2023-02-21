@@ -110,7 +110,8 @@
 
 
               <div class="col-xs-10 offset-xs-1">
-                <button type="submit" (click)="Post()" class="btn btn-primary btn-md btn-block waves-effect waves-light m-b-20" [disabled] = isDisabled>Sign up
+                <app-spinner3 *ngIf="isDisabled"></app-spinner3>
+                <button type="submit" (click)="Post()" class="btn btn-primary btn-md btn-block waves-effect waves-light m-b-20" *ngIf="!isDisabled">Sign up
                 </button>
               </div>
               <div class="row">

@@ -41,7 +41,8 @@
 						</div>
 						<div class="row">
 							<div class="col-xs-12">
-								<button type="button" (click)="Login()"  [disabled] = isDisabled class="btn btn-primary btn-md btn-block waves-effect text-center">LOGIN</button>
+                <app-spinner3 *ngIf="isDisabled"></app-spinner3>
+								<button type="button" (click)="Login()"  *ngIf="!isDisabled" class="btn btn-primary btn-md btn-block waves-effect text-center">LOGIN</button>
               </div>
 
 							<div class="col-xs-12 forgot-phone" style="margin-top: 1em;">

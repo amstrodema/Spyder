@@ -10,12 +10,14 @@ import { ClientSystem } from './clientSystem';
 
 export class ModelClass {
 
-static baseUrl:string = "http://localhost:38519/";
-static baseUrl2:string = "http://localhost:4200/";
+// static baseUrl:string = "http://localhost:38519/";
+// static baseUrl2:string = "http://localhost:4200/";
 static defaultGuid:string = "00000000-0000-0000-0000-000000000000";
 
-// static baseUrl:string = "192.168.0.101:38519/";
-// static baseUrl2:string = "192.168.0.101:4200/";
+
+static baseUrl:string = "/spyder/";
+static baseUrl2:string = ":203";
+
 
 // static baseUrl:string = "https://api.logit.com.ng/";
 // static baseUrl2:string = "https://spyder.logit.com.ng";

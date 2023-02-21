@@ -40,7 +40,9 @@ export class PetitionTrendComponent implements OnInit {
       if(val == ""){ return "btn-outline-danger"}
     }
   }
-
+  ViewRecord(loc){
+    this.router.navigate(['/search/'+loc]);
+  }
 
   ControlButtonBgType(isLike:boolean, i:number, petitionerID:string){
     if(ModelClass.isLogged){

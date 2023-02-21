@@ -21,6 +21,9 @@ export class Missing {
   awarenessTypeNo: number;
   time: string;
   day: string;
+  update: string;
+  updateTime: string;
+  updateDay: string;
 
   itemTypeName: string;
   country: string;

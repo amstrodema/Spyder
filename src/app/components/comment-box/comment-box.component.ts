@@ -17,6 +17,7 @@ export class CommentBoxComponent implements OnInit {
   @Input() authorID: string;
   comments:Comment[] =[];
   comment: Comment = new Comment();
+  isLoading = false;
   constructor(private commentService:CommentService, private router:Router) { }
 
   ngOnInit() {
@@ -52,6 +53,7 @@ export class CommentBoxComponent implements OnInit {
 
     if(this.comment.details == ""){ Notifier.Notify("Empty comment", "danger", 2000);}
     else{
+      this.isLoading = true;
      this.commentService.Comment(this.comment, this.authorID).subscribe((response: ResponseMessage) => {
        if (response.statusCode == 200) {
          Notifier.Notify(response.message, "success", 2000);
@@ -60,6 +62,7 @@ export class CommentBoxComponent implements OnInit {
        } else {
          Notifier.Notify(response.message, "danger", 2000);
        }
+       this.isLoading = false;
      });
     }
 

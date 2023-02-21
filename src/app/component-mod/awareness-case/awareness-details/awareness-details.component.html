@@ -1,3 +1,4 @@
+
 <div class="content-wrapper">
     <!-- Container-fluid starts -->
     <div class="container-fluid">
@@ -29,8 +30,13 @@
                 </div>
               </div> -->
 
-          <div class="card">
+              <app-banner-gen [hidden]="isHideBanner" [Title] = "tag +' '+missing.itemTypeName" [Name] ="missing.title"
+              [LastSeen]="missing.lastSeen" [Desc] = "missing.desc" [Image] = missing.image [Features]="features"
+              [Username] = "missing.createdBy" [parentThis] ="thisParent"></app-banner-gen>
+
+          <div class="card" [hidden]="!isHideBanner">
             <div class="card-block text-center">
+              <span style=" position: absolute; background-color: #fff; color: black; padding: 0.5em; width: 5em; font-size: 0.5em;" (click)="GetBanner(missing.image)"><i class="ti ti-new-window"></i></span>
                 <a href="{{missing.image}}" data-lightbox="missingImage" data-title="{{missing.title}}">
                     <img src="{{missing.image}}" style="max-width: 50%; max-height: 150px;" alt="">
                   </a>
@@ -39,7 +45,39 @@
             </div>
           </div>
 
-          <div class="card">
+          <div class="card" [hidden]="!isHideBanner" *ngIf="(missing.update == undefined || missing.update =='' || missing.update ==null) && isOwner">
+            <div class="card-block">
+              <h6>
+                <span class="btn btn-success btn-sm" (click)="AllowUpdate()">Update This Record</span>
+                 </h6>
+            <div *ngIf="isUpdate">
+              <hr>
+              <p>
+                Caution: This irreversible process is available only once. Only update record after person, animal or item has been found or restored.
+              </p>
+              <hr>
+              <textarea name="update" class="form-control" [(ngModel)]="update" cols="30" rows="10" placeholder="Share extensive details"></textarea>
+              <br>
+              <button class="btn btn-sm btn-success" (click)="UpdateBrief()">Update Record</button>
+            </div>
+            </div>
+          </div>
+
+          <div class="card" [hidden]="!isHideBanner" *ngIf="missing.update != undefined">
+            <div class="card-block">
+              <h6>
+                <span class="text-success">Update</span>
+                <i class="icofont icofont-calendar" style="margin-left: 1em; color: red;"></i> <small> {{missing.updateDay}} </small>
+                <i class="icofont icofont-clock-time" style="margin-left: 1em;"></i> <small> {{missing.updateTime}}</small>
+              </h6>
+              <hr>
+              <p>
+                 <i>{{missing.update}}</i>
+              </p>
+            </div>
+          </div>
+
+          <div class="card" [hidden]="!isHideBanner">
             <div class="card-block">
               <h6>
                 Last Seen
@@ -51,7 +89,7 @@
             </div>
           </div>
 
-          <div class="card">
+          <div class="card" [hidden]="!isHideBanner">
               <div class="card-block">
                 <h6>
                   Identification Details
@@ -70,7 +108,7 @@
               </div>
           </div>
 
-          <div class="card">
+          <div class="card" [hidden]="!isHideBanner">
               <div class="card-block">
                 <h6>{{missing.itemTypeName}} Description</h6>
                 <hr>
@@ -81,7 +119,7 @@
               </div>
             </div>
 
-            <div class="card">
+            <div class="card" [hidden]="!isHideBanner">
               <div class="card-block">
 
                 <h6>Detailed Information</h6>
@@ -92,9 +130,9 @@
                 </p>
               </div>
             </div>
-           <app-gallery [creatorID] = missing.creatorID [itemID] = recordID></app-gallery>
+           <app-gallery [creatorID] = missing.creatorID [itemID] = recordID  [hidden]="!isHideBanner"></app-gallery>
 
-           <app-comment-box [route] = route [itemID] = recordID></app-comment-box>
+           <app-comment-box [route] = route [itemID] = recordID  [hidden]="!isHideBanner"></app-comment-box>
         </div>
 
         <div class="col-xl-4 col-lg-4">

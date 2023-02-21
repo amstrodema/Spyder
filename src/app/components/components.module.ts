@@ -19,6 +19,7 @@ import { SettingComponent } from './market-place/setting/setting.component';
 import { Spinner2Component } from './spinner/spinner2/spinner2.component';
 import { Spinner3Component } from './spinner/spinner3/spinner3.component';
 import { SearchViewComponent } from './navbar/search-view/search-view.component';
+import { BannerGenComponent } from './banner-gen/banner-gen.component';
 
 @NgModule({
   imports: [
@@ -41,7 +42,8 @@ import { SearchViewComponent } from './navbar/search-view/search-view.component'
     SettingComponent,
     Spinner2Component,
     Spinner3Component,
-    SearchViewComponent
+    SearchViewComponent,
+    BannerGenComponent
   ],
   exports: [
     FooterComponent,
@@ -56,7 +58,8 @@ import { SearchViewComponent } from './navbar/search-view/search-view.component'
     SpinnerComponent,
     SettingComponent,
     Spinner2Component,
-    Spinner3Component
+    Spinner3Component,
+    BannerGenComponent
   ]
 })
 export class ComponentsModule { }

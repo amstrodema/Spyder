@@ -41,7 +41,7 @@
                 <div class="col-lg-8">
                     <div class="card">
                         <div class="card-block">
-                            <p>MARRIAGES</p> <hr>
+                            <p  (click)="ViewRecord('marriage-register')">MARRIAGES</p> <hr>
                             <div class="table-responsive">
                               <p class="text-center"  *ngIf="marriageData.length < 1">No marriage records found.</p>
                             <table class="table table-bordered photo-table" *ngIf="marriageData.length > 0">
@@ -93,7 +93,7 @@
 
                      <div class="card">
                         <div class="card-block">
-                            <p>DEATHS</p> <hr>
+                            <p (click)="ViewRecord('death-register')">DEATHS</p> <hr>
                             <div class="table-responsive">
                               <p class="text-center"  *ngIf="deathData.length < 1">No death records found.</p>
                             <table class="table table-bordered photo-table" *ngIf="deathData.length > 0">

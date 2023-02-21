@@ -47,6 +47,7 @@ import { TrendingComponent } from 'src/app/pages/overview/trending-case/trending
 import { SettingsComponent } from 'src/app/pages/settings/settings.component';
 import { NotificationComponent } from 'src/app/pages/notification/notification.component';
 import { WalletComponent } from 'src/app/pages/free-zone/wallet/wallet.component';
+import { BannerGenComponent } from 'src/app/components/banner-gen/banner-gen.component';
 
 export const AdminLayoutRoutes: Routes = [
   { path: '',       component: TrendingComponent },
@@ -120,5 +121,6 @@ export const AdminLayoutRoutes: Routes = [
   { path: 'settings',       component: SettingsComponent },
   { path: 'profile/:id',       component: ProfileComponent },
   { path: 'profile',       component: ProfileComponent },
-  { path: 'notifications',       component: NotificationComponent }
+  { path: 'notifications',       component: NotificationComponent },
+  { path: 'banner/gen',       component: BannerGenComponent }
  ];

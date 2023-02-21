@@ -85,12 +85,12 @@ export class GalleryComponent implements OnInit {
           .subscribe((response: ResponseMessage) => {
             if (response.statusCode == 200) {
               Notifier.Notify("Uploaded successfully","success", 2000);
-              this.isSavingImage = false;
-
     this.GetGallery();
             } else {
               Notifier.Notify(response.message, "danger", 2000);
             }
+
+            this.isSavingImage = false;
           });
       }
       else{
@@ -120,11 +120,12 @@ export class GalleryComponent implements OnInit {
           .subscribe((response: ResponseMessage) => {
             if (response.statusCode == 200) {
               Notifier.Notify("Youtube link submitted","success", 2000);
-              this.isSavingLink = false;
               this.GetGallery();
             } else {
               Notifier.Notify(response.message, "danger", 2000);
             }
+
+            this.isSavingLink = false;
           });
       }
       else{

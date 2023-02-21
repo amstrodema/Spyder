@@ -34,7 +34,7 @@
                 <div class="col-lg-8">
                     <div class="card">
                         <div class="card-block">
-                            <p>MISSING</p> <hr>
+                            <p (click)="ViewRecord('missing')">MISSING</p> <hr>
                             <div class="card">
                                 <p class="text-center" *ngIf="missingData.length < 1">
                                     No Records Found
@@ -63,7 +63,7 @@
                      </div>
                     <div class="card">
                         <div class="card-block">
-                            <p>STOLEN</p> <hr>
+                            <p (click)="ViewRecord('stolen')">STOLEN</p> <hr>
                             <div class="card">
                                 <p class="text-center" *ngIf="stolenData.length < 1">
                                     No Records Found

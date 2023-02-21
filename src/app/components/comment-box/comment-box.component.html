@@ -37,9 +37,10 @@
                   </p>
 <br>
                   <div class="text-right">
-                      <button class="btn btn-default btn-mini" (click)="PostComment()">
+                      <button *ngIf="!isLoading" class="btn btn-default btn-mini" (click)="PostComment()">
                            Comment <i class="icofont icofont-upload"></i>
                          </button>
+                         <app-spinner3 *ngIf="isLoading"></app-spinner3>
                   </div>
 
                 </div>
