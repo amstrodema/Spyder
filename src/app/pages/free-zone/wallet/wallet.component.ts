@@ -24,11 +24,9 @@ export class WalletComponent implements OnInit {
   history: boolean = false;
   referral: boolean = false;
   balance: boolean = true;
-  isActivated: boolean = false;
-  isLoaded = true;
+  isLoading = false;
   isWalletLoaded = false;
   user: Registration;
-  isHide = false;
   trx: string;
 
   withdrawalBtn = "";
@@ -53,7 +51,6 @@ export class WalletComponent implements OnInit {
     else{
       try {
         this.user =  ModelClass.user;
-        this.isHide = ModelClass.user.isActivated;
       } catch (error) {
 
       }
@@ -73,7 +70,6 @@ export class WalletComponent implements OnInit {
           this.isWalletLoaded = true;
 
           try {
-            this.isActivated = ModelClass.user.isActivated;
             this.activateOptions = {
               amount: this.wallet.activationCost * 100,
               email: ModelClass.user.email,
@@ -89,7 +85,7 @@ export class WalletComponent implements OnInit {
   //Activation Payment
 
   ActivationPaymentInit() {
-    this.isLoaded = false;
+    this.isLoading = true;
   }
 
   ActivationPaymentDone(ref: any) {
@@ -113,9 +109,8 @@ export class WalletComponent implements OnInit {
       .subscribe((response: ResponseMessage) => {
         if (response.statusCode == 200) {
           Notifier.Notify(response.message, "success", 2000);
-          this.isLoaded = true;
-
-          ModelClass.user.isActivated = this.isHide = true;
+          this.isLoading = false;
+          this.wallet.isActive = true;
           sessionStorage.setItem("User", JSON.stringify(ModelClass.user));
           ModelClass.CheckLoggedIn();
         } else {
@@ -125,7 +120,7 @@ export class WalletComponent implements OnInit {
   }
 
   ActivationPaymentCancel() {
-    this.isLoaded = true;
+    this.isLoading = false;
   }
 
   RechargeClick() {

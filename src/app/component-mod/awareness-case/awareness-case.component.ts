@@ -5,6 +5,8 @@ import { FeatureGroupService } from 'src/app/service/feature-group.service';
 import { Router } from '@angular/router';
 import { ModelClass } from 'src/app/models/modelClass';
 import { Notifier } from 'src/app/models/notifier';
+import { ParameterService } from 'src/app/service/parameter.service';
+import { Parameter } from 'src/app/models/parameter';
 
 @Component({
   selector: 'app-awareness-case',

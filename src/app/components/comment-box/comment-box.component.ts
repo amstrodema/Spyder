@@ -18,6 +18,7 @@ export class CommentBoxComponent implements OnInit {
   comments:Comment[] =[];
   comment: Comment = new Comment();
   isLoading = false;
+  commentCount = 0;
   constructor(private commentService:CommentService, private router:Router) { }
 
   ngOnInit() {
@@ -70,6 +71,14 @@ export class CommentBoxComponent implements OnInit {
        Notifier.Notify("Log in and try again.", "danger", 2000);
     }
 
+  }
+
+  CommentCounter(){
+    try {
+      this.commentCount = this.comment.details.length
+    } catch (error) {
+
+    }
   }
 
 }

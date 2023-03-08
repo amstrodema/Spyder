@@ -10,6 +10,10 @@ import { ModelClass } from 'src/app/models/modelClass';
 import { MarriageVM } from 'src/app/models/marriageVM';
 import { MarriageService } from 'src/app/service/marriage.service';
 import { ResponseMessage } from 'src/app/models/responseMessage';
+import { ParameterService } from 'src/app/service/parameter.service';
+import { Parameter } from 'src/app/models/parameter';
+import { CountryService } from 'src/app/service/country.service';
+import { Country } from 'src/app/models/country';
 
 @Component({
   selector: 'app-new-marriage-register',
@@ -26,6 +30,8 @@ export class NewMarriageRegisterComponent implements OnInit {
   marriageTypeFeature:Feature = new Feature();
   marriageFeatureValue = "";
   marriageType = "";
+  isLoading = false;
+  parameter: Parameter = new Parameter();
 
 
   featureType:string = "";
@@ -38,10 +44,12 @@ export class NewMarriageRegisterComponent implements OnInit {
   featureTypes: FeatureType[] = [];
   marriageTypes: FeatureType[] = [];
   marriageID: string = "";
+  countries:Country[] =[];
 
-  constructor(private activeRoute:ActivatedRoute, private router: Router, private featureService:FeatureService, private marriageService:MarriageService) { }
+  constructor(private activeRoute:ActivatedRoute, private countryService:CountryService, private parameterService:ParameterService, private router: Router, private featureService:FeatureService, private marriageService:MarriageService) { }
 
   ngOnInit() {
+    this.GetParam();
     if (!ModelClass.isLogged) {
       this.router.navigate(['/search/marriage-register']);
       Notifier.Notify("Log in and try again.", "danger", 2000);
@@ -54,8 +62,13 @@ export class NewMarriageRegisterComponent implements OnInit {
 
     });
     this.GetFeatureTypes();
+    this.GetCountries();
   }
-
+  GetCountries(){
+    this.countryService.GetCountries().subscribe((response: any) => {
+    this.countries = response;
+    });
+  }
   GetFeatureTypes(){
     this.featureService.GetFeatureTypesByGroupCode("Marriage_Feature").subscribe((response: any) => {
       this.featureTypes = response;
@@ -155,10 +168,15 @@ export class NewMarriageRegisterComponent implements OnInit {
         }, 1000);
   }
 
+GetParam(){
+  this.parameterService.GetParamsByCode("marriage_cost").subscribe((response: any) => {
+         this.parameter = response;
+        });
+}
+
   Post(){
     if (ModelClass.isLogged) {
       this.marriageModel.createdBy = ModelClass.user.id;
-      this.marriageModel.countryID = ModelClass.user.countryID;
       this.newMarriage.marriage = this.marriageModel;
 
       this.newMarriage.features = [];
@@ -192,13 +210,18 @@ export class NewMarriageRegisterComponent implements OnInit {
      else if (this.marriageFeatures.length == 0) {
       Notifier.Notify("Include wedding details", "danger", 2000);
      }
+     else if (this.newMarriage.marriage.countryID == undefined || this.newMarriage.marriage.countryID == "" ) {
+      Notifier.Notify("Specify wedding country", "danger", 2000);
+     }
      else {
+      this.isLoading = true;
       this.marriageService.NewMarriage(this.newMarriage).subscribe((response: ResponseMessage) => {
         if (response.statusCode == 200) {
           this.router.navigate(['/search/marriage-register/details', response.data], { replaceUrl: true });
           Notifier.Notify(response.message, "success", 2000);
          } else {
            Notifier.Notify(response.message, "danger", 2000);
+           this.isLoading = false;
         }
        });
      }

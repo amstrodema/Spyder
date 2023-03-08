@@ -33,7 +33,8 @@
                  </div>
 
                   <p>
-                    <textarea id="commentArea" name="details" [(ngModel)]="comment.details" class="form-control" maxlength="120" placeholder="Reply with a comment"></textarea>
+                    <textarea id="commentArea" name="details" (input)="CommentCounter()" [(ngModel)]="comment.details" class="form-control" maxlength="120" placeholder="Reply with a comment"></textarea>
+                    <small class="text-muted">{{commentCount}}/120</small>
                   </p>
 <br>
                   <div class="text-right">

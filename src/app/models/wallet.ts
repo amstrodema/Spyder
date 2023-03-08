@@ -21,4 +21,5 @@ export class Wallet {
     isActive : boolean;
     isOfficial : boolean;
     dateCreated : string;
+    bonusDeadline : string;
 }

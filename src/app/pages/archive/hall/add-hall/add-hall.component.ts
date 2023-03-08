@@ -9,6 +9,8 @@ import { Hall } from 'src/app/models/hall';
 import { Notifier } from 'src/app/models/notifier';
 import { PetitionService } from 'src/app/service/petition.service';
 import { ModelClass } from 'src/app/models/modelClass';
+import { CountryService } from 'src/app/service/country.service';
+import { Country } from 'src/app/models/country';
 
 @Component({
   selector: 'app-add-hall',
@@ -22,10 +24,13 @@ export class AddHallComponent implements OnInit {
   petitionModel: HallRecord = new HallRecord();
   selectedHall: string = "Select Hall Type";
   halls: Hall[] = [];
+  countries:Country[] = [];
   isLoggedIn = ModelClass.isLogged;
   meta: string = "";
+  isLoading = false;
+  selectedHallCost = 0;
 
-  constructor(private activeRoute: ActivatedRoute, private router: Router, private hallService: HallService, private petitionService:PetitionService) { }
+  constructor(private activeRoute: ActivatedRoute, private countryService:CountryService, private router: Router, private hallService: HallService, private petitionService:PetitionService) { }
 
   ngOnInit() {
     if (!this.isLoggedIn) {
@@ -38,6 +43,7 @@ export class AddHallComponent implements OnInit {
         this.isEdit = true;
       }
       this.GetHalls();
+      this.GetCountries();
     });
   }
 
@@ -51,6 +57,7 @@ export class AddHallComponent implements OnInit {
   PickHall(val, id, requiredVotes, cost){
     this.selectedHall = val;
     this.petitionModel.hallID = id;
+    this.selectedHallCost = cost;
     this.meta = "Record would require "+requiredVotes+" votes"
   }
 
@@ -72,9 +79,6 @@ export class AddHallComponent implements OnInit {
     if (ModelClass.isLogged) {
       this.petitionModel.recordOwnerImage = this.imageBase64;
       this.petitionModel.petitionerID = ModelClass.user.id;
-
-
-      this.petitionModel.petitionCountryID = ModelClass.user.countryID;
      // this.confessionModel.isAnonymous = this.isAnonymous;
     if (this.petitionModel.hallID == "" || this.petitionModel.hallID == undefined) {
       Notifier.Notify("Select record type", "danger", 2000);
@@ -91,7 +95,11 @@ export class AddHallComponent implements OnInit {
     else if (this.petitionModel.recordOwnerImage == "") {
       Notifier.Notify("Select image of record holder", "danger", 2000);
     }
+    else   if (this.petitionModel.petitionCountryID == "" || this.petitionModel.petitionCountryID == undefined) {
+      Notifier.Notify("Select record country", "danger", 2000);
+    }
     else {
+      this.isLoading = true;
        this.petitionService
          .NewPetition(this.petitionModel)
          .subscribe((response: ResponseMessage) => {
@@ -104,6 +112,7 @@ export class AddHallComponent implements OnInit {
              );
            } else {
              Notifier.Notify(response.message, "danger", 2000);
+             this.isLoading = false;
            }
          });
      }
@@ -113,5 +122,9 @@ export class AddHallComponent implements OnInit {
 
 
   }
-
+  GetCountries(){
+    this.countryService.GetCountries().subscribe((response: any) => {
+    this.countries = response;
+    });
+  }
 }

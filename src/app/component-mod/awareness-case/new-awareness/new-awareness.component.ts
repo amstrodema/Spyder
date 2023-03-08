@@ -9,6 +9,10 @@ import { MissingVM } from 'src/app/models/missingVM';
 import { FeatureGroupService } from 'src/app/service/feature-group.service';
 import { MissingService } from 'src/app/service/missing.service';
 import { FeatureService } from 'src/app/service/feature.service';
+import { Parameter } from 'src/app/models/parameter';
+import { ParameterService } from 'src/app/service/parameter.service';
+import { Country } from 'src/app/models/country';
+import { CountryService } from 'src/app/service/country.service';
 
 @Component({
   selector: 'app-new-awareness',
@@ -20,6 +24,8 @@ export class NewAwarenessComponent implements OnInit {
   missingID: string;
   missingModel: Missing = new Missing();
   isAnonymous: boolean = false;
+  isLoading = false;
+  countries: Country[] =[];
 
   @Input() awarenessTypeNo: number;
 
@@ -34,15 +40,19 @@ export class NewAwarenessComponent implements OnInit {
 
   missingVM:MissingVM = new MissingVM();
 
+  parameter: Parameter = new Parameter();
+
   constructor(
     private activeRoute: ActivatedRoute,
-    private router: Router,
+    private router: Router,private parameterService:ParameterService,
     private featureGroupService: FeatureGroupService,
     private featureService: FeatureService,
-    private missingService: MissingService
+    private missingService: MissingService,
+    private countryService: CountryService
   ) {}
 
   ngOnInit() {
+    this.GetParam();
     this.activeRoute.params.subscribe(params => {
       this.missingID = params["id"];
       if (this.missingID != undefined) {
@@ -51,9 +61,15 @@ export class NewAwarenessComponent implements OnInit {
     });
 
     this.GetFeatureGroupByGroupNo();
+    this.GetCountries();
     // this.featureTypes = SampleData.featureTypes;
     // this.featureGroups = SampleData.featureGroups;
     // this.missingModel.features = SampleData.features;
+  }
+  GetCountries(){
+    this.countryService.GetCountries().subscribe((response: any) => {
+    this.countries = response;
+    });
   }
 
   FilterFeatureType(featureGroupCode) {
@@ -101,6 +117,13 @@ export class NewAwarenessComponent implements OnInit {
     }
   }
 
+
+  GetParam(){
+    this.parameterService.GetParamsByCode("missing_cost").subscribe((response: any) => {
+           this.parameter = response;
+          });
+  }
+
   AddFeature(val: string) {
     if (this.selectedType.id == "" || this.selectedType.id == undefined){
       Notifier.Notify("Empty feature", "danger", 2000);
@@ -143,7 +166,6 @@ export class NewAwarenessComponent implements OnInit {
   Post() {
     if (ModelClass.isLogged) {
        this.missingModel.createdBy = ModelClass.user.id;
-    this.missingModel.countryID = ModelClass.user.countryID;
     this.missingModel.awarenessTypeNo = this.awarenessTypeNo;
     this.missingVM.missing = this.missingModel;
 
@@ -165,7 +187,11 @@ export class NewAwarenessComponent implements OnInit {
     else if(this.missingVM.features == undefined || this.missingVM.features.length < 1){
       Notifier.Notify("Features of "+this.featureGroup+ " not found", "danger", 2000);
     }
+    else if(this.missingModel.countryID == undefined || this.missingModel.countryID == ""){
+      Notifier.Notify("Country not found", "danger", 2000);
+    }
     else{
+      this.isLoading = true;
        this.missingService.NewMissing(this.missingVM).subscribe((response: ResponseMessage) => {
      if (response.statusCode == 200) {
        if(this.awarenessTypeNo == 1){
@@ -181,6 +207,7 @@ export class NewAwarenessComponent implements OnInit {
        Notifier.Notify(response.message, "success", 2000);
       } else {
         Notifier.Notify(response.message, "danger", 2000);
+        this.isLoading = false;
      }
     });
     }

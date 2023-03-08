@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { FeatureVM } from "src/app/models/missing";
+// import "css-font-loading-module"
+import  type {  } from "css-font-loading-module";
 
 @Component({
   selector: "app-banner-gen",
@@ -17,11 +19,14 @@ export class BannerGenComponent implements OnInit {
   @Input() Username = "";
   @Input() parentThis: any;
 
+
+
   scale = 2;
   bannerSrc = "";
   imagePositionX: number = 120;
   imagePositionY: number = 150;
   color = 'White';
+  titleColor = 'White'
   back = "assets/images/back5.png";
   backNo = 1;
   isLeftDisabled = true;
@@ -47,6 +52,10 @@ export class BannerGenComponent implements OnInit {
 
   ModifyGlobalColor(val){
     this.color = val;
+    this.banner();
+  }
+  ModifyTitleColor(val){
+    this.titleColor = val;
     this.banner();
   }
 
@@ -107,111 +116,133 @@ this.banner();
     const image2 = new Image();
     image2.src = this.Image;
 
-    // Wait for the images to load before merging them
-    Promise.all([getImageData(image1), getImageData(image2), getImageData(image3), getImageData(image4)]).then(
-      ([imageData1, imageData2, imageData3, imageData4]) => {
-        // Draw the first image onto the canvas
-        ctx.drawImage(imageData1.image, 0, 0, canvas.width, canvas.height);
 
-        if (this.backNo == 2) {
-          ctx.drawImage(imageData4.image, 0, 0, canvas.width, canvas.height);
+    const font1 = new FontFace('font1','url(assets/fonts/agrandir-textbold.otf)',{
+      weight: "400",
+      stretch: "condensed"
+    });
+
+    const font2 = new FontFace('font2','url(assets/fonts/jedi.ttf)');
+    const font3 = new FontFace('font2','url(assets/fonts/fontawesome.otf)');
+
+    Promise.all([font1.load(), font2.load(), font3.load()]).then(
+      ([font1,font2, font3])=>{
+
+      //set the fonts
+      document.fonts.add(font1);
+      document.fonts.add(font2);
+      document.fonts.add(font3);
+
+
+       // Wait for the images to load before merging them
+       Promise.all([getImageData(image1), getImageData(image2), getImageData(image3), getImageData(image4)]).then(
+        ([imageData1, imageData2, imageData3, imageData4]) => {
+          // Draw the first image onto the canvas
+          ctx.drawImage(imageData1.image, 0, 0, canvas.width, canvas.height);
+
+          if (this.backNo == 2) {
+            ctx.drawImage(imageData4.image, 0, 0, canvas.width, canvas.height);
+          }
+          ctx.drawImage(
+            imageData2.image,
+            this.imagePositionX,
+            this.imagePositionY,
+            600,
+            (600*imageData2.image.height)/imageData2.image.width
+          );
+
+
+          ctx.drawImage(imageData3.image, 370, this.imagePositionY, 100, 100);
+  // imageData2.image.height*0.5
+          ctx.fillStyle = this.titleColor;
+          ctx.font = "60px font2";
+          ctx.textAlign = "center";
+          ctx.fillText(this.Title, canvas.width / 2, 75);
+
+          ctx.fillStyle = this.titleColor;
+          ctx.font = "35px font1";
+          ctx.textAlign = "center";
+          ctx.fillText(this.Name, canvas.width / 2, 120);
+
+          let count = 1;
+          let space = 1;
+          this.Features.forEach(element => {
+            if (count <= 4) {
+              ctx.fillStyle = this.color;
+              ctx.font = "25px font3";
+              ctx.textAlign = "left";
+              let value = element.featureType +": "+ element.value;
+              ctx.fillText(value, this.imagePositionX, (this.imagePositionY+50+(600*image2.height)/image2.width)+space);
+            }
+
+            count++;
+            space += 40;
+          });
+
+          let wordCount =0;
+          let line = "";
+          let lineSpace = 1;
+          this.Desc.split(' ').forEach(element => {
+
+            wordCount++;
+            if (wordCount > 8 || wordCount == this.Desc.split(' ').length) {
+
+              ctx.fillStyle = this.color;
+              ctx.font = "20px arial";
+              ctx.textAlign = "left";
+              ctx.fillText(line, this.imagePositionX, (this.imagePositionY+50+lineSpace+(600*image2.height)/image2.width)+space);
+              wordCount = 0;
+              line = "";
+            } else {
+              line += element+" "
+            }
+
+            lineSpace+= 4;
+          });
+
+
+           wordCount =0;
+           line = "";
+           let lineSpa= 1;
+          this.LastSeen.split(' ').forEach(element => {
+            wordCount++;
+            if (wordCount > 8 || wordCount == this.LastSeen.split(' ').length) {
+
+              ctx.fillStyle = this.color;
+              ctx.font = "18px arial";
+              ctx.textAlign = "left";
+              ctx.fillText(line, this.imagePositionX, (this.imagePositionY+50+lineSpa+(600*image2.height)/image2.width)+space+lineSpace+30);
+              wordCount = 0;
+              line = "";
+            } else {
+              line += element+" "
+            }
+
+            lineSpa+= 4;
+          });
+
+          ctx.fillStyle = this.color;
+          ctx.font = "18px arial";
+          ctx.textAlign = "left";
+          ctx.fillText("Contact @"+this.Username+" on SPYDER", this.imagePositionX, (this.imagePositionY+100+lineSpa+(600*image2.height)/image2.width)+space+lineSpace+30);
+
+          // Add a caption to the canvas
+          // ctx.fillStyle = this.color;
+          // ctx.font = "30px Arial";
+          // ctx.textAlign = "center";
+          // ctx.fillText(this.LastSeen, canvas.width / 2, canvas.height - 50);
+
+          // Use the canvas as the source of a new image
+          const mergedImage = new Image();
+          // mergedImage.src = canvas.toDataURL();
+          this.bannerSrc = canvas.toDataURL();
+          // document.body.appendChild(mergedImage); // Show the merged image on the page
         }
-        ctx.drawImage(
-          imageData2.image,
-          this.imagePositionX,
-          this.imagePositionY,
-          600,
-          (600*imageData2.image.height)/imageData2.image.width
-        );
+      );
+
+    });
 
 
-        ctx.drawImage(imageData3.image, 370, this.imagePositionY, 100, 100);
-// imageData2.image.height*0.5
-        ctx.fillStyle = this.color;
-        ctx.font = "60px Broadway";
-        ctx.textAlign = "center";
-        ctx.fillText(this.Title, canvas.width / 2, 75);
-
-        ctx.fillStyle = this.color;
-        ctx.font = "35px Arial";
-        ctx.textAlign = "center";
-        ctx.fillText(this.Name, canvas.width / 2, 120);
-
-        let count = 1;
-        let space = 1;
-        this.Features.forEach(element => {
-          if (count <= 4) {
-            ctx.fillStyle = this.color;
-            ctx.font = "25px arial";
-            ctx.textAlign = "left";
-            let value = element.featureType +": "+ element.value;
-            ctx.fillText(value, this.imagePositionX, (this.imagePositionY+50+(600*image2.height)/image2.width)+space);
-          }
-
-          count++;
-          space += 40;
-        });
-
-        let wordCount =0;
-        let line = "";
-        let lineSpace = 1;
-        this.Desc.split(' ').forEach(element => {
-
-          wordCount++;
-          if (wordCount > 8 || wordCount == this.Desc.split(' ').length) {
-
-            ctx.fillStyle = this.color;
-            ctx.font = "25px arial";
-            ctx.textAlign = "left";
-            ctx.fillText(line, this.imagePositionX, (this.imagePositionY+50+lineSpace+(600*image2.height)/image2.width)+space);
-            wordCount = 0;
-            line = "";
-          } else {
-            line += element+" "
-          }
-
-          lineSpace+= 4;
-        });
-
-
-         wordCount =0;
-         line = "";
-         let lineSpa= 1;
-        this.LastSeen.split(' ').forEach(element => {
-          wordCount++;
-          if (wordCount > 8 || wordCount == this.LastSeen.split(' ').length) {
-
-            ctx.fillStyle = this.color;
-            ctx.font = "25px arial";
-            ctx.textAlign = "left";
-            ctx.fillText(line, this.imagePositionX, (this.imagePositionY+50+lineSpa+(600*image2.height)/image2.width)+space+lineSpace+30);
-            wordCount = 0;
-            line = "";
-          } else {
-            line += element+" "
-          }
-
-          lineSpa+= 4;
-        });
-
-        ctx.fillStyle = this.color;
-        ctx.font = "25px arial";
-        ctx.textAlign = "left";
-        ctx.fillText("Contact @"+this.Username+" on SPYDER", this.imagePositionX, (this.imagePositionY+100+lineSpa+(600*image2.height)/image2.width)+space+lineSpace+30);
-
-        // Add a caption to the canvas
-        // ctx.fillStyle = this.color;
-        // ctx.font = "30px Arial";
-        // ctx.textAlign = "center";
-        // ctx.fillText(this.LastSeen, canvas.width / 2, canvas.height - 50);
-
-        // Use the canvas as the source of a new image
-        const mergedImage = new Image();
-        // mergedImage.src = canvas.toDataURL();
-        this.bannerSrc = canvas.toDataURL();
-        // document.body.appendChild(mergedImage); // Show the merged image on the page
-      }
-    );
 
     function getImageData(image: HTMLImageElement): Promise<ImageData> {
       return new Promise((resolve) => {

@@ -16,8 +16,9 @@ export class RegisterComponent implements OnInit {
 registration:Registration =  new Registration();
 refCode:string;
 countries: Country[] = [];
-confirmPassword: string;
+confirmPassword: string = "";
 isDisabled = false;
+isAutoReferral = false;
   constructor(private activeRoute:ActivatedRoute,private countryService:CountryService, private router: Router, private registrationService: RegistrationService) { }
 
   ngOnInit() {
@@ -25,6 +26,7 @@ isDisabled = false;
       this.refCode = params['id'];
       if (this.refCode != undefined) {
         this.registration.refererCode = this.refCode;
+        this.isAutoReferral = true;
       }
       this.GetCountries();
     });
@@ -37,14 +39,14 @@ isDisabled = false;
   }
 
   Post(){
-    if (this.registration.password != this.confirmPassword) {
-      Notifier.Notify("Password does not match", "danger", 2000);
-    }
-    else if (this.registration.password.length < 6) {
-      Notifier.Notify("Minimum of 6 password characters", "danger", 2000);
-    }
-    else if (this.registration.username == "" || this.registration.username == null || this.registration.username == undefined) {
+    try {
+      this.registration.username = this.registration.username.trim();
+    this.registration.email = this.registration.email.trim();
+    if (this.registration.username == "" || this.registration.username == null || this.registration.username == undefined) {
       Notifier.Notify("Username not valid", "danger", 2000);
+    }
+    else if (this.registration.username.length < 4) {
+      Notifier.Notify("Username must be 4 or more letters", "danger", 2000);
     }
     else if (this.registration.fName == "" || this.registration.fName == null || this.registration.fName == undefined) {
       Notifier.Notify("First name not valid", "danger", 2000);
@@ -58,6 +60,12 @@ isDisabled = false;
     else if (this.registration.phone == "" || this.registration.phone == null || this.registration.phone == undefined) {
       Notifier.Notify("Phone No. not valid", "danger", 2000);
     }
+    else if (this.registration.password.length < 6  || this.registration.password == undefined) {
+      Notifier.Notify("Minimum of 6 password characters", "danger", 2000);
+    }
+    else  if (this.registration.password != this.confirmPassword) {
+      Notifier.Notify("Password does not match", "danger", 2000);
+    }
     else {
       this.isDisabled = true;
         this.registrationService.AddNewAccount(this.registration).subscribe((response: ResponseMessage) => {
@@ -70,7 +78,9 @@ isDisabled = false;
       }
     });
     }
-
+    } catch (error) {
+      Notifier.Notify("Invalid entry", "danger", 2000);
+    }
   }
 
   Login(){

@@ -36,12 +36,16 @@
 
           <div class="card" [hidden]="!isHideBanner">
             <div class="card-block text-center">
-              <span style=" position: absolute; background-color: #fff; color: black; padding: 0.5em; width: 5em; font-size: 0.5em;" (click)="GetBanner(missing.image)"><i class="ti ti-new-window"></i></span>
-                <a href="{{missing.image}}" data-lightbox="missingImage" data-title="{{missing.title}}">
+
+              <a href="{{missing.image}}" data-lightbox="missingImage" data-title="{{missing.title}}">
                     <img src="{{missing.image}}" style="max-width: 50%; max-height: 150px;" alt="">
                   </a>
                   <br>
                   <div>{{missing.title}}</div>
+                  <hr>
+                  <div>
+                    <span class="btn btn-sm btn-outline-dark" (click)="GetBanner(missing.image)">Download Awarness Banner &nbsp;<i class="ti ti-new-window"></i></span>
+                  </div>
             </div>
           </div>
 

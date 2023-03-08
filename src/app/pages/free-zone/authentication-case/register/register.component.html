@@ -86,8 +86,8 @@
                   </div>
                   <div class="col-md-6">
                     <div class="md-input-wrapper">
-                      <input type="text" class="md-form-control" name="refererCode" autocomplete="off"  [(ngModel)]="registration.refererCode" required="required">
-                      <label>Referral (Optional)</label>
+                      <input type="text" class="md-form-control" name="refererCode" [disabled]="isAutoReferral" autocomplete="off"  [(ngModel)]="registration.refererCode" required="required">
+                      <label *ngIf="!isAutoReferral" >Referral (Optional)</label>
                     </div>
                   </div>
                 </div>

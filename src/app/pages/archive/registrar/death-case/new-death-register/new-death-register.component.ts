@@ -6,6 +6,10 @@ import { DeathService } from 'src/app/service/death.service';
 import { ResponseMessage } from 'src/app/models/responseMessage';
 import { Notifier } from 'src/app/models/notifier';
 import { ModelClass } from 'src/app/models/modelClass';
+import { ParameterService } from 'src/app/service/parameter.service';
+import { Parameter } from 'src/app/models/parameter';
+import { CountryService } from 'src/app/service/country.service';
+import { Country } from 'src/app/models/country';
 
 @Component({
   selector: 'app-new-death-register',
@@ -16,10 +20,14 @@ export class NewDeathRegisterComponent implements OnInit {
   deathModel:Death = new Death();
   isEdit:boolean;
   deathRecordID: string;
+  isLoading = false
+  parameter: Parameter = new Parameter();
+  countries: Country[] = [];
 
-  constructor(private router:Router, private activeRoute: ActivatedRoute, private deathService: DeathService) { }
+  constructor(private router:Router, private countryService:CountryService, private activeRoute: ActivatedRoute, private deathService: DeathService, private parameterService:ParameterService) { }
 
   ngOnInit() {
+    this.GetParam();
     if (!ModelClass.isLogged) {
       this.router.navigate(['/search/death-register']);
       Notifier.Notify("Log in and try again.", "danger", 2000);
@@ -32,9 +40,14 @@ export class NewDeathRegisterComponent implements OnInit {
       }
 
     });
+    this.GetCountries();
   }
 
-
+  GetCountries(){
+    this.countryService.GetCountries().subscribe((response: any) => {
+    this.countries = response;
+    });
+  }
 
   OptionFileChangeEvent(fileInput: any) {
 
@@ -45,9 +58,14 @@ export class NewDeathRegisterComponent implements OnInit {
       }, 1000);
 }
 
+GetParam(){
+  this.parameterService.GetParamsByCode("death_cost").subscribe((response: any) => {
+         this.parameter = response;
+        });
+}
+
 Post(){
   if (ModelClass.isLogged){
-  this.deathModel.countryID = ModelClass.user.countryID;
   this.deathModel.createdBy = ModelClass.user.id;
 
   if(this.deathModel.name == undefined){
@@ -71,7 +89,11 @@ Post(){
   else  if(this.deathModel.image == undefined){
     Notifier.Notify("No image was selected", "danger", 2000);
   }
+  else  if(this.deathModel.countryID == undefined || this.deathModel.countryID == ""){
+    Notifier.Notify("Select a country", "danger", 2000);
+  }
   else{
+    this.isLoading = true;
     this.deathService.NewDeathRecord(this.deathModel).subscribe((response: ResponseMessage) => {
       if (response.statusCode == 200) {
         this.deathModel = response.data;
@@ -79,6 +101,7 @@ Post(){
         Notifier.Notify(response.message, "success", 2000);
       } else {
         Notifier.Notify(response.message, "danger", 2000);
+        this.isLoading = false;
       }
     });
   }

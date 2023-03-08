@@ -25,6 +25,33 @@
 
     <div class="row">
         <div class="col-xl-8 col-lg-8">
+          <div class="card slim">
+            <div class="card-block">
+             <details>
+              <summary class="anchor">
+                <small>Learn More <i class="ti ti-info-alt"></i></small>
+              </summary>
+              <small class="text-muted">
+                <hr>
+                Petition will setup a permanent record request (for which the holder -person, animal, place or thing- will be remembered)
+                 in any selected hall based on public opinion sampling (voting).
+               The request is granted when upvotes equals or exceed the required votes for the selected hall.
+               If downvotes however exceed the required votes for the selected hall plus
+               half of the upvotes, the petition is automatically discarded. <hr>
+               GEM is earned when your petiton receives a vote action or comment <hr>
+               Be advised that petition gives the community whose opinion is
+                being represented a say on whom they regard worthy of
+               such conferment, rather than being forced to accept the decision of a few sect of people. <hr>
+               <i>
+                The world will remember these records forever.
+               </i>
+               <br>
+               Enjoy the ride.
+              </small>
+             </details>
+
+            </div>
+          </div>
            <div class="card">
               <div class="card-block">
                 <div class="form-horizonatal">
@@ -37,7 +64,12 @@
                           <input (click)="SetAnonymous(true)" name="anonymous" type="radio">&nbsp; <small>Anonymous</small>
                         </label>
                     </p>
-
+<div *ngIf="petitionModel.isAnonymous">
+  <hr>
+ <small class="text-orange">
+  NOTE: Anonymous petition will attract 0GEM earnings from votes and comments, as Identity is entirely protected and untraceable
+ </small>
+</div>
                   </div>
 
                   <div class="form-group">
@@ -79,14 +111,27 @@
                     </div>
 
                   <div class="form-group">
-                    <label for="Image" class="form-control-label">Illustration Image <small>(Optional)</small></label>
+                    <label for="Image" class="form-control-label">Image of Record Holder</label>
                     <input type="file"  (change) ="OptionFileChangeEvent($event)" class="form-control" style="margin-top: 0.5em;"/>
                   </div>
-
+                  <div class="form-group">
+                    <label for="RecordCountry" class="form-control-label">Country of Record Holder</label>
+                    <select name="country" class="md-form-control form-control" [(ngModel)]="petitionModel.petitionCountryID" required>
+                      <option value="{{country.id}}" *ngFor="let country of countries">{{country.name}}</option>
+                      </select>
+                </div>
+                  <p class="text-muted" *ngIf="!isLoading">You will be charged {{selectedHallCost}}SPY for this petition</p>
+<hr>
                     <div class="form-group text-right">
-                        <span class="btn btn-mini" (click)="Post()">Post &nbsp;<i class="ti ti-arrow-right"></i> </span>
+                        <span class="btn btn-mini" *ngIf="!isLoading" (click)="Post()">Post &nbsp;<i class="ti ti-arrow-right"></i> </span>
+                        <app-spinner3 *ngIf="isLoading"></app-spinner3>
                     </div>
-
+<div>
+  <hr>
+  <p class="text-muted">
+    Ensure similar record under same context has not being petitioned for. Replicating record attract sactions against your GEM wallet earnings
+  </p>
+</div>
 
                 </div>
               </div>

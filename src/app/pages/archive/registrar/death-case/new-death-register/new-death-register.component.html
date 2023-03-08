@@ -81,7 +81,12 @@
                       <label for="addressOfDeceased" class="form-control-label">Address of Deceased</label>
                       <input type="text" class="form-control" name="address" [(ngModel)]="deathModel.address" placeholder="Address of Deceased"/>
                     </div>
-
+                    <div class="form-group">
+                      <label for="Country" class="form-control-label">Country of Demise</label>
+                      <select name="country" class="md-form-control form-control" [(ngModel)]="deathModel.countryID" required>
+                        <option value="{{country.id}}" *ngFor="let country of countries">{{country.name}}</option>
+                        </select>
+                  </div>
                   <div class="form-group">
                       <label for="State" class="form-control-label">State of Demise</label>
                       <input type="text"  class="form-control" name="state" [(ngModel)]="deathModel.state" placeholder="State of Demise"/>
@@ -96,9 +101,11 @@
                       <label for="PostalCode" class="form-control-label">Postal Code</label>
                       <input type="text"  class="form-control" name="postalCode" [(ngModel)]="deathModel.postalCode" placeholder="Postal Code Around Demise Location"/>
                     </div>
-
+                    <p class="text-muted" *ngIf="!isLoading">You will be charged {{parameter.value}}SPY for this record</p>
+<hr>
                   <div class="form-group text-right">
-                      <span class="btn btn-sm" (click)="Post()">Post&nbsp; <i class="ti ti-arrow-right"></i> </span>
+                      <span class="btn btn-sm" *ngIf="!isLoading" (click)="Post()">Post&nbsp; <i class="ti ti-arrow-right"></i> </span>
+                      <app-spinner3 *ngIf="isLoading"></app-spinner3>
                   </div>
 
 

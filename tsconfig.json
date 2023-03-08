@@ -11,7 +11,8 @@
     "target": "es5",
     "module": "esnext",
     "typeRoots": [
-      "node_modules/@types"
+      "node_modules/@types",
+      "src/types"
     ],
     "lib": [
       "es2017",
@@ -19,6 +20,8 @@
     ],
     "plugins": [
       { "name": "typescript-tslint-plugin" }
-    ]
+    ],
+    "types":["css-font-loading-module"]
   }
+  // "include":["src/types/**/*.d.ts", "src/types/myfonts.d.ts"]
 }
