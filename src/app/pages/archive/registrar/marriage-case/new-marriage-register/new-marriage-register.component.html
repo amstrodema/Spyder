@@ -13,7 +13,7 @@
                 </li>
               <li class="breadcrumb-item"><small>Archives</small></li>
               <li class="breadcrumb-item"><small>Registrar</small></li>
-              <li class="breadcrumb-item"><a [routerLink]="['/search/marriage-register']" routerLinkActive="router-link-active" ><small>Marriage Register</small></a></li>
+              <li class="breadcrumb-item"><a [routerLink]="['/search/marriage-register']" routerLinkActive="router-link-active" ><small>Marriage</small></a></li>
               <li class="breadcrumb-item" *ngIf="!isEdit"><small>New</small></li>
               <li class="breadcrumb-item" *ngIf="isEdit"><small>Modify - {{marriageModel.brideFName}} weds {{marriageModel.groomFName}}</small></li>
             </ol>
@@ -198,7 +198,7 @@
                     <p class="text-muted" *ngIf="!isLoading">You will be charged {{parameter.value}}SPY for this record</p>
 <hr>
                   <div class="form-group text-right">
-                      <span class="btn btn-default btn-sm" *ngIf="!isLoading" (click)="Post()">Post&nbsp; <i class="ti ti-arrow-right"></i> </span>
+                      <span class="btn btn-default btn-mini" *ngIf="!isLoading" (click)="Post()">Post&nbsp; <i class="ti ti-arrow-right"></i> </span>
                       <app-spinner3 *ngIf="isLoading"></app-spinner3>
                   </div>
 

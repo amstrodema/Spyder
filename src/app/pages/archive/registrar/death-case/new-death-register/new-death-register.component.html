@@ -13,7 +13,7 @@
                 </li>
               <li class="breadcrumb-item"><small>Archives</small></li>
               <li class="breadcrumb-item"><small>Registrar</small></li>
-              <li class="breadcrumb-item"><a [routerLink]="['/search/death-register']" routerLinkActive="router-link-active" ><small>Death Register</small></a></li>
+              <li class="breadcrumb-item"><a [routerLink]="['/search/death-register']" routerLinkActive="router-link-active" ><small>Death</small></a></li>
               <li class="breadcrumb-item" *ngIf="!isEdit"><small>New</small></li>
               <li class="breadcrumb-item" *ngIf="isEdit"><small>Modify - {{deathModel.name}}</small></li>
             </ol>
@@ -104,7 +104,7 @@
                     <p class="text-muted" *ngIf="!isLoading">You will be charged {{parameter.value}}SPY for this record</p>
 <hr>
                   <div class="form-group text-right">
-                      <span class="btn btn-sm" *ngIf="!isLoading" (click)="Post()">Post&nbsp; <i class="ti ti-arrow-right"></i> </span>
+                      <span class="btn btn-mini" *ngIf="!isLoading" (click)="Post()">Post&nbsp; <i class="ti ti-arrow-right"></i> </span>
                       <app-spinner3 *ngIf="isLoading"></app-spinner3>
                   </div>
 

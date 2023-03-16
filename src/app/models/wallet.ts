@@ -22,4 +22,7 @@ export class Wallet {
     isOfficial : boolean;
     dateCreated : string;
     bonusDeadline : string;
+    bankName: string;
+    bankAccountNumber: string;
+    bankAccountName: string;
 }

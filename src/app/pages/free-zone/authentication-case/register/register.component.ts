@@ -6,6 +6,7 @@ import { ResponseMessage } from 'src/app/models/responseMessage';
 import { Notifier } from 'src/app/models/notifier';
 import { Country } from 'src/app/models/country';
 import { CountryService } from 'src/app/service/country.service';
+import { ModelClass } from 'src/app/models/modelClass';
 
 @Component({
   selector: 'app-register',
@@ -22,14 +23,19 @@ isAutoReferral = false;
   constructor(private activeRoute:ActivatedRoute,private countryService:CountryService, private router: Router, private registrationService: RegistrationService) { }
 
   ngOnInit() {
-    this.activeRoute.params.subscribe(params => {
-      this.refCode = params['id'];
-      if (this.refCode != undefined) {
-        this.registration.refererCode = this.refCode;
-        this.isAutoReferral = true;
-      }
-      this.GetCountries();
-    });
+    if (ModelClass.isLogged) {
+      this.router.navigate(["search"], { replaceUrl: true });
+    }
+    else{
+      this.activeRoute.params.subscribe(params => {
+        this.refCode = params['id'];
+        if (this.refCode != undefined) {
+          this.registration.refererCode = this.refCode;
+          this.isAutoReferral = true;
+        }
+        this.GetCountries();
+      });
+    }
   }
 
   GetCountries(){

@@ -20,6 +20,10 @@ export class WithdrawComponent implements OnInit {
   minWithdrawal:number = 0;
   withdrawals: Withdrawal[] = [];
   isDisable = true;
+  isShowAccountUpdate = false;
+  isAccountUpdating = false;
+  newAccountDetails:Wallet = new Wallet();
+  password = "";
 
   ngOnInit() {
     this.GetMinWithrawal();
@@ -48,6 +52,41 @@ export class WithdrawComponent implements OnInit {
             Notifier.Notify(response.message, "danger", 2000);
           }
           });
+  }
+  UpdateAccount(){
+    if (this.newAccountDetails.bankAccountName == undefined || this.newAccountDetails.bankAccountName =="") {
+      Notifier.Notify("Invalid bank account name", "danger", 2000);
+    }
+    else if (this.newAccountDetails.bankAccountNumber == undefined || this.newAccountDetails.bankAccountNumber =="") {
+      Notifier.Notify("Invalid bank account number", "danger", 2000);
+    }
+    else if (this.newAccountDetails.bankName == undefined || this.newAccountDetails.bankName =="") {
+      Notifier.Notify("Invalid bank name", "danger", 2000);
+    }
+    else if (this.password == undefined || this.password =="") {
+      Notifier.Notify("Invalid password", "danger", 2000);
+    }
+    else {
+      this.isAccountUpdating = true;
+      this.walletService.UpdateDetails(this.newAccountDetails, this.password).subscribe((response: ResponseMessage) => {
+            if (response.statusCode == 200) {
+              Notifier.Notify(response.message, "success", 2000);
+              this.wallet = response.data;
+            } else {
+              Notifier.Notify(response.message, "danger", 2000);
+            }
+              this.isAccountUpdating = false;
+            });
+    }
+  }
+  CheckValue(val:string){
+    if(val == undefined || val == "")
+    {return "n/a"}
+
+    return val;
+  }
+  Toggle(){
+    this.isShowAccountUpdate = !this.isShowAccountUpdate;
   }
   DisableWithdrawal(){
     if (this.minWithdrawal <= 0) {

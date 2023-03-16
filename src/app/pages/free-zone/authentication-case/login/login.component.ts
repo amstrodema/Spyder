@@ -17,6 +17,9 @@ export class LoginComponent implements OnInit {
   isDisabled = false;
   constructor(private loginService:LoginService, private router:Router) { }
   ngOnInit() {
+    if (ModelClass.isLogged) {
+      this.router.navigate(["search"], { replaceUrl: true });
+    }
   }
 
   Login(){

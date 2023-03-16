@@ -1,0 +1,41 @@
+<section class="login p-fixed d-flex text-center bg-primary">
+	<!-- Container-fluid starts -->
+	<div class="container-fluid">
+		<div class="row">
+
+			<div class="col-sm-12">
+				<div class="login-card card-block">
+          <div class="text-center">
+            <a [routerLink]="['']" routerLinkActive="router-link-active">
+              <img src="assets/images/logo-black.png" alt="logo">
+              </a>
+              <hr>
+          </div>
+          <app-spinner3 *ngIf="isLoading"></app-spinner3>
+          <div class="text-center" *ngIf="!isLoading && isSuccess">
+
+            <h4 class="text-dark">Email Verified Successfully</h4>
+            <p class="anchor" (click)="GotoLogin()">
+              Proceed to login here >
+            </p>
+          </div>
+
+          <div class="text-center" *ngIf="!isSuccess && !isLoading">
+            <h4 class="text-danger">Email Verification Failed!</h4>
+            <p (click)="GotoRegister()">
+              Create New Account
+            </p>
+            <small class="anchor" (click)="GotoLogin()">
+              or login to existing account >
+            </small>
+          </div>
+					<!-- end of form -->
+				</div>
+				<!-- end of login-card -->
+			</div>
+			<!-- end of col-sm-12 -->
+		</div>
+		<!-- end of row -->
+	</div>
+	<!-- end of container-fluid -->
+</section>

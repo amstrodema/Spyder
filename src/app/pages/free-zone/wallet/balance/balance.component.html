@@ -30,7 +30,7 @@
             <p class="no-wrap text-center"><label>{{wallet.ref}}</label></p>
           </td>
           <td>
-            <p class="no-wrap text-center"><label>{{wallet.bonus | number: '1.0-4'}}</label></p>
+            <p class="no-wrap text-center"><label>{{wallet.bonus | number: '1.0-4'}}SPY</label></p>
           </td>
         </tr>
         <tr>
@@ -41,11 +41,8 @@
             &nbsp;
           </td>
 
-          <td>
-            &nbsp;
-          </td>
-          <td>
-            <p class="no-wrap text-center"><label *ngIf="wallet.bonus > 0"><i class="text-danger">{{wallet.bonusDeadline | date}}</i></label>  &nbsp;</p>
+          <td colspan="2" class="no-wrap text-right">
+            <small><label *ngIf="wallet.bonus > 0"><i class="text-danger">Bonus expires {{wallet.bonusDeadline | date}}</i></label>  &nbsp;</small>
           </td>
         </tr>
       </table>

@@ -3,20 +3,20 @@
         <div class="card-block">
            <div class="user-block-2-activities pointer" (click)="ViewRecord('confessions')">
               <div class="user-block-2-active">
-                 <p><i class="icofont icofont-users"></i> Confessions
+                 <p class="text-primary"><i class="icofont icofont-users"></i> Confessions
                  <label class="label label-primary">{{data.confessionRecord}}</label></p>
               </div>
            </div>
            <div class="user-block-2-activities pointer" (click)="ViewRecord('scammers')">
               <div class="user-block-2-active">
-                 <p><i class="icofont icofont-users"></i> Scammers
-                 <label class="label label-primary">{{data.scammersRecord}}</label></p>
+                 <p class="text-danger"><i class="icofont icofont-users"></i> Scammers
+                 <label class="label label-danger">{{data.scammersRecord}}</label></p>
               </div>
            </div>
            <div class="user-block-2-activities pointer" (click)="ViewRecord('whistle-blowers')">
               <div class="user-block-2-active">
-                 <p><i class="icofont icofont-users"></i> Whistle-Blower
-                 <label class="label label-primary">{{data.whistleBlowerRecord}}</label></p>
+                 <p class="text-danger"><i class="icofont icofont-users"></i> Whistle-Blower
+                 <label class="label label-danger">{{data.whistleBlowerRecord}}</label></p>
               </div>
            </div>
            <!-- <div class="text-center">
@@ -33,7 +33,7 @@
 <div class="col-lg-8">
     <div class="card">
         <div class="card-block">
-  <p (click)="ViewRecord('confessions')">CONFESSION</p> <hr>
+  <p class="anchor" (click)="ViewRecord('confessions')">CONFESSION</p> <hr>
   <div class="card">
       <p class="text-center" *ngIf="confessionData.length < 1">
           No Records Found

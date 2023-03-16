@@ -7,6 +7,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ComponentsModule } from 'src/app/components/components.module';
+import { VerifyEmailComponent } from './verify-email/verify-email.component';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
 
 @NgModule({
   imports: [
@@ -15,6 +17,6 @@ import { ComponentsModule } from 'src/app/components/components.module';
     RouterModule,
     ComponentsModule
   ],
-  declarations: [AuthenticationCaseComponent, LoginComponent, RegisterComponent, ForgotPasswordComponent]
+  declarations: [AuthenticationCaseComponent, LoginComponent, RegisterComponent, ForgotPasswordComponent, VerifyEmailComponent, PasswordResetComponent]
 })
 export class AuthenticationCaseModule { }

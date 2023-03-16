@@ -5,6 +5,7 @@ import { ModelClass } from '../models/modelClass';
 import { Transaction } from '../models/transaction';
 import { Payment } from '../models/payment';
 import { RequestObject } from '../models/requestObject';
+import { Wallet } from '../models/wallet';
 
 @Injectable({
   providedIn: 'root'
@@ -62,5 +63,13 @@ Withdraw(): Observable<any> {
 
 GetWithdrawalsByUserID(): Observable<any> {
   return this.httpClient.get(ModelClass.baseUrl+`api/withdrawal/GetWithdrawalsByUserID?userid=`+ ModelClass.user.id+"&appID="+ModelClass.clientSystem.appID);
+}
+
+UpdateDetails(wallet:Wallet, password: string): Observable<any> {
+  let requestObj:RequestObject = ModelClass.GetRequestObject();
+  requestObj.data = wallet;
+  requestObj.itemID = password;
+
+  return this.httpClient.post(ModelClass.baseUrl+`api/wallet/updatedetails`,requestObj);
 }
 }

@@ -4,31 +4,31 @@
                         <div class="card-block">
                            <div class="user-block-2-activities pointer" (click)="ViewHall('hall-of-legends')">
                               <div class="user-block-2-active">
-                                <p><i class="icon-star"></i> Legends
+                                <p class="text-success"><i class="icon-star"></i> Legends
                                  <label class="label label-success">{{data.legendRecord}}</label></p>
                               </div>
                            </div>
                            <div class="user-block-2-activities pointer" (click)="ViewHall('hall-of-heros')">
                               <div class="user-block-2-active">
-                               <p> <i class="icon-shield"></i> Heros
+                               <p class="anchor"> <i class="icon-shield"></i> Heros
                                  <label class="label label-primary">{{data.herosRecord}}</label></p>
                               </div>
                            </div>
                            <div class="user-block-2-activities pointer" (click)="ViewHall('hall-of-fallen-heros')">
                               <div class="user-block-2-active ">
-                                 <p><i class="icofont icofont-flora-flower"></i> Fallen Heros
+                                 <p class="anchor"><i class="icofont icofont-flora-flower"></i> Fallen Heros
                                  <label class="label label-primary">{{data.fallHeroRecord}}</label></p>
                               </div>
                            </div>
                            <div class="user-block-2-activities pointer" (click)="ViewHall('hall-of-fame')">
                               <div class="user-block-2-active">
-                                <p> <i class="icofont icofont-trophy-alt"></i> Hall of Fame
+                                <p class="anchor"> <i class="icofont icofont-trophy-alt"></i> Hall of Fame
                                  <label class="label label-primary">{{data.hofRecord}}</label></p>
                               </div>
                            </div>
                            <div class="user-block-2-activities pointer" (click)="ViewHall('hall-of-shame')">
                               <div class="user-block-2-active">
-                                 <p><i class="icofont icofont-bug"></i> Hall of Shame
+                                 <p class="text-danger"><i class="icofont icofont-bug"></i> Hall of Shame
                                  <label class="label label-danger">{{data.hosRecord}}</label></p>
                               </div>
                            </div>
@@ -46,7 +46,7 @@
                 <div class="col-lg-8">
                     <div class="card">
                         <div class="card-block">
-                  <p (click)="ViewRecord('petitions')">PETITONS</p> <hr>
+                  <p  class="anchor" (click)="ViewRecord('petitions')">PETITONS</p> <hr>
                   <div class="table-responsive">
                     <p class="text-center" *ngIf="petitions.length < 1">No petition found</p>
 

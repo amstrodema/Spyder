@@ -16,15 +16,15 @@
                            </div> -->
                            <div class="user-block-2-activities pointer" (click)="ViewRecord('marriage-register')">
                               <div class="user-block-2-active">
-                                 <p><i class="icofont icofont-users"></i> Wedding Records
+                                 <p class="anchor"><i class="icofont icofont-users"></i> Wedding Records
                                  <label class="label label-primary">{{data.marriedRecord}}</label></p>
                               </div>
                            </div>
 
                            <div class="user-block-2-activities pointer" (click)="ViewRecord('death-register')">
                               <div class="user-block-2-active">
-                                 <p><i class="icofont icofont-users"></i> Death Records
-                                 <label class="label label-primary">{{data.deathRecord}}</label></p>
+                                 <p class="text-danger"><i class="icofont icofont-users"></i> Death Records
+                                 <label class="label label-danger">{{data.deathRecord}}</label></p>
                               </div>
                            </div>
                            <!-- <div class="text-center">
@@ -41,7 +41,7 @@
                 <div class="col-lg-8">
                     <div class="card">
                         <div class="card-block">
-                            <p  (click)="ViewRecord('marriage-register')">MARRIAGES</p> <hr>
+                            <p  class="anchor" (click)="ViewRecord('marriage-register')">MARRIAGES</p> <hr>
                             <div class="table-responsive">
                               <p class="text-center"  *ngIf="marriageData.length < 1">No marriage records found.</p>
                             <table class="table table-bordered photo-table" *ngIf="marriageData.length > 0">
@@ -93,7 +93,7 @@
 
                      <div class="card">
                         <div class="card-block">
-                            <p (click)="ViewRecord('death-register')">DEATHS</p> <hr>
+                            <p class="anchor" (click)="ViewRecord('death-register')">DEATHS</p> <hr>
                             <div class="table-responsive">
                               <p class="text-center"  *ngIf="deathData.length < 1">No death records found.</p>
                             <table class="table table-bordered photo-table" *ngIf="deathData.length > 0">

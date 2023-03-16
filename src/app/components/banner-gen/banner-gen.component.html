@@ -7,38 +7,38 @@
   </div>
   <hr>
   <div class="text-center">
-    <button (disable) = isLeftDisabled class="btn btn-sm btn-default" (click)="ChangeBack(-1)"><i class="ti ti-arrow-top-left"></i></button>
-    <button class="btn btn-sm btn-default" (click)="ModifyX(-1)"><i class="ti ti-arrow-left"></i></button>
-    <button class="btn btn-sm btn-default" (click)="ModifyX(1)"><i class="ti ti-arrow-right"></i></button>
+    <button (disable) = isLeftDisabled class="btn btn-mini btn-default" (click)="ChangeBack(-1)"><i class="ti ti-arrow-top-left"></i></button>
+    <button class="btn btn-mini btn-default" (click)="ModifyX(-1)"><i class="ti ti-arrow-left"></i></button>
+    <button class="btn btn-mini btn-default" (click)="ModifyX(1)"><i class="ti ti-arrow-right"></i></button>
     <input [(ngModel)]="scale" (change) = "ChangedScale()" type="number" class="form-control" min="1" max="20" style="width: 5em; display: inline;">
-    <button class="btn btn-sm btn-default" (click)="ModifyY(-1)"><i class="ti ti-arrow-up"></i></button>
-    <button class="btn btn-sm btn-default" (click)="ModifyY(1)"><i class="ti ti-arrow-down"></i></button>
-    <button  (disable) = isRightDisabled class="btn btn-sm btn-default" (click)="ChangeBack(1)"><i class="ti ti-arrow-top-right"></i></button>
+    <button class="btn btn-mini btn-default" (click)="ModifyY(-1)"><i class="ti ti-arrow-up"></i></button>
+    <button class="btn btn-mini btn-default" (click)="ModifyY(1)"><i class="ti ti-arrow-down"></i></button>
+    <button  (disable) = isRightDisabled class="btn btn-mini btn-default" (click)="ChangeBack(1)"><i class="ti ti-arrow-top-right"></i></button>
   </div>
   <hr>
   <div class="text-center">
-    <button class="btn btn-sm" style="background-color: white;" (click)="ModifyTitleColor('white')"></button>
-    <button class="btn btn-sm" style="background-color: red;" (click)="ModifyTitleColor('red')"></button>
-    <button class="btn btn-sm" style="background-color: #9DB4C9;" (click)="ModifyTitleColor('#9DB4C9')"></button>
-    <button class="btn btn-sm" style="background-color: black;" (click)="ModifyTitleColor('black')"></button>
-    <button class="btn btn-sm" style="background-color: yellow;" (click)="ModifyTitleColor('yellow')"></button>
-    <button class="btn btn-sm" style="background-color: green;" (click)="ModifyTitleColor('green')"></button>
-    <button class="btn btn-sm" style="background-color: blue;" (click)="ModifyTitleColor('blue')"></button>
+    <button class="btn btn-mini" style="background-color: white;" (click)="ModifyTitleColor('white')"></button>
+    <button class="btn btn-mini" style="background-color: red;" (click)="ModifyTitleColor('red')"></button>
+    <button class="btn btn-mini" style="background-color: #9DB4C9;" (click)="ModifyTitleColor('#9DB4C9')"></button>
+    <button class="btn btn-mini" style="background-color: black;" (click)="ModifyTitleColor('black')"></button>
+    <button class="btn btn-mini" style="background-color: yellow;" (click)="ModifyTitleColor('yellow')"></button>
+    <button class="btn btn-mini" style="background-color: green;" (click)="ModifyTitleColor('green')"></button>
+    <button class="btn btn-mini" style="background-color: blue;" (click)="ModifyTitleColor('blue')"></button>
   </div>
   <hr>
   <div class="text-center">
-    <button class="btn btn-sm" style="background-color: white;" (click)="ModifyGlobalColor('white')"></button>
-    <button class="btn btn-sm" style="background-color: red;" (click)="ModifyGlobalColor('red')"></button>
-    <button class="btn btn-sm" style="background-color: #9DB4C9;" (click)="ModifyGlobalColor('#9DB4C9')"></button>
-    <button class="btn btn-sm" style="background-color: black;" (click)="ModifyGlobalColor('black')"></button>
-    <button class="btn btn-sm" style="background-color: yellow;" (click)="ModifyGlobalColor('yellow')"></button>
-    <button class="btn btn-sm" style="background-color: green;" (click)="ModifyGlobalColor('green')"></button>
-    <button class="btn btn-sm" style="background-color: blue;" (click)="ModifyGlobalColor('blue')"></button>
+    <button class="btn btn-mini" style="background-color: white;" (click)="ModifyGlobalColor('white')"></button>
+    <button class="btn btn-mini" style="background-color: red;" (click)="ModifyGlobalColor('red')"></button>
+    <button class="btn btn-mini" style="background-color: #9DB4C9;" (click)="ModifyGlobalColor('#9DB4C9')"></button>
+    <button class="btn btn-mini" style="background-color: black;" (click)="ModifyGlobalColor('black')"></button>
+    <button class="btn btn-mini" style="background-color: yellow;" (click)="ModifyGlobalColor('yellow')"></button>
+    <button class="btn btn-mini" style="background-color: green;" (click)="ModifyGlobalColor('green')"></button>
+    <button class="btn btn-mini" style="background-color: blue;" (click)="ModifyGlobalColor('blue')"></button>
   </div>
   <hr>
   <div class="text-center">
-    <button class="btn btn-danger btn-sm" (click)="Cancel()">Cancel <i class="ti ti-close"></i></button> &nbsp;
-    <a class="btn btn-success btn-sm" download="image.png" href="{{bannerSrc}}">Download <i class="ti ti-download"></i></a>
+    <button class="btn btn-danger btn-mini" (click)="Cancel()">Cancel <i class="ti ti-close"></i></button> &nbsp;
+    <a class="btn btn-success btn-mini" download="image.png" href="{{bannerSrc}}">Download <i class="ti ti-download"></i></a>
   </div>
   <br>
 </div>

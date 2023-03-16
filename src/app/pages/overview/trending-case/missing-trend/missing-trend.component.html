@@ -4,20 +4,20 @@
                         <div class="card-block">
                            <div class="user-block-2-activities pointer" (click)="ViewRecord('missing')">
                               <div class="user-block-2-active">
-                                  <p><i class="icofont icofont-users"></i> Missing
-                                 <label class="label label-primary">{{data.missingRecord}}</label></p>
+                                  <p class="text-danger"><i class="icofont icofont-users"></i> Missing
+                                 <label class="label label-danger">{{data.missingRecord}}</label></p>
                               </div>
                            </div>
                            <div class="user-block-2-activities pointer" (click)="ViewRecord('stolen')">
                               <div class="user-block-2-active">
-                                  <p><i class="icofont icofont-clock-time"></i>Stolen Items
-                                 <label class="label label-primary">{{data.stolenRecord}}</label></p>
+                                  <p class="text-danger"><i class="icofont icofont-clock-time"></i>Stolen Items
+                                 <label class="label label-danger">{{data.stolenRecord}}</label></p>
                               </div>
                            </div>
                            <div class="user-block-2-activities" (click)="ViewRecord('found')">
                               <div class="user-block-2-active">
-                                  <p><i class="icofont icofont-users"></i> Found
-                                 <label class="label label-primary">{{data.foundRecord}}</label></p>
+                                  <p class="text-success"><i class="icofont icofont-users"></i> Found
+                                 <label class="label label-success">{{data.foundRecord}}</label></p>
                               </div>
                            </div>
                            <!-- <div class="text-center">
@@ -34,7 +34,7 @@
                 <div class="col-lg-8">
                     <div class="card">
                         <div class="card-block">
-                            <p (click)="ViewRecord('missing')">MISSING</p> <hr>
+                            <p  class="anchor"(click)="ViewRecord('missing')">MISSING</p> <hr>
                             <div class="card">
                                 <p class="text-center" *ngIf="missingData.length < 1">
                                     No Records Found
@@ -63,7 +63,7 @@
                      </div>
                     <div class="card">
                         <div class="card-block">
-                            <p (click)="ViewRecord('stolen')">STOLEN</p> <hr>
+                            <p class="anchor" (click)="ViewRecord('stolen')">STOLEN</p> <hr>
                             <div class="card">
                                 <p class="text-center" *ngIf="stolenData.length < 1">
                                     No Records Found

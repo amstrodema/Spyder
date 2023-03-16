@@ -19,8 +19,8 @@ static defaultGuid:string = "00000000-0000-0000-0000-000000000000";
 // static baseUrl2:string = ":203";
 
 
-// static baseUrl:string = "http://oluyinka-001-site1.atempurl.com/";
-// static baseUrl2:string = "http://globalspyder-001-site1.dtempurl.com/";
+// static baseurl:string = "http://oluyinka-001-site1.atempurl.com/";
+// static baseurl2:string = "http://globalspyder-001-site1.dtempurl.com/";
 static isLogged:boolean = false;
 static user:Registration;
 static userImage:string;

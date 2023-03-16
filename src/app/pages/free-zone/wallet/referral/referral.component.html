@@ -3,6 +3,7 @@
       <p class="text-center"  *ngIf="referrals.length< 1">
         No referral yet. Keep sharing your referral link.
       </p>
+     <div class="table-responsive">
       <table class="table treat"  *ngIf="referrals.length> 0">
         <tr>
           <td colspan="2">
@@ -43,10 +44,11 @@
             <p><label>{{Parapharase(referral.isActive)}}</label></p>
           </td>
           <td class="text-right">
-            <p><label>{{referral.dateCreated | date}}</label></p>
+            <p class="no-wrap"><label>{{referral.dateCreated | date}}</label></p>
           </td>
         </tr>
       </table>
+     </div>
       <hr>
       <small (click)="CopyLink()" style="cursor:pointer" class="text-primary">Copy Referral Link</small>
     </div>

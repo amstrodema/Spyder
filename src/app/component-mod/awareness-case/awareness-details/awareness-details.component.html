@@ -44,7 +44,7 @@
                   <div>{{missing.title}}</div>
                   <hr>
                   <div>
-                    <span class="btn btn-sm btn-outline-dark" (click)="GetBanner(missing.image)">Download Awarness Banner &nbsp;<i class="ti ti-new-window"></i></span>
+                    <span class="btn btn-mini btn-outline-dark" (click)="GetBanner(missing.image)">Download Awarness Banner &nbsp;<i class="ti ti-new-window"></i></span>
                   </div>
             </div>
           </div>
@@ -52,7 +52,7 @@
           <div class="card" [hidden]="!isHideBanner" *ngIf="(missing.update == undefined || missing.update =='' || missing.update ==null) && isOwner">
             <div class="card-block">
               <h6>
-                <span class="btn btn-success btn-sm" (click)="AllowUpdate()">Update This Record</span>
+                <span class="btn btn-success btn-mini" (click)="AllowUpdate()">Update This Record</span>
                  </h6>
             <div *ngIf="isUpdate">
               <hr>
@@ -62,7 +62,7 @@
               <hr>
               <textarea name="update" class="form-control" [(ngModel)]="update" cols="30" rows="10" placeholder="Share extensive details"></textarea>
               <br>
-              <button class="btn btn-sm btn-success" (click)="UpdateBrief()">Update Record</button>
+              <button class="btn btn-mini btn-success" (click)="UpdateBrief()">Update Record</button>
             </div>
             </div>
           </div>
